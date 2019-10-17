@@ -1,5 +1,5 @@
 //
-//  FirebaseTests.swift
+//  FirebaseTrackerTests.swift
 //  FirebaseTests
 //
 //  Created by Christina Sund on 7/12/19.
@@ -10,14 +10,14 @@ import XCTest
 @testable import TealiumFirebase
 import TealiumRemoteCommands
 
-class FirebaseCommandRunnerTests: XCTestCase {
+class FirebaseTrackerTests: XCTestCase {
 
-    let firebaseCommandRunner = MockFirebaseCommandRunner()
+    let firebaseTracker = MockFirebaseTracker()
     var firebaseCommand: FirebaseCommand!
     var remoteCommand: TealiumRemoteCommand!
     
     override func setUp() {
-        firebaseCommand = FirebaseCommand(firebaseCommandRunner: firebaseCommandRunner)
+        firebaseCommand = FirebaseCommand(firebaseTracker: firebaseTracker)
         remoteCommand = firebaseCommand.remoteCommand()
     }
 
@@ -37,7 +37,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "config"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(1, firebaseCommandRunner.createAnalyticsConfigCallCount)
+            XCTAssertEqual(1, firebaseTracker.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -48,7 +48,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "config", "firebase_session_timeout_seconds": "60", "firebase_session_minimum_seconds": "30", "firebase_analytics_enabled": "true", "firebase_log_level": "max"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(1, firebaseCommandRunner.createAnalyticsConfigCallCount)
+            XCTAssertEqual(1, firebaseTracker.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -59,7 +59,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "initialize"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(0, firebaseCommandRunner.createAnalyticsConfigCallCount)
+            XCTAssertEqual(0, firebaseTracker.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -70,7 +70,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "add_to_cart", "firebase_event_params": ["param_item_id": ["abc123"], "param_price": ["19.00"], "param_quantity": ["1"]]]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(1, firebaseCommandRunner.logEventCallCount)
+            XCTAssertEqual(1, firebaseTracker.logEventCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -81,7 +81,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "event_level_up"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(0, firebaseCommandRunner.logEventCallCount)
+            XCTAssertEqual(0, firebaseTracker.logEventCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -92,7 +92,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setscreenname", "firebase_screen_name": "product_view", "firebase_screen_class": "ProductDetailViewController"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(1, firebaseCommandRunner.setScreenNameCallCount)
+            XCTAssertEqual(1, firebaseTracker.setScreenNameCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -103,7 +103,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setscreenname"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(0, firebaseCommandRunner.setScreenNameCallCount)
+            XCTAssertEqual(0, firebaseTracker.setScreenNameCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -114,7 +114,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty", "firebase_property_name": "favorite_color", "firebase_property_value": "blue"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(1, firebaseCommandRunner.setUserPropertyCallCount)
+            XCTAssertEqual(1, firebaseTracker.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -125,7 +125,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(0, firebaseCommandRunner.setUserPropertyCallCount)
+            XCTAssertEqual(0, firebaseTracker.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -136,7 +136,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserid", "firebase_user_id": "abc123"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(1, firebaseCommandRunner.setUserIdCallCount)
+            XCTAssertEqual(1, firebaseTracker.setUserIdCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -147,7 +147,7 @@ class FirebaseCommandRunnerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserid"]
         if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
             remoteCommand.remoteCommandCompletion(response)
-            XCTAssertEqual(0, firebaseCommandRunner.setUserIdCallCount)
+            XCTAssertEqual(0, firebaseTracker.setUserIdCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)

@@ -43,10 +43,10 @@ public class FirebaseCommand {
         static let setUserId = "setuserid"
     }
 
-    var firebaseCommandRunner: FirebaseCommandRunnable
+    var firebaseTracker: FirebaseTrackable
 
-    public init(firebaseCommandRunner: FirebaseCommandRunnable = FirebaseCommandRunner()) {
-        self.firebaseCommandRunner = firebaseCommandRunner
+    public init(firebaseTracker: FirebaseTrackable = FirebaseTracker()) {
+        self.firebaseTracker = firebaseTracker
     }
 
     public func remoteCommand() -> TealiumRemoteCommand {
@@ -85,7 +85,7 @@ public class FirebaseCommand {
                 if let logLevel = payload[FirebaseKey.logLevel] as? String {
                     firebaseLogLevel = self.parseLogLevel(logLevel)
                 }
-                self.firebaseCommandRunner.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
+                self.firebaseTracker.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
             case FirebaseCommand.logEvent:
                 guard let name = payload[FirebaseKey.eventName] as? String else {
                     return
@@ -103,13 +103,13 @@ public class FirebaseCommand {
                         normalizedParams[newKeyName] = param.value
                     }
                 }
-                self.firebaseCommandRunner.logEvent(eventName, normalizedParams)
+                self.firebaseTracker.logEvent(eventName, normalizedParams)
             case FirebaseCommand.setScreenName:
                 guard let screenName = payload[FirebaseKey.screenName] as? String else {
                     return
                 }
                 let screenClass = payload[FirebaseKey.screenClass] as? String
-                self.firebaseCommandRunner.setScreenName(screenName, screenClass)
+                self.firebaseTracker.setScreenName(screenName, screenClass)
             case FirebaseCommand.setUserProperty:
                 guard let propertyName = payload[FirebaseKey.userPropertyName] as? String else {
                     return
@@ -117,12 +117,12 @@ public class FirebaseCommand {
                 guard let propertyValue = payload[FirebaseKey.userPropertyValue] as? String else {
                     return
                 }
-                self.firebaseCommandRunner.setUserProperty(propertyName, value: propertyValue)
+                self.firebaseTracker.setUserProperty(propertyName, value: propertyValue)
             case FirebaseCommand.setUserId:
                 guard let userId = payload[FirebaseKey.userId] as? String else {
                     return
                 }
-                self.firebaseCommandRunner.setUserId(userId)
+                self.firebaseTracker.setUserId(userId)
             default:
                 return
             }

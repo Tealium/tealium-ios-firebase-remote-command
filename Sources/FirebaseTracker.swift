@@ -1,5 +1,5 @@
 //
-//  FirebaseCommandRunner.swift
+//  FirebaseTracker.swift
 //
 //  Created by Christina Sund on 7/11/19.
 //  Copyright © 2019 Christina. All rights reserved.
@@ -9,7 +9,7 @@ import Foundation
 import FirebaseCore
 import FirebaseAnalytics
 
-public protocol FirebaseCommandRunnable {
+public protocol FirebaseTrackable {
     func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel)
     func logEvent(_ name: String, _ params: [String: Any])
     func setScreenName(_ screenName: String, _ screenClass: String?)
@@ -17,7 +17,7 @@ public protocol FirebaseCommandRunnable {
     func setUserId(_ id: String)
 }
 
-public class FirebaseCommandRunner: FirebaseCommandRunnable {
+public class FirebaseTracker: FirebaseTrackable {
     
     public init() { }
     

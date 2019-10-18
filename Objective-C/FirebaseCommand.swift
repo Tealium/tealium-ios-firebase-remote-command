@@ -37,11 +37,11 @@ public class FirebaseCommand: NSObject {
         static let setUserId = "setuserid"
     }
 
-    var firebaseCommandRunner: FirebaseCommandRunnable
+    var firebaseTracker: FirebaseTrackable
     
     @objc
-    public init(firebaseCommandRunner: FirebaseCommandRunnable = FirebaseCommandRunner()) {
-        self.firebaseCommandRunner = firebaseCommandRunner
+    public init(firebaseTracker: FirebaseTrackable = FirebaseTracker()) {
+        self.firebaseTracker = firebaseTracker
     }
     
     @objc
@@ -81,10 +81,10 @@ public class FirebaseCommand: NSObject {
                 }
                 guard let logLevel = payload[FirebaseKey.logLevel] as? String else {
                     configuration[FirebaseKey.logLevel] = firebaseLogLevel
-                    return self.firebaseCommandRunner.createAnalyticsConfig(configuration)
+                    return self.firebaseTracker.createAnalyticsConfig(configuration)
                 }
                 configuration[FirebaseKey.logLevel] = self.parseLogLevel(logLevel)
-                self.firebaseCommandRunner.createAnalyticsConfig(configuration)
+                self.firebaseTracker.createAnalyticsConfig(configuration)
             case FirebaseCommand.logEvent:
                 guard let name = payload[FirebaseKey.eventName] as? String else {
                     return
@@ -102,14 +102,14 @@ public class FirebaseCommand: NSObject {
                         normalizedParams[newKeyName] = param.value
                     }
                 }
-                self.firebaseCommandRunner.logEvent(eventName, normalizedParams)
+                self.firebaseTracker.logEvent(eventName, normalizedParams)
             case FirebaseCommand.setScreenName:
                 
                 guard let screenName = payload[FirebaseKey.screenName] as? String else {
                     return
                 }
                 let screenClass = payload[FirebaseKey.screenClass] as? String
-                self.firebaseCommandRunner.setScreenName(screenName, screenName)
+                self.firebaseTracker.setScreenName(screenName, screenName)
             case FirebaseCommand.setUserProperty:
                 
                 guard let propertyName = payload[FirebaseKey.userPropertyName] as? String else {
@@ -118,13 +118,13 @@ public class FirebaseCommand: NSObject {
                 guard let propertyValue = payload[FirebaseKey.userPropertyValue] as? String else {
                     return
                 }
-                self.firebaseCommandRunner.setUserProperty(propertyName, value: propertyValue)
+                self.firebaseTracker.setUserProperty(propertyName, value: propertyValue)
             case FirebaseCommand.setUserId:
                 
                 guard let userId = payload[FirebaseKey.userId] as? String else {
                     return
                 }
-                self.firebaseCommandRunner.setUserId(userId)
+                self.firebaseTracker.setUserId(userId)
             default:
                 return
             }

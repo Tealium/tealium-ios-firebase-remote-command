@@ -1,5 +1,5 @@
 //
-//  FirebaseCommandRunner.swift
+//  FirebaseTracker.swift
 //
 //  Created by Christina Sund on 7/11/19.
 //  Copyright © 2019 Christina. All rights reserved.
@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAnalytics
 
 @objc
-public protocol FirebaseCommandRunnable {
+public protocol FirebaseTrackable {
     func createAnalyticsConfig(_ configuration: [AnyHashable: Any])
     func logEvent(_ name: String, _ params: [String: Any])
     func setScreenName(_ screenName: String, _ screenClass: String?)
@@ -19,7 +19,7 @@ public protocol FirebaseCommandRunnable {
 }
 
 @objc
-public class FirebaseCommandRunner: NSObject, FirebaseCommandRunnable {
+public class FirebaseTracker: NSObject, FirebaseTrackable {
     
     public override init() { }
     

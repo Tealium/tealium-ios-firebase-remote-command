@@ -11,7 +11,7 @@ import Foundation
 import TealiumRemoteCommands
 @testable import Firebase
 
-class MockFirebaseTracker: FirebaseCommandRunnable {
+class MockFirebaseTracker: FirebaseTrackable {
     
     var createAnalyticsConfigCallCount = 0
     

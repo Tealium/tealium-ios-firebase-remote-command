@@ -25,7 +25,7 @@ class FirebaseCommandTests: XCTestCase {
     var firebaseCommand: FirebaseCommand!
     
     override func setUp() {
-        firebaseCommand = FirebaseCommand(firebaseCommandRunner: mockFirebaseCommandRunner)
+        firebaseCommand = FirebaseCommand(firebaseTracker: mockFirebaseTracker)
     }
 
     override func tearDown() { }

@@ -6,6 +6,11 @@ target 'TealiumFirebaseExample' do
   use_frameworks!
 
   # Pods for TealiumFirebaseExample
-  pod 'TealiumFirebase', '0.0.1'
+  pod 'TealiumFirebase', '0.0.2'
+  pod 'tealium-swift/TealiumLogger'
+  pod 'tealium-swift/TealiumTagManagement'
+  pod 'tealium-swift/TealiumAppData'
+  pod 'tealium-swift/TealiumDeviceData'
+  pod 'tealium-swift/TealiumLifecycle'
 
 end

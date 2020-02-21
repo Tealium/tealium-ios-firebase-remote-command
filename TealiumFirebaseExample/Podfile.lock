@@ -1,114 +1,144 @@
 PODS:
-  - Firebase (6.7.0):
-    - Firebase/Core (= 6.7.0)
-  - Firebase/Core (6.7.0):
+  - Firebase (6.17.0):
+    - Firebase/Core (= 6.17.0)
+  - Firebase/Core (6.17.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.1.1)
-  - Firebase/CoreOnly (6.7.0):
-    - FirebaseCore (= 6.2.1)
-  - FirebaseAnalytics (6.1.1):
-    - FirebaseCore (~> 6.2)
-    - FirebaseInstanceID (~> 4.2)
-    - GoogleAppMeasurement (= 6.1.1)
+    - FirebaseAnalytics (= 6.2.2)
+  - Firebase/CoreOnly (6.17.0):
+    - FirebaseCore (= 6.6.2)
+  - FirebaseAnalytics (6.2.2):
+    - FirebaseCore (~> 6.6)
+    - FirebaseInstanceID (~> 4.3)
+    - GoogleAppMeasurement (= 6.2.2)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 0.3)
-  - FirebaseCore (6.2.1):
-    - FirebaseCoreDiagnostics (~> 1.0)
-    - FirebaseCoreDiagnosticsInterop (~> 1.0)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/Logger (~> 6.2)
-  - FirebaseCoreDiagnostics (1.0.1):
-    - FirebaseCoreDiagnosticsInterop (~> 1.0)
-    - GoogleDataTransportCCTSupport (~> 1.0)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/Logger (~> 6.2)
-  - FirebaseCoreDiagnosticsInterop (1.0.0)
-  - FirebaseInstanceID (4.2.3):
-    - FirebaseCore (~> 6.0)
-    - GoogleUtilities/Environment (~> 6.0)
-    - GoogleUtilities/UserDefaults (~> 6.0)
-  - GoogleAppMeasurement (6.1.1):
+    - nanopb (= 0.3.9011)
+  - FirebaseCore (6.6.2):
+    - FirebaseCoreDiagnostics (~> 1.2)
+    - FirebaseCoreDiagnosticsInterop (~> 1.2)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Logger (~> 6.5)
+  - FirebaseCoreDiagnostics (1.2.0):
+    - FirebaseCoreDiagnosticsInterop (~> 1.2)
+    - GoogleDataTransportCCTSupport (~> 1.3)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Logger (~> 6.5)
+    - nanopb (~> 0.3.901)
+  - FirebaseCoreDiagnosticsInterop (1.2.0)
+  - FirebaseInstallations (1.1.0):
+    - FirebaseCore (~> 6.6)
+    - GoogleUtilities/UserDefaults (~> 6.5)
+    - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (4.3.1):
+    - FirebaseCore (~> 6.6)
+    - FirebaseInstallations (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/UserDefaults (~> 6.5)
+  - GoogleAppMeasurement (6.2.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 0.3)
-  - GoogleDataTransport (1.1.3)
-  - GoogleDataTransportCCTSupport (1.0.2):
-    - GoogleDataTransport (~> 1.1)
-    - nanopb
-  - GoogleUtilities/AppDelegateSwizzler (6.2.5):
+    - nanopb (= 0.3.9011)
+  - GoogleDataTransport (4.0.0)
+  - GoogleDataTransportCCTSupport (1.4.0):
+    - GoogleDataTransport (~> 4.0)
+    - nanopb (~> 0.3.901)
+  - GoogleUtilities/AppDelegateSwizzler (6.5.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.2.5)
-  - GoogleUtilities/Logger (6.2.5):
+  - GoogleUtilities/Environment (6.5.1)
+  - GoogleUtilities/Logger (6.5.1):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.2.5):
+  - GoogleUtilities/MethodSwizzler (6.5.1):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.2.5):
+  - GoogleUtilities/Network (6.5.1):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.2.5)"
-  - GoogleUtilities/Reachability (6.2.5):
+  - "GoogleUtilities/NSData+zlib (6.5.1)"
+  - GoogleUtilities/Reachability (6.5.1):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.2.5):
+  - GoogleUtilities/UserDefaults (6.5.1):
     - GoogleUtilities/Logger
-  - nanopb (0.3.901):
-    - nanopb/decode (= 0.3.901)
-    - nanopb/encode (= 0.3.901)
-  - nanopb/decode (0.3.901)
-  - nanopb/encode (0.3.901)
-  - tealium-swift (1.7.1):
-    - tealium-swift/TealiumFull (= 1.7.1)
-  - tealium-swift/TealiumFull (1.7.1):
-    - TealiumCrashReporter
-  - TealiumCrashReporter (1.3.5)
-  - TealiumFirebase (0.0.1):
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
+  - PromisesObjC (1.2.8)
+  - tealium-swift/Core (1.9.1)
+  - tealium-swift/TealiumAppData (1.9.1):
+    - tealium-swift/Core
+  - tealium-swift/TealiumDelegate (1.9.1):
+    - tealium-swift/Core
+  - tealium-swift/TealiumDeviceData (1.9.1):
+    - tealium-swift/Core
+  - tealium-swift/TealiumLifecycle (1.9.1):
+    - tealium-swift/Core
+  - tealium-swift/TealiumLogger (1.9.1):
+    - tealium-swift/Core
+  - tealium-swift/TealiumRemoteCommands (1.9.1):
+    - tealium-swift/Core
+  - tealium-swift/TealiumTagManagement (1.9.1):
+    - tealium-swift/Core
+  - TealiumFirebase (0.0.2):
     - Firebase
     - FirebaseAnalytics
-    - tealium-swift (~> 1.7.1)
+    - tealium-swift/Core
+    - tealium-swift/TealiumDelegate
+    - tealium-swift/TealiumRemoteCommands
+    - tealium-swift/TealiumTagManagement
 
 DEPENDENCIES:
-  - TealiumFirebase (= 0.0.1)
+  - tealium-swift/TealiumAppData
+  - tealium-swift/TealiumDeviceData
+  - tealium-swift/TealiumLifecycle
+  - tealium-swift/TealiumLogger
+  - tealium-swift/TealiumTagManagement
+  - TealiumFirebase (from `/Users/christina/Projects/work-repos/builds/tealium-ios-firebase-remote-command`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseInstallations
     - FirebaseInstanceID
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - nanopb
+    - PromisesObjC
     - tealium-swift
-    - TealiumCrashReporter
-    - TealiumFirebase
+
+EXTERNAL SOURCES:
+  TealiumFirebase:
+    :path: "/Users/christina/Projects/work-repos/builds/tealium-ios-firebase-remote-command"
 
 SPEC CHECKSUMS:
-  Firebase: 291d7b0a7b393f252358083b5d224884126fa46d
-  FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
-  FirebaseCore: 32b48f41c84a56fbde73b35ed01a830b3b6dc048
-  FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
-  FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
-  FirebaseInstanceID: 8b42755db950682e7de0d167bc6fb26a57b244af
-  GoogleAppMeasurement: 86a82f0e1f20b8eedf8e20326530138fd71409de
-  GoogleDataTransport: 91e682bd60a49d3f8f69f2e909a66efaed5a1e7a
-  GoogleDataTransportCCTSupport: 6b545f7149111180763dc18c6f372c963de4a310
-  GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
-  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  tealium-swift: d58c620f1af8522751773e5125334f32b6252ad3
-  TealiumCrashReporter: 74fbdd3703a65740c04e983cd0b360c673199b53
-  TealiumFirebase: 5521edc548d8bd80f0e346d3bd075974deb57884
+  Firebase: 2672e5636b42f977177716317e68346ae5e9de25
+  FirebaseAnalytics: cf95d3aab897612783020fbd98401d5366f135ee
+  FirebaseCore: a1dd9dd6355a8356dd30a8f076839e242285a81c
+  FirebaseCoreDiagnostics: 5e78803ab276bc5b50340e3c539c06c3de35c649
+  FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
+  FirebaseInstallations: 575cd32f2aec0feeb0e44f5d0110a09e5e60b47b
+  FirebaseInstanceID: 031d7d0c8e7b5c030bbeb4d2a690550375e83fec
+  GoogleAppMeasurement: d0560d915abf15e692e8538ba1d58442217b6aff
+  GoogleDataTransport: 47fe3b8e1673e5187dfd615656a3c5034f150d69
+  GoogleDataTransportCCTSupport: 36f69887fd212db6d7ef4dd45ba44523717a434e
+  GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  tealium-swift: bb99ff358f297765346ab98e416196420511a677
+  TealiumFirebase: 66bb77eee83785eadc00aa9875f31e8f0b33ba8e
 
-PODFILE CHECKSUM: 5654d473aa7635a89778be39a009745e8f637822
+PODFILE CHECKSUM: db9378fc4585f5e74e8bbbffe8bd759befa784fb
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

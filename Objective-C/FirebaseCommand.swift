@@ -86,15 +86,13 @@ public class FirebaseCommand: NSObject {
                 configuration[FirebaseKey.logLevel] = self.parseLogLevel(logLevel)
                 self.firebaseTracker.createAnalyticsConfig(configuration)
             case FirebaseCommand.logEvent:
-                guard let name = payload[FirebaseKey.eventName] as? String else {
+               guard let name = payload[FirebaseKey.eventName] as? String else {
                     return
                 }
                 let eventName = self.mapEventNames(name)
-                guard let params = payload[FirebaseKey.eventParams] as? Dictionary<String, Any> else {
-                    return
-                }
+                let params = payload[FirebaseKey.eventParams] as? [String: Any]
                 var normalizedParams = [String: Any]()
-                for param in params {
+                params?.forEach { param in
                     let newKeyName = self.paramsMap(param.key)
                     if let normalizedValue = param.value as? NSArray {
                         normalizedParams[newKeyName] = normalizedValue.componentsJoined(by: ",")

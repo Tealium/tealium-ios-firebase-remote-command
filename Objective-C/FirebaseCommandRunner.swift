@@ -43,7 +43,9 @@ public class FirebaseTracker: NSObject, FirebaseTrackable {
     }
     
     public func setScreenName(_ screenName: String, _ screenClass: String?) {
-        Analytics.setScreenName(screenName, screenClass: screenClass)
+        DispatchQueue.main.async {
+            Analytics.setScreenName(screenName, screenClass: screenClass)
+        }
     }
     
     public func setUserProperty(_ property: String, value: String) {

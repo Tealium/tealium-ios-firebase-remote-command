@@ -29,9 +29,6 @@ class TealiumHelper {
     private init() {
         config.shouldUseRemotePublishSettings = false
         config.logLevel = .verbose
-        let list = TealiumModulesList(isWhitelist: false,
-            moduleNames: ["autotracking", "collect", "consentmanager"])
-        config.modulesList = list
         tealium = Tealium(config: config,
             enableCompletion: { [weak self] _ in
                 guard let self = self else { return }

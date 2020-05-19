@@ -11,8 +11,8 @@ import TealiumSwift
 import TealiumFirebase
 
 enum TealiumConfiguration {
-    static let account = "tealiummobile"
-    static let profile = "firebase-tag"
+    static let account = "services-james"
+    static let profile = "lib-mobile"
     static let environment = "dev"
 }
 
@@ -28,6 +28,7 @@ class TealiumHelper {
 
     private init() {
         config.shouldUseRemotePublishSettings = false
+        config.batchingEnabled = false
         config.logLevel = .verbose
         tealium = Tealium(config: config,
             enableCompletion: { [weak self] _ in

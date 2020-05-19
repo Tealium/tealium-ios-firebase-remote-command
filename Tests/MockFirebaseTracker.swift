@@ -15,7 +15,9 @@ class MockFirebaseTracker: FirebaseTrackable {
 
     var createAnalyticsConfigCallCount = 0
     
-    var logEventCallCount = 0
+    var logEventWithParamsCallCount = 0
+    
+    var logEventWithoutParamsCallCount = 0
     
     var setScreenNameCallCount = 0
     
@@ -28,7 +30,11 @@ class MockFirebaseTracker: FirebaseTrackable {
     }
     
     func logEvent(_ name: String, _ params: [String : Any]?) {
-        logEventCallCount += 1
+        guard let _ = params else {
+            logEventWithoutParamsCallCount += 1
+            return
+        }
+        logEventWithParamsCallCount += 1
     }
     
     func setScreenName(_ screenName: String, _ screenClass: String?) {

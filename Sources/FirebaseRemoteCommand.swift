@@ -10,12 +10,12 @@ import Foundation
 import FirebaseCore
 import FirebaseAnalytics
 #if COCOAPODS
-import TealiumSwift
+    import TealiumSwift
 #else
-import TealiumCore
-import TealiumTagManagement
-import TealiumRemoteCommands
-import TealiumDelegate
+    import TealiumCore
+    import TealiumTagManagement
+    import TealiumRemoteCommands
+    import TealiumDelegate
 #endif
 
 public class FirebaseRemoteCommand {
@@ -33,6 +33,7 @@ public class FirebaseRemoteCommand {
         static let userPropertyValue = "firebase_property_value"
         static let userId = "firebase_user_id"
         static let commandName = "command_name"
+        static let items = "items"
     }
 
     enum FirebaseCommand {
@@ -60,10 +61,10 @@ public class FirebaseRemoteCommand {
             let firebaseCommands = commands.map { command in
                 return command.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             }
-             self.parseCommands(firebaseCommands, payload: payload)
+            self.parseCommands(firebaseCommands, payload: payload)
         }
     }
-    
+
     func parseCommands(_ commands: [String], payload: [String: Any]) {
         commands.forEach { command in
             let lowercasedCommand = command.lowercased()
@@ -91,15 +92,13 @@ public class FirebaseRemoteCommand {
                     return
                 }
                 let eventName = self.mapEventNames(name)
-                let params = payload[FirebaseKey.eventParams] as? [String: Any]
                 var normalizedParams = [String: Any]()
-                params?.forEach { param in
+                guard let params = payload[FirebaseKey.eventParams] as? [String: Any] else {
+                    return self.firebaseTracker.logEvent(eventName, nil)
+                }
+                params.forEach { param in
                     let newKeyName = self.paramsMap(param.key)
-                    if let normalizedValue = param.value as? NSArray {
-                        normalizedParams[newKeyName] = normalizedValue.componentsJoined(by: ",")
-                    } else {
-                        normalizedParams[newKeyName] = param.value
-                    }
+                    normalizedParams[newKeyName] = param.value
                 }
                 self.firebaseTracker.logEvent(eventName, normalizedParams)
             case FirebaseCommand.setScreenName:
@@ -150,10 +149,11 @@ public class FirebaseRemoteCommand {
 
     func mapEventNames(_ eventName: String) -> String {
         let eventsMap = [
-            "add_payment_info": AnalyticsEventAddPaymentInfo,
-            "add_to_cart": AnalyticsEventAddToCart,
-            "add_to_wishlist": AnalyticsEventAddToWishlist,
-            "app_open": AnalyticsEventAppOpen,
+            "event_add_payment_info": AnalyticsEventAddPaymentInfo,
+            "event_add_shipping_info": AnalyticsEventAddShippingInfo,
+            "event_add_to_cart": AnalyticsEventAddToCart,
+            "event_add_to_wishlist": AnalyticsEventAddToWishlist,
+            "event_app_open": AnalyticsEventAppOpen,
             "event_begin_checkout": AnalyticsEventBeginCheckout,
             "event_campaign_details": AnalyticsEventCampaignDetails,
             "event_checkout_progress": AnalyticsEventCheckoutProgress,
@@ -161,14 +161,20 @@ public class FirebaseRemoteCommand {
             "event_ecommerce_purchase": AnalyticsEventEcommercePurchase,
             "event_generate_lead": AnalyticsEventGenerateLead,
             "event_join_group": AnalyticsEventJoinGroup,
+            "event_level_end": AnalyticsEventLevelEnd,
+            "event_level_start": AnalyticsEventLevelStart,
             "event_level_up": AnalyticsEventLevelUp,
             "event_login": AnalyticsEventLogin,
             "event_post_score": AnalyticsEventPostScore,
             "event_present_offer": AnalyticsEventPresentOffer,
+            "event_purchase": AnalyticsEventPurchase,
             "event_purchase_refund": AnalyticsEventPurchaseRefund,
+            "event_refund": AnalyticsEventRefund,
             "event_remove_cart": AnalyticsEventRemoveFromCart,
             "event_search": AnalyticsEventSearch,
             "event_select_content": AnalyticsEventSelectContent,
+            "event_select_item": AnalyticsEventSelectItem,
+            "event_select_promotion": AnalyticsEventSelectPromotion,
             "event_set_checkout_option": AnalyticsEventSetCheckoutOption,
             "event_share": AnalyticsEventShare,
             "event_signup": AnalyticsEventSignUp,
@@ -200,32 +206,45 @@ public class FirebaseRemoteCommand {
             "param_creative_slot": AnalyticsParameterCreativeSlot,
             "param_currency": AnalyticsParameterCurrency,
             "param_destination": AnalyticsParameterDestination,
+            "param_discount": AnalyticsParameterDiscount,
             "param_end_date": AnalyticsParameterEndDate,
+            "param_extend_session": AnalyticsParameterExtendSession,
             "param_flight_number": AnalyticsParameterFlightNumber,
             "param_group_id": AnalyticsParameterGroupID,
             "param_index": AnalyticsParameterIndex,
+            "param_items": AnalyticsParameterItems,
             "param_item_brand": AnalyticsParameterItemBrand,
             "param_item_category": AnalyticsParameterItemCategory,
             "param_item_id": AnalyticsParameterItemID,
             "param_item_list": AnalyticsParameterItemList,
+            "param_item_list_id": AnalyticsParameterItemListID,
+            "param_item_list_name": AnalyticsParameterItemListName,
             "param_item_location_id": AnalyticsParameterItemLocationID,
             "param_item_name": AnalyticsParameterItemName,
             "param_item_variant": AnalyticsParameterItemVariant,
             "param_level": AnalyticsParameterLevel,
+            "param_level_name": AnalyticsParameterLevelName,
             "param_location": AnalyticsParameterLocation,
+            "param_location_id": AnalyticsParameterLocationID,
             "param_medium": AnalyticsParameterMedium,
+            "param_method": AnalyticsParameterMethod,
             "param_number_nights": AnalyticsParameterNumberOfNights,
             "param_number_pax": AnalyticsParameterNumberOfPassengers,
             "param_number_rooms": AnalyticsParameterNumberOfRooms,
             "param_origin": AnalyticsParameterOrigin,
+            "param_payment_type": AnalyticsParameterPaymentType,
             "param_price": AnalyticsParameterPrice,
+            "param_promotion_id": AnalyticsParameterPromotionID,
+            "param_promotion_name": AnalyticsParameterPromotionName,
             "param_quantity": AnalyticsParameterQuantity,
             "param_score": AnalyticsParameterScore,
             "param_search_term": AnalyticsParameterSearchTerm,
             "param_shipping": AnalyticsParameterShipping,
+            "param_shipping_tier": AnalyticsParameterShippingTier,
             "param_signup_method": AnalyticsParameterSignUpMethod,
             "param_source": AnalyticsParameterSource,
             "param_start_date": AnalyticsParameterStartDate,
+            "param_success": AnalyticsParameterSuccess,
             "param_tax": AnalyticsParameterTax,
             "param_term": AnalyticsParameterTerm,
             "param_transaction_id": AnalyticsParameterTransactionID,

@@ -58,7 +58,11 @@ class EcommerceMainViewController: UIViewController {
             TealiumHelper.trackView(title: "checkout", data: [CheckoutViewController.screenClass: "CheckoutViewController"])
         case 4:
             hideAllViews(except: orderView)
-            let orderData: [String: Any] = [OrderViewController.orderId: Int.random(in: 0...1000) * 1000, OrderViewController.orderCurrency: "USD", OrderViewController.orderTotal: Int.random(in: 0...1000), OrderViewController.screenClass: "OrderViewController"]
+            let orderData: [String: Any] = [OrderViewController.orderId: Int.random(in: 0...1000) * 1000, OrderViewController.orderCurrency: "USD", OrderViewController.orderTotal: Int.random(in: 0...1000), OrderViewController.screenClass: "OrderViewController", ProductViewController.productId: ["PROD\(Int.random(in: 1...1000))", "PROD\(Int.random(in: 1...1000))"],
+                ProductViewController.productPrice: [100, 500],
+                ProductViewController.productName: ["Fridge", "Television"],
+                ProductViewController.productCategory: ["appliances", "electronics"],
+                ProductViewController.productQuantity: [1, 1]]
             TealiumHelper.trackView(title: "order", data: orderData)
         default:
             hideAllViews(except: homeStackView)

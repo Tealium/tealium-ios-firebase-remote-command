@@ -96,5 +96,6 @@ extension ProductViewController {
     static let productVariant = "product_variant"
     static let productPrice = "product_price"
     static let productCategory = "product_category"
+    static let productBrand = "product_brand"
     static let screenClass = "screen_class"
 }

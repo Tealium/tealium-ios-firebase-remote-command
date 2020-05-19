@@ -11,8 +11,8 @@ import TealiumSwift
 import TealiumFirebase
 
 enum TealiumConfiguration {
-    static let account = "tealiummobile"
-    static let profile = "demo"
+    static let account = "services-james"
+    static let profile = "lib-mobile"
     static let environment = "dev"
 }
 

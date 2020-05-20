@@ -43,7 +43,8 @@ class FirebaseCommandTests: XCTestCase {
     }
     
     func testMapEventNames() {
-        acceptedTealiumEventNames = ["event_add_payment_info", "event_add_shipping_info",
+        acceptedTealiumEventNames = ["event_add_payment_info",
+                                     "event_add_shipping_info",
                                      "event_add_to_cart",
                                      "event_add_to_wishlist",
                                      "event_app_open",

@@ -2,7 +2,7 @@
 //  FirebaseCommandTests.swift
 //  FirebaseTests
 //
-//  Created by Christina Sund on 7/12/19.
+//  Created by Christina S on 7/12/19.
 //  Copyright © 2019 Tealium. All rights reserved.
 //
 
@@ -110,8 +110,8 @@ class FirebaseCommandTests: XCTestCase {
                               AnalyticsEventViewItemList,
                               AnalyticsEventViewSearchResults]
         
-        for (index, eventName) in acceptedTealiumEventNames.enumerated() {
-            let actual = firebaseCommand.mapEventNames(eventName)
+        for (index, name) in acceptedTealiumEventNames.enumerated() {
+            let actual = firebaseCommand.mapEvent(name)
             let expected = firebaseEventNames[index]
             XCTAssertEqual(expected, actual)
         }

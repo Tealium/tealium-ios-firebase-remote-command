@@ -2,8 +2,8 @@
 //  TealiumHelper.swift
 //  RemoteCommandModules
 //
-//  Created by Christina Sund on 6/18/19.
-//  Copyright © 2019 Christina. All rights reserved.
+//  Created by Christina S on 6/18/19.
+//  Copyright © 2019 Tealium. All rights reserved.
 //
 
 import Foundation
@@ -11,9 +11,9 @@ import TealiumSwift
 import TealiumFirebase
 
 enum TealiumConfiguration {
-    static let account = "services-james"
-    static let profile = "lib-mobile"
-    static let environment = "dev"
+    static let account = "tealiummobile"
+    static let profile = "firebase-tag"
+    static let environment = "qa"
 }
 
 class TealiumHelper {

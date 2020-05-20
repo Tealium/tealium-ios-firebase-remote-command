@@ -1,8 +1,9 @@
 //
 //  FirebaseTracker.swift
+//  TealiumFirebase
 //
-//  Created by Christina Sund on 7/11/19.
-//  Copyright © 2019 Christina. All rights reserved.
+//  Created by Christina S on 7/11/19.
+//  Copyright © 2019 Tealium. All rights reserved.
 //
 
 import Foundation

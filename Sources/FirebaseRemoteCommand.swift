@@ -1,8 +1,8 @@
 //
 //  FirebaseRemoteCommand.swift
-
+//  TealiumFirebase
 //
-//  Created by Craig Rouse on 18/12/2017.
+//  Created by Christina S on 05/20/20.
 //  Copyright © 2017 Tealium. All rights reserved.
 //
 
@@ -20,31 +20,6 @@ import FirebaseAnalytics
 
 public class FirebaseRemoteCommand {
 
-    enum FirebaseKey {
-        static let sessionTimeout = "firebase_session_timeout_seconds"
-        static let minSeconds = "firebase_session_minimum_seconds"
-        static let analyticsEnabled = "firebase_analytics_enabled"
-        static let logLevel = "firebase_log_level"
-        static let eventName = "firebase_event_name"
-        static let eventParams = "firebase_event_params"
-        static let screenName = "firebase_screen_name"
-        static let screenClass = "firebase_screen_class"
-        static let userPropertyName = "firebase_property_name"
-        static let userPropertyValue = "firebase_property_value"
-        static let userId = "firebase_user_id"
-        static let commandName = "command_name"
-        static let paramItems = "param_items"
-        static let items = "items"
-    }
-
-    enum FirebaseCommand {
-        static let config = "config"
-        static let logEvent = "logevent"
-        static let setScreenName = "setscreenname"
-        static let setUserProperty = "setuserproperty"
-        static let setUserId = "setuserid"
-    }
-
     var firebaseTracker: FirebaseTrackable
 
     public init(firebaseTracker: FirebaseTrackable = FirebaseTracker()) {
@@ -52,13 +27,13 @@ public class FirebaseRemoteCommand {
     }
 
     public func remoteCommand() -> TealiumRemoteCommand {
-        return TealiumRemoteCommand(commandId: "firebaseAnalytics", description: "Firebase Remote Command") { response in
-
+        return TealiumRemoteCommand(commandId: FirebaseConstants.commandId,
+                                    description: FirebaseConstants.description) { response in
             let payload = response.payload()
-            guard let command = payload["command_name"] as? String else {
+            guard let command = payload[.commandName] as? String else {
                 return
             }
-            let commands = command.split(separator: ",")
+            let commands = command.split(separator: FirebaseConstants.separator)
             let firebaseCommands = commands.map { command in
                 return command.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             }
@@ -67,63 +42,75 @@ public class FirebaseRemoteCommand {
     }
 
     func parseCommands(_ commands: [String], payload: [String: Any]) {
-        commands.forEach { command in
-            let lowercasedCommand = command.lowercased()
-            switch lowercasedCommand {
-            case FirebaseCommand.config:
+        var firebaseLogLevel = FirebaseLoggerLevel.min
+        commands.forEach {
+            let command = FirebaseConstants.Commands(rawValue: $0.lowercased())
+            switch command {
+            case .config:
                 var firebaseSessionTimeout: TimeInterval?
                 var firebaseSessionMinimumSeconds: TimeInterval?
                 var firebaseAnalyticsEnabled: Bool?
-                var firebaseLogLevel = FirebaseLoggerLevel.min
-                if let sessionTimeout = payload[FirebaseKey.sessionTimeout] as? String {
+                if let sessionTimeout = payload[.sessionTimeout] as? String {
                     firebaseSessionTimeout = TimeInterval(sessionTimeout)
                 }
-                if let sessionMinimumSeconds = payload[FirebaseKey.minSeconds] as? String {
+                if let sessionMinimumSeconds = payload[.minSeconds] as? String {
                     firebaseSessionMinimumSeconds = TimeInterval(sessionMinimumSeconds)
                 }
-                if let analyticsEnabled = payload[FirebaseKey.analyticsEnabled] as? String {
+                if let analyticsEnabled = payload[.analyticsEnabled] as? String {
                     firebaseAnalyticsEnabled = Bool(analyticsEnabled)
                 }
-                if let logLevel = payload[FirebaseKey.logLevel] as? String {
+                if let logLevel = payload[.logLevel] as? String {
                     firebaseLogLevel = self.parseLogLevel(logLevel)
                 }
                 self.firebaseTracker.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
-            case FirebaseCommand.logEvent:
-                guard let name = payload[FirebaseKey.eventName] as? String else {
+            case .logEvent:
+                guard let name = payload[.eventName] as? String else {
                     return
                 }
-                let eventName = self.mapEventNames(name)
+                let eventName = self.mapEvent(name)
                 var normalizedParams = [String: Any]()
-                guard let params = payload[FirebaseKey.eventParams] as? [String: Any] else {
+                guard let params = payload[.eventParams] as? [String: Any] else {
                     return self.firebaseTracker.logEvent(eventName, nil)
                 }
-                if let items = params[FirebaseKey.paramItems] as? [[String: Any]] {
+                if let items = params[.paramItems] as? [[String: Any]] {
                     var tempItems = [[String: Any]]()
                     var item = [String: Any]()
                     items.forEach {
                         item = eventParameters.map($0)
                         tempItems.append(item)
                     }
-                    normalizedParams[FirebaseKey.items] = tempItems
+                    normalizedParams[.items] = tempItems
                 }
                 normalizedParams += eventParameters.map(params)
                 self.firebaseTracker.logEvent(eventName, normalizedParams)
-            case FirebaseCommand.setScreenName:
-                guard let screenName = payload[FirebaseKey.screenName] as? String else {
+            case .setScreenName:
+                guard let screenName = payload[.screenName] as? String else {
+                    if firebaseLogLevel == .debug {
+                        print("\(FirebaseConstants.errorPrefix)`screen_name` required for setScreenName.")
+                    }
                     return
                 }
-                let screenClass = payload[FirebaseKey.screenClass] as? String
+                let screenClass = payload[.screenClass] as? String
                 self.firebaseTracker.setScreenName(screenName, screenClass)
-            case FirebaseCommand.setUserProperty:
-                guard let propertyName = payload[FirebaseKey.userPropertyName] as? String else {
+            case .setUserProperty:
+                guard let propertyName = payload[.userPropertyName] as? String else {
+                    if firebaseLogLevel == .debug {
+                        print("\(FirebaseConstants.errorPrefix)`firebase_property_name` required for setUserProperty.")
+                    }
                     return
                 }
-                guard let propertyValue = payload[FirebaseKey.userPropertyValue] as? String else {
+                guard let propertyValue = payload[.userPropertyValue] as? String else {
+                    if firebaseLogLevel == .debug {
+                        print("\(FirebaseConstants.errorPrefix)`firebase_property_value` required for setUserProperty.")
+                    }
                     return
                 }
                 self.firebaseTracker.setUserProperty(propertyName, value: propertyValue)
-            case FirebaseCommand.setUserId:
-                guard let userId = payload[FirebaseKey.userId] as? String else {
+            case .setUserId:
+                guard let userId = payload[.userId] as? String else {
+                    if firebaseLogLevel == .debug {
+                        print("\(FirebaseConstants.errorPrefix)`firebase_user_id` required for setUserId.")
+                    }
                     return
                 }
                 self.firebaseTracker.setUserId(userId)
@@ -154,7 +141,7 @@ public class FirebaseRemoteCommand {
         }
     }
 
-    func mapEventNames(_ eventName: String) -> String {
+    func mapEvent(_ eventName: String) -> String {
         let eventsMap = [
             "event_add_payment_info": AnalyticsEventAddPaymentInfo,
             "event_add_shipping_info": AnalyticsEventAddShippingInfo,
@@ -262,7 +249,6 @@ public class FirebaseRemoteCommand {
 }
 
 fileprivate extension Dictionary where Key == String, Value == String {
-
     func map(_ payload: [String: Any]) -> [String: Any] {
         return self.reduce(into: [String: Any]()) { result, dictionary in
             if payload[dictionary.key] != nil {
@@ -270,17 +256,15 @@ fileprivate extension Dictionary where Key == String, Value == String {
             }
         }
     }
+}
 
-    func mapNested(payload: [String: Any]) -> [String: Any] {
-        var result = self.map(payload)
-        result += result.filter { $0.value is [AnyHashable: Any] }.compactMapValues {
-            if let nested = $0 as? [String: Any] {
-                let mapped = self.map(nested)
-                return mapped.count == 0 ? nested : mapped
-            }
-            return $0
+fileprivate extension Dictionary where Key: ExpressibleByStringLiteral {
+    subscript(key: FirebaseConstants.Keys) -> Value? {
+        get {
+            return self[key.rawValue as! Key]
         }
-        return result
+        set {
+            self[key.rawValue as! Key] = newValue
+        }
     }
-
 }

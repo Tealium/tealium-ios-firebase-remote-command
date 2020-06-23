@@ -30,7 +30,7 @@ public class FirebaseRemoteCommand {
         return TealiumRemoteCommand(commandId: FirebaseConstants.commandId,
                                     description: FirebaseConstants.description) { response in
             let payload = response.payload()
-            guard let command = payload[.commandName] as? String else {
+            guard let command = payload[FirebaseConstants.commandName] as? String else {
                 return
             }
             let commands = command.split(separator: FirebaseConstants.separator)
@@ -50,56 +50,58 @@ public class FirebaseRemoteCommand {
                 var firebaseSessionTimeout: TimeInterval?
                 var firebaseSessionMinimumSeconds: TimeInterval?
                 var firebaseAnalyticsEnabled: Bool?
-                if let sessionTimeout = payload[.sessionTimeout] as? String {
+                if let sessionTimeout = payload[FirebaseConstants.Keys.sessionTimeout] as? String {
                     firebaseSessionTimeout = TimeInterval(sessionTimeout)
                 }
-                if let sessionMinimumSeconds = payload[.minSeconds] as? String {
+                if let sessionMinimumSeconds = payload[FirebaseConstants.Keys.minSeconds] as? String {
                     firebaseSessionMinimumSeconds = TimeInterval(sessionMinimumSeconds)
                 }
-                if let analyticsEnabled = payload[.analyticsEnabled] as? String {
+                if let analyticsEnabled = payload[FirebaseConstants.Keys.analyticsEnabled] as? String {
                     firebaseAnalyticsEnabled = Bool(analyticsEnabled)
                 }
-                if let logLevel = payload[.logLevel] as? String {
+                if let logLevel = payload[FirebaseConstants.Keys.logLevel] as? String {
                     firebaseLogLevel = self.parseLogLevel(logLevel)
                 }
                 self.firebaseTracker.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
             case .logEvent:
-                guard let name = payload[.eventName] as? String else {
+                guard let name = payload[FirebaseConstants.Keys.eventName] as? String else {
                     return
                 }
                 let eventName = self.mapEvent(name)
                 var normalizedParams = [String: Any]()
-                guard let params = payload[.eventParams] as? [String: Any] else {
+                guard let params = payload[FirebaseConstants.Keys.eventParams] as? [String: Any] else {
                     return self.firebaseTracker.logEvent(eventName, nil)
                 }
-                if let items = params[.paramItems] as? [[String: Any]] {
+                if let items = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
                     var tempItems = [[String: Any]]()
                     var item = [String: Any]()
                     items.forEach {
-                        item = eventParameters.map($0)
+                        item = $0.mapParams()
                         tempItems.append(item)
                     }
-                    normalizedParams[.items] = tempItems
+                    normalizedParams[FirebaseConstants.Keys.items] = tempItems
                 }
-                normalizedParams += eventParameters.map(params)
+                normalizedParams += params.mapParams().filter {
+                    $0.key != FirebaseConstants.Keys.paramItems
+                }
                 self.firebaseTracker.logEvent(eventName, normalizedParams)
             case .setScreenName:
-                guard let screenName = payload[.screenName] as? String else {
+                guard let screenName = payload[FirebaseConstants.Keys.screenName] as? String else {
                     if firebaseLogLevel == .debug {
                         print("\(FirebaseConstants.errorPrefix)`screen_name` required for setScreenName.")
                     }
                     return
                 }
-                let screenClass = payload[.screenClass] as? String
+                let screenClass = payload[FirebaseConstants.Keys.screenClass] as? String
                 self.firebaseTracker.setScreenName(screenName, screenClass)
             case .setUserProperty:
-                guard let propertyName = payload[.userPropertyName] as? String else {
+                guard let propertyName = payload[FirebaseConstants.Keys.userPropertyName] as? String else {
                     if firebaseLogLevel == .debug {
                         print("\(FirebaseConstants.errorPrefix)`firebase_property_name` required for setUserProperty.")
                     }
                     return
                 }
-                guard let propertyValue = payload[.userPropertyValue] as? String else {
+                guard let propertyValue = payload[FirebaseConstants.Keys.userPropertyValue] as? String else {
                     if firebaseLogLevel == .debug {
                         print("\(FirebaseConstants.errorPrefix)`firebase_property_value` required for setUserProperty.")
                     }
@@ -107,7 +109,7 @@ public class FirebaseRemoteCommand {
                 }
                 self.firebaseTracker.setUserProperty(propertyName, value: propertyValue)
             case .setUserId:
-                guard let userId = payload[.userId] as? String else {
+                guard let userId = payload[FirebaseConstants.Keys.userId] as? String else {
                     if firebaseLogLevel == .debug {
                         print("\(FirebaseConstants.errorPrefix)`firebase_user_id` required for setUserId.")
                     }
@@ -183,7 +185,7 @@ public class FirebaseRemoteCommand {
         return eventsMap[eventName] ?? eventName
     }
 
-    let eventParameters = [
+    static let eventParameters = [
         "param_achievement_id": AnalyticsParameterAchievementID,
         "param_ad_network_click_id": AnalyticsParameterAdNetworkClickID,
         "param_affiliation": AnalyticsParameterAffiliation,
@@ -245,26 +247,18 @@ public class FirebaseRemoteCommand {
         "param_virtual_currency_name": AnalyticsParameterVirtualCurrencyName,
         "param_user_signup_method": AnalyticsUserPropertySignUpMethod
     ]
-
-}
-
-fileprivate extension Dictionary where Key == String, Value == String {
-    func map(_ payload: [String: Any]) -> [String: Any] {
-        return self.reduce(into: [String: Any]()) { result, dictionary in
-            if payload[dictionary.key] != nil {
-                result[dictionary.value] = payload[dictionary.key]
-            }
-        }
+    
+    static func mapParam(_ param: String) -> String {
+        FirebaseRemoteCommand.eventParameters[param] ?? param
     }
+
 }
 
-fileprivate extension Dictionary where Key: ExpressibleByStringLiteral {
-    subscript(key: FirebaseConstants.Keys) -> Value? {
-        get {
-            return self[key.rawValue as! Key]
-        }
-        set {
-            self[key.rawValue as! Key] = newValue
+extension Dictionary where Key == String, Value == Any {
+    func mapParams() -> [String: Any] {
+        return self.reduce(into: [String: Any]()) { result, dictionary in
+            let newKey = FirebaseRemoteCommand.mapParam(dictionary.key)
+            result[newKey] = dictionary.value
         }
     }
 }

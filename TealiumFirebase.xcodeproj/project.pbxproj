@@ -304,6 +304,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF17EB4A22F0E3D700C6086B;
 			productRefGroup = CF17EB5522F0E3D700C6086B /* Products */;

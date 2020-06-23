@@ -13,7 +13,7 @@ import TealiumFirebase
 enum TealiumConfiguration {
     static let account = "tealiummobile"
     static let profile = "firebase-tag"
-    static let environment = "qa"
+    static let environment = "dev"
 }
 
 class TealiumHelper {

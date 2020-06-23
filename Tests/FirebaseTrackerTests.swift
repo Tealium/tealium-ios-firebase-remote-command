@@ -164,5 +164,27 @@ class FirebaseTrackerTests: XCTestCase {
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
     }
+    
+    func testMapParamsWhenTheyDontExistInLookup() {
+                let expect = expectation(description: "set user id should not run")
+        let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "ecommerce_purchase", "coupon": "couponCode", "currency": "AUD", "value": 19.99, "tax": 1.99, "shipping": 2.00, "transaction_id": "1232312321"]
+        if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
+            remoteCommand.remoteCommandCompletion(response)
+            XCTAssertEqual(0, firebaseTracker.logEventWithParamsCallCount)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
+    
+    func testMapParamsWhenTheyDoExistInLookup() {
+                let expect = expectation(description: "set user id should not run")
+        let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "event_ecommerce_purchase", "param_coupon": "couponCode", "param_currency": "AUD", "param_value": 19.99, "param_tax": 1.99, "param_shipping": 2.00, "param_transaction_id": "1232312321"]
+        if let response = createRemoteCommandResponse(commandId: "firebase", payload: payload) {
+            remoteCommand.remoteCommandCompletion(response)
+            XCTAssertEqual(0, firebaseTracker.logEventWithParamsCallCount)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
 
 }

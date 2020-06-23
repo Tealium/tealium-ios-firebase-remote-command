@@ -10,26 +10,26 @@ import Foundation
 
 enum FirebaseConstants {
     
+    static let commandName = "command_name"
     static let separator: Character = ","
     static let commandId = "firebaseAnalytics"
     static let description = "Firebase Remote Command"
     static let errorPrefix = "Tealium Firebase: "
     
-    enum Keys: String {
-        case commandName = "command_name"
-        case sessionTimeout = "firebase_session_timeout_seconds"
-        case minSeconds = "firebase_session_minimum_seconds"
-        case analyticsEnabled = "firebase_analytics_enabled"
-        case logLevel = "firebase_log_level"
-        case eventName = "firebase_event_name"
-        case eventParams = "firebase_event_params"
-        case screenName = "firebase_screen_name"
-        case screenClass = "firebase_screen_class"
-        case userPropertyName = "firebase_property_name"
-        case userPropertyValue = "firebase_property_value"
-        case userId = "firebase_user_id"
-        case paramItems = "param_items"
-        case items = "items"
+    enum Keys {
+        static let sessionTimeout = "firebase_session_timeout_seconds"
+        static let minSeconds = "firebase_session_minimum_seconds"
+        static let analyticsEnabled = "firebase_analytics_enabled"
+        static let logLevel = "firebase_log_level"
+        static let eventName = "firebase_event_name"
+        static let eventParams = "firebase_event_params"
+        static let screenName = "firebase_screen_name"
+        static let screenClass = "firebase_screen_class"
+        static let userPropertyName = "firebase_property_name"
+        static let userPropertyValue = "firebase_property_value"
+        static let userId = "firebase_user_id"
+        static let paramItems = "param_items"
+        static let items = "items"
     }
 
     enum Commands: String {

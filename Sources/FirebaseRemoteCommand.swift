@@ -15,7 +15,6 @@ import FirebaseAnalytics
     import TealiumCore
     import TealiumTagManagement
     import TealiumRemoteCommands
-    import TealiumDelegate
 #endif
 
 public class FirebaseRemoteCommand {
@@ -26,11 +25,11 @@ public class FirebaseRemoteCommand {
         self.firebaseTracker = firebaseTracker
     }
 
-    public func remoteCommand() -> TealiumRemoteCommand {
-        return TealiumRemoteCommand(commandId: FirebaseConstants.commandId,
+    public func remoteCommand() -> RemoteCommand {
+        return RemoteCommand(commandId: FirebaseConstants.commandId,
                                     description: FirebaseConstants.description) { response in
-            let payload = response.payload()
-            guard let command = payload[FirebaseConstants.commandName] as? String else {
+            guard let payload = response.payload,
+                let command = payload[FirebaseConstants.commandName] as? String else {
                 return
             }
             let commands = command.split(separator: FirebaseConstants.separator)

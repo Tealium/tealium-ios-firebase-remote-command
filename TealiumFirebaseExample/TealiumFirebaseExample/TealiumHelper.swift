@@ -29,18 +29,15 @@ class TealiumHelper {
     private init() {
         config.shouldUseRemotePublishSettings = false
         config.batchingEnabled = false
-        config.logLevel = .verbose
-        tealium = Tealium(config: config,
-            enableCompletion: { [weak self] _ in
-                guard let self = self else { return }
-                guard let remoteCommands = self.tealium?.remoteCommands() else {
-                    return
-                }
-                // MARK: Firebase
-                let firebaseRemoteCommand = FirebaseRemoteCommand().remoteCommand()
-                remoteCommands.add(firebaseRemoteCommand)
-            })
-
+        config.logLevel = .info
+        config.collectors = [Collectors.Lifecycle]
+        config.dispatchers = [Dispatchers.TagManagement, Dispatchers.RemoteCommands]
+        
+        // MARK: Firebase
+        let firebaseRemoteCommand = FirebaseRemoteCommand().remoteCommand()
+        config.addRemoteCommand(firebaseRemoteCommand)
+        
+        tealium = Tealium(config: config)
     }
 
 
@@ -49,7 +46,8 @@ class TealiumHelper {
     }
 
     class func trackView(title: String, data: [String: Any]?) {
-        TealiumHelper.shared.tealium?.track(title: title, data: data, completion: nil)
+        let tealiumView = TealiumView(title, dataLayer: data)
+        TealiumHelper.shared.tealium?.track(tealiumView)
     }
 
     class func trackScreen(_ view: UIViewController, name: String) {
@@ -57,7 +55,8 @@ class TealiumHelper {
     }
 
     class func trackEvent(title: String, data: [String: Any]?) {
-        TealiumHelper.shared.tealium?.track(title: title, data: data, completion: nil)
+        let tealiumEvent = TealiumEvent(title, dataLayer: data)
+        TealiumHelper.shared.tealium?.track(tealiumEvent)
     }
 
 }

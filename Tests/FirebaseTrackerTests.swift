@@ -14,7 +14,7 @@ class FirebaseTrackerTests: XCTestCase {
 
     let firebaseTracker = MockFirebaseTracker()
     var firebaseCommand: FirebaseRemoteCommand!
-    var remoteCommand: TealiumRemoteCommand!
+    var remoteCommand: RemoteCommand!
 
     override func setUp() {
         firebaseCommand = FirebaseRemoteCommand(firebaseTracker: firebaseTracker)
@@ -23,10 +23,10 @@ class FirebaseTrackerTests: XCTestCase {
 
     override func tearDown() { }
 
-    func createRemoteCommandResponse(commandId: String, payload: [String: Any]) -> TealiumRemoteCommandResponse? {
+    func createRemoteCommandResponse(commandId: String, payload: [String: Any]) -> RemoteCommandResponse? {
         let responseDescription = HttpTestHelpers.httpRequestDescription(commandId: commandId, config: [:], payload: payload)
         if let description = responseDescription {
-            return TealiumRemoteCommandResponse(urlString: description)
+            return RemoteCommandResponse(urlString: description)
         }
         XCTFail("Could not create Remote Command Response description from stubs provided")
         return nil

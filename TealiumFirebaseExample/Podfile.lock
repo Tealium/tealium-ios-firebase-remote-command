@@ -67,34 +67,22 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.8)
-  - tealium-swift/Core (1.9.4)
-  - tealium-swift/TealiumAppData (1.9.4):
+  - tealium-swift/Core (2.0.0)
+  - tealium-swift/Lifecycle (2.0.0):
     - tealium-swift/Core
-  - tealium-swift/TealiumDelegate (1.9.4):
+  - tealium-swift/RemoteCommands (2.0.0):
     - tealium-swift/Core
-  - tealium-swift/TealiumDeviceData (1.9.4):
-    - tealium-swift/Core
-  - tealium-swift/TealiumLifecycle (1.9.4):
-    - tealium-swift/Core
-  - tealium-swift/TealiumLogger (1.9.4):
-    - tealium-swift/Core
-  - tealium-swift/TealiumRemoteCommands (1.9.4):
-    - tealium-swift/Core
-  - tealium-swift/TealiumTagManagement (1.9.4):
+  - tealium-swift/TagManagement (2.0.0):
     - tealium-swift/Core
   - TealiumFirebase (1.1.1):
-    - Firebase (~> 6.2)
+    - Firebase (~> 6.3)
     - FirebaseAnalytics (~> 6.6)
-    - tealium-swift/Core (~> 1.9)
-    - tealium-swift/TealiumDelegate (~> 1.9)
-    - tealium-swift/TealiumRemoteCommands (~> 1.9)
-    - tealium-swift/TealiumTagManagement (~> 1.9)
+    - tealium-swift/Core (~> 2.0)
+    - tealium-swift/RemoteCommands (~> 2.0)
+    - tealium-swift/TagManagement (~> 2.0)
 
 DEPENDENCIES:
-  - tealium-swift/TealiumAppData (~> 1.9)
-  - tealium-swift/TealiumDeviceData (~> 1.9)
-  - tealium-swift/TealiumLifecycle (~> 1.9)
-  - tealium-swift/TealiumLogger (~> 1.9)
+  - tealium-swift/Lifecycle (~> 2.0)
   - TealiumFirebase (from `../`)
 
 SPEC REPOS:
@@ -130,9 +118,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  tealium-swift: c478175eadd99de290a65c5c2cc38a7bb86ac28c
-  TealiumFirebase: 708529ed17cda7c60016bda700c1611f3b2bc4cd
+  tealium-swift: c0b58cc749d23805790de1472407723fa41da2dc
+  TealiumFirebase: 405da3e56af73f323fee20cae3f82c9e6b7b2012
 
-PODFILE CHECKSUM: 7d856fa4357cf2dd7d577dfa2f1f6eaa8baa0e3c
+PODFILE CHECKSUM: 4d99f7e1bb815146eda09effd61733b1ea9510b0
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

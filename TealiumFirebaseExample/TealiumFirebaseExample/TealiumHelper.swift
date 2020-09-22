@@ -8,7 +8,6 @@
 
 import Foundation
 import TealiumSwift
-import TealiumFirebase
 
 enum TealiumConfiguration {
     static let account = "tealiummobile"
@@ -25,16 +24,18 @@ class TealiumHelper {
         environment: TealiumConfiguration.environment)
 
     var tealium: Tealium?
+    
+    // JSON Remote Command
+    let firebaseRemoteCommand = FirebaseRemoteCommand(type: .remote(url: "https://tags.tiqcdn.com/dle/tealiummobile/demo/firebase.json"))
 
     private init() {
         config.shouldUseRemotePublishSettings = false
         config.batchingEnabled = false
+        config.remoteAPIEnabled = true
         config.logLevel = .info
         config.collectors = [Collectors.Lifecycle]
         config.dispatchers = [Dispatchers.TagManagement, Dispatchers.RemoteCommands]
         
-        // MARK: Firebase
-        let firebaseRemoteCommand = FirebaseRemoteCommand().remoteCommand()
         config.addRemoteCommand(firebaseRemoteCommand)
         
         tealium = Tealium(config: config)

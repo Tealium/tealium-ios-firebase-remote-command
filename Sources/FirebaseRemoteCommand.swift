@@ -289,4 +289,13 @@ fileprivate extension Dictionary where Key == String, Value == Any {
                             .joined()
                             .contains($0.key) }
     }
+    func itemsToArray() -> [String: Any] {
+        self.reduce(into: [String: Any]()) { result, dictionary in
+            if dictionary.key.contains("item_") ||
+                dictionary.key.contains("quantity") ||
+                dictionary.key.contains("price") {
+                result[dictionary.key] = [dictionary.value]
+            }
+        }
+    }
 }

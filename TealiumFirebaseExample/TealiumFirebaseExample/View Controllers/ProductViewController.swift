@@ -42,8 +42,14 @@ class ProductViewController: UIViewController {
     @IBAction func addToCart(_ sender: UIButton) {
         let ac = UIAlertController(title: "Added!", message: "\(String(describing: productName.text!)) was added to your cart", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-            self.data[ProductViewController.productName] = [self.productName.text]
-            self.data[ProductViewController.productQuantity] = [self.quantityLabel.text]
+            self.data[ProductViewController.productId] = "3d053202-a50b-43f4-9ce7-0d154ad21a8e"
+            self.data[ProductViewController.productPrice] = 100
+            self.data[ProductViewController.productName] = "Fridge"
+            self.data[ProductViewController.productCategory] = "appliances"
+            self.data[ProductViewController.productVariant] = "abc-123-xyz"
+            self.data[ProductViewController.productBrand] = "acme"
+            self.data[ProductViewController.productQuantity] = 1
+            self.data["event_title"] = EventNames.lookup["cart_add"]!
             TealiumHelper.trackEvent(title: "cart_add", data: self.data)
         })
         ac.addAction(UIAlertAction(title: "Cancel", style: .destructive))
@@ -53,8 +59,14 @@ class ProductViewController: UIViewController {
     @IBAction func AddToWishList(_ sender: UIButton) {
         let ac = UIAlertController(title: "Added!", message: "\(String(describing: productName.text!)) was added to your wishlist", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-            self.data["product_name"] = [self.productName.text]
-            self.data["product_quantity"] = [self.quantityLabel.text]
+            self.data[ProductViewController.productId] = ["3d053202-a50b-43f4-9ce7-0d154ad21a8e"]
+            self.data[ProductViewController.productPrice] = [100]
+            self.data[ProductViewController.productName] = ["Fridge"]
+            self.data[ProductViewController.productCategory] = ["appliances"]
+            self.data[ProductViewController.productVariant] = ["abc-123-xyz"]
+            self.data[ProductViewController.productBrand] = ["acme"]
+            self.data[ProductViewController.productQuantity] = [1]
+            self.data["event_title"] = EventNames.lookup["wishlist_add"]!
             TealiumHelper.trackEvent(title: "wishlist_add", data: self.data)
         })
         ac.addAction(UIAlertAction(title: "Cancel", style: .destructive))
@@ -80,12 +92,18 @@ class ProductViewController: UIViewController {
         } else {
              productPrice.text = "$100"
         }
-        let formattedPrice = productPrice.text?.replacingOccurrences(of: "$", with: "")
-        data[ProductViewController.productName] = [productName.text]
-        data[ProductViewController.productPrice] = [formattedPrice]
+        data[ProductViewController.productId] = ["3d053202-a50b-43f4-9ce7-0d154ad21a8e"]
+        data[ProductViewController.productPrice] = [100]
+        data[ProductViewController.productName] = ["Fridge"]
+        data[ProductViewController.productCategory] = ["appliances"]
+        data[ProductViewController.productVariant] = ["abc-123-xyz"]
+        data[ProductViewController.productBrand] = ["acme"]
         data["screen_class"] = "\(self.classForCoder)"
+        data["event_title"] = EventNames.lookup["product"]!
         TealiumHelper.trackView(title: "product", data: data)
     }
+    
+    
     
 }
 

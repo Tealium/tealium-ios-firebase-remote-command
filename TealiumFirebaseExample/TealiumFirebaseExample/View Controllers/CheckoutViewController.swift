@@ -29,7 +29,7 @@ class CheckoutViewController: UIViewController {
         }
         if title.contains("Payment") {
             let value = checkoutSegmentedControl.titleForSegment(at: checkoutSegmentedControl.selectedSegmentIndex)
-            TealiumHelper.trackEvent(title: "checkout_progress", data: ["checkout_step": "shipping", "checkout_option": value!])
+            TealiumHelper.trackEvent(title: "checkout_progress", data: ["checkout_step": "shipping", "checkout_option": value!, "event_title": EventNames.lookup["checkout_progress"]!])
             TealiumHelper.trackView(title: "payment", data: ["screen_class": "\(self.classForCoder)"])
             checkoutStepLabel.text = "Payment"
             checkoutTextField1.text = ""
@@ -43,7 +43,7 @@ class CheckoutViewController: UIViewController {
             checkoutProgress.setTitle("Place Order", for: .normal)
         } else {
             let value = checkoutSegmentedControl.titleForSegment(at: checkoutSegmentedControl.selectedSegmentIndex)
-            TealiumHelper.trackEvent(title: "checkout_progress", data: ["checkout_step": "payment", "checkout_option": value!])
+            TealiumHelper.trackEvent(title: "checkout_progress", data: ["checkout_step": "payment", "checkout_option": value!, "event_title": EventNames.lookup["checkout_progress"]!])
             let notification = Notification(name: Notification.Name(CheckoutViewController.placedOrderClicked), object: nil, userInfo: nil)
             NotificationCenter.default.post(notification)
 
@@ -58,7 +58,17 @@ class CheckoutViewController: UIViewController {
             checkoutOptionsLabel.text = "Select Shipping Option"
             checkoutProgress.setTitle("Payment", for: .normal)
 
-            let orderData: [String: Any] = [OrderViewController.orderId: Int.random(in: 0...1000) * 1000, OrderViewController.orderCurrency: "USD", OrderViewController.orderTotal: Int.random(in: 0...1000), OrderViewController.screenClass: "OrderViewController"]
+            let orderData: [String: Any] = [OrderViewController.orderId: Int.random(in: 0...1000) * 1000,
+                                            OrderViewController.orderCurrency: "USD",
+                                            OrderViewController.orderTotal: Int.random(in: 0...1000),
+                                            ProductViewController.productId: ["3d053202-a50b-43f4-9ce7-0d154ad21a8e", "e5c80e01-028e-4681-9db8-b7a99ca5a269"],
+                                            ProductViewController.productPrice: [100, 200],
+                                            ProductViewController.productName: ["Fridge", "Television"],
+                                            ProductViewController.productCategory: ["appliances", "electronics"],
+                                            ProductViewController.productVariant: ["abc-123-xyz", "xyz-456-abc"],
+                                            ProductViewController.productBrand: ["acme", "roadrunner"],
+                                            ProductViewController.productQuantity: [1, 2],
+                                            OrderViewController.screenClass: "OrderViewController", "event_title": EventNames.lookup["order"]!]
             TealiumHelper.trackView(title: "order", data: orderData)
         }
     }

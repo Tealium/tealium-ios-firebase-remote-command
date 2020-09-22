@@ -29,18 +29,24 @@ class GamingViewController: UIViewController {
     
 
     @objc func share() {
-        TealiumHelper.trackEvent(title: "share", data: [GamingViewController.contentType: "gaming screen", GamingViewController.shareId: "gamqwe123"])
+        TealiumHelper.trackEvent(title: "share", data: [GamingViewController.contentType: "gaming screen", GamingViewController.shareId: "gamqwe123", "event_title": EventNames.lookup["share"]!])
         let vc = UIActivityViewController(activityItems: ["Gaming"], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
     
     @IBAction func spendCurrency(_ sender: UIButton) {
-        TealiumHelper.trackEvent(title: "spend_currency", data: [GamingViewController.productName: ["jewels"], "currency_type": GamingViewController.tokens, "number_of_tokens": 50])
+        TealiumHelper.trackEvent(title: "spend_currency", data: [GamingViewController.productName: ["jewels"],
+                                                                "currency_type": GamingViewController.tokens,
+                                                                "number_of_tokens": 50,
+                                                                "event_title": EventNames.lookup["spend_currency"]!])
     }
     
     @IBAction func earnCurrency(_ sender: UIButton) {
-        TealiumHelper.trackEvent(title: "earn_currency", data: [GamingViewController.currencyType: "tokens", GamingViewController.tokens: 100])
+        TealiumHelper.trackEvent(title: "earn_currency",
+                                 data: [GamingViewController.currencyType: "tokens",
+                                                               GamingViewController.tokens: 100,
+                                                               "event_title": EventNames.lookup["earn_currency"]!])
     }
     
     @IBAction func achievementSwitch(_ sender: UISwitch) {
@@ -57,6 +63,7 @@ class GamingViewController: UIViewController {
         levelLabel.text = String(Int(sender.value))
         data[GamingViewController.level] = String(Int(sender.value))
         data[GamingViewController.character] = "mario"
+        data["event_title"] = EventNames.lookup["level_up"]!
         TealiumHelper.trackEvent(title: "level_up", data: data)
     }
     
@@ -71,6 +78,7 @@ class GamingViewController: UIViewController {
     
     @IBAction func postScore(_ sender: Any) {
         data[GamingViewController.score] = Int.random(in: 1...1000) * 1000
+        data["event_title"] = EventNames.lookup["record_score"]!
         TealiumHelper.trackEvent(title: "record_score", data: data)
     }
 

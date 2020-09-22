@@ -31,6 +31,7 @@ enum FirebaseConstants {
         static let userId = "firebase_user_id"
         static let paramItems = "param_items"
         static let items = "items"
+        static let productId = "param_item_id"
     }
 
     enum Commands: String {

@@ -27,14 +27,14 @@ class AccountViewController: UIViewController {
     }
     
     @objc func share() {
-        TealiumHelper.trackEvent(title: "share", data: [AccountViewController.contentType: "account screen", AccountViewController.shareId: "accqwe123"])
+        TealiumHelper.trackEvent(title: "share", data: [AccountViewController.contentType: "account screen", AccountViewController.shareId: "accqwe123", "event_title": EventNames.lookup["share"]!])
         let vc = UIActivityViewController(activityItems: ["Account"], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
     
     @IBAction func showOfferTapped(_ sender: UIButton) {
-        TealiumHelper.trackEvent(title: "show_offers", data: [AccountViewController.productId: ["12"], AccountViewController.productQuantity: ["1"], AccountViewController.productName: ["vacuum"], AccountViewController.productCategory: ["household"]])
+        TealiumHelper.trackEvent(title: "show_offers", data: [AccountViewController.productId: ["12"], AccountViewController.productQuantity: ["1"], AccountViewController.productName: ["vacuum"], AccountViewController.productCategory: ["household"], "event_title": EventNames.lookup["show_offers"]!])
         offersImage.image = UIImage(named: "bank")
         let ac = UIAlertController(title: "Offers", message: "You have a new offer, please shop and get 10% off a vacuum! This will be applied at checkout when you purchase this item.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -49,7 +49,7 @@ class AccountViewController: UIViewController {
         }
         let ac = UIAlertController(title: "Welcome", message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Great!", style: .default) { _ in
-            TealiumHelper.trackEvent(title: "join_group", data: [AccountViewController.groupName: name])
+            TealiumHelper.trackEvent(title: "join_group", data: [AccountViewController.groupName: name, "event_title": EventNames.lookup["join_group"]!])
         })
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)

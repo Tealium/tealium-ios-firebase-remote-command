@@ -31,12 +31,9 @@ Pod::Spec.new do |s|
 
     # ――― Dependencies ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
     s.static_framework = true
-    #s.ios.dependency 'tealium-swift/Core', '~> 2.0'
-    s.ios.dependency 'tealium-swift/Core', :path=> '/Users/christina/Projects/work-repos/github/tealium-swift-builder'
-    #s.ios.dependency 'tealium-swift/RemoteCommands', '~> 2.0'
-    s.ios.dependency 'tealium-swift/RemoteCommands', :path=> '/Users/christina/Projects/work-repos/github/tealium-swift-builder'
-    #s.ios.dependency 'tealium-swift/TagManagement', '~> 2.0'
-    s.ios.dependency 'tealium-swift/TagManagement', :path=> '/Users/christina/Projects/work-repos/github/tealium-swift-builder'
+    s.ios.dependency 'tealium-swift/Core', '~> 2.0'
+    s.ios.dependency 'tealium-swift/RemoteCommands', '~> 2.0'
+    s.ios.dependency 'tealium-swift/TagManagement', '~> 2.0'
     s.dependency 'Firebase', '~> 6.3'
     s.dependency 'FirebaseAnalytics', '~> 6.6'
 end

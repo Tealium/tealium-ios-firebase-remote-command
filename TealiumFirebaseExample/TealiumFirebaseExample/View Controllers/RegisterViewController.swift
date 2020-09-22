@@ -29,7 +29,11 @@ class RegisterViewController: UIViewController {
     }
 
     @IBAction func onRegister(_ sender: Any) {
-        TealiumHelper.trackEvent(title: "user_register", data: [RegisterViewController.customerId: "ABC123", RegisterViewController.signUpMethod: "apple", RegisterViewController.fullName: fullName.text!])
+        TealiumHelper.trackEvent(title: "user_register", data: [RegisterViewController.customerId: "ABC123",
+                                                               RegisterViewController.signUpMethod: "apple",
+                                                               "customer_property": RegisterViewController.fullName,
+                                                               "customer_value": fullName.text!,
+                                                               "event_title": EventNames.lookup["user_register"]!])
     }
 
 }

@@ -27,7 +27,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        TealiumHelper.trackEvent(title: "user_login", data: [LoginViewController.customerId: "ABC123", LoginViewController.signUpMethod: "apple", LoginViewController.username: username.text!])
+        TealiumHelper.trackEvent(title: "user_login", data: [LoginViewController.customerId: "ABC123",
+                                                            LoginViewController.signUpMethod: "apple",
+                                                            LoginViewController.username: username.text!,
+                                                            "event_title": EventNames.lookup["user_login"]!])
     }
     
 }

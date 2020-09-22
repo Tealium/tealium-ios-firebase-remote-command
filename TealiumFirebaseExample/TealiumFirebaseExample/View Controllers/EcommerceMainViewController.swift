@@ -36,7 +36,7 @@ class EcommerceMainViewController: UIViewController {
     }
 
     @objc func share() {
-        TealiumHelper.trackEvent(title: "share", data: [EcommerceMainViewController.contentType: "shop home screen", EcommerceMainViewController.shareId: "shopqwe123"])
+        TealiumHelper.trackEvent(title: "share", data: [EcommerceMainViewController.contentType: "shop home screen", EcommerceMainViewController.shareId: "shopqwe123", "event_title": EventNames.lookup["share"]!])
         let vc = UIActivityViewController(activityItems: ["Shop"], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
@@ -46,18 +46,20 @@ class EcommerceMainViewController: UIViewController {
         switch navigationControl.selectedSegmentIndex {
         case 1:
             hideAllViews(except: categoryView)
-            TealiumHelper.trackView(title: "category", data: [CategoryViewController.screenClass: "CategoryViewController", CategoryViewController.categoryName: "appliances"])
+            TealiumHelper.trackView(title: "category", data: [CategoryViewController.screenClass: "CategoryViewController", CategoryViewController.categoryName: "appliances", "event_title": EventNames.lookup["category"]!])
         case 2:
             hideAllViews(except: productView)
-            TealiumHelper.trackView(title: "product", data: [ProductViewController.screenClass: "ProductViewController", ProductViewController.productId: ["PROD\(Int.random(in: 1...1000))"],
+            TealiumHelper.trackView(title: "product", data: [ProductViewController.screenClass: "ProductViewController", ProductViewController.productId: ["3d053202-a50b-43f4-9ce7-0d154ad21a8e"],
                 ProductViewController.productPrice: [100],
                 ProductViewController.productName: ["Fridge"],
                 ProductViewController.productCategory: ["appliances"],
                 ProductViewController.productVariant: ["abc-123-xyz"],
-                ProductViewController.productBrand: ["acme"]])
+                ProductViewController.productBrand: ["acme"],
+                "event_title": EventNames.lookup["product"]!])
         case 3:
             hideAllViews(except: checkoutView)
-            TealiumHelper.trackView(title: "checkout", data: [CheckoutViewController.screenClass: "CheckoutViewController"])
+            TealiumHelper.trackView(title: "checkout", data: [CheckoutViewController.screenClass: "CheckoutViewController",
+                                                              "event_title": EventNames.lookup["checkout"]!])
         case 4:
             hideAllViews(except: orderView)
             let orderData: [String: Any] = [OrderViewController.orderId: Int.random(in: 0...1000) * 1000, OrderViewController.orderCurrency: "USD", OrderViewController.orderTotal: Int.random(in: 0...1000), OrderViewController.screenClass: "OrderViewController", ProductViewController.productId: ["PROD\(Int.random(in: 1...1000))", "PROD\(Int.random(in: 1...1000))"],
@@ -65,7 +67,7 @@ class EcommerceMainViewController: UIViewController {
                 ProductViewController.productName: ["fridge", "television"],
                 ProductViewController.productCategory: ["appliances", "electronics"],
                 ProductViewController.productVariant: ["abc-123-xyz", "xyz-456-abc"],
-                ProductViewController.productBrand: ["acme", "brightblue"]]
+                ProductViewController.productBrand: ["acme", "brightblue"], "event_title": EventNames.lookup["order"]!]
             TealiumHelper.trackView(title: "order", data: orderData)
         default:
             hideAllViews(except: homeStackView)
@@ -78,7 +80,7 @@ class EcommerceMainViewController: UIViewController {
     }
 
     @IBAction func signUp(_ sender: Any) {
-        TealiumHelper.trackEvent(title: "email_signup", data: [EcommerceMainViewController.signUpMethod: "shop homepage"])
+        TealiumHelper.trackEvent(title: "email_signup", data: [EcommerceMainViewController.signUpMethod: "shop homepage", "event_title": EventNames.lookup["email_signup"]!])
         let ac = UIAlertController(title: "Congrats!", message: "You're all signed up. You will receive discounts right away!", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)

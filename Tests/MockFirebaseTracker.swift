@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import FirebaseCore
 @testable import TealiumFirebase
 import TealiumRemoteCommands
-@testable import Firebase
+
 
 class MockFirebaseTracker: FirebaseTrackable {
 
@@ -34,6 +35,7 @@ class MockFirebaseTracker: FirebaseTrackable {
             logEventWithoutParamsCallCount += 1
             return
         }
+        print(params)
         logEventWithParamsCallCount += 1
     }
     

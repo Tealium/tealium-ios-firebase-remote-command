@@ -23,6 +23,7 @@ enum FirebaseConstants {
         static let logLevel = "firebase_log_level"
         static let eventName = "firebase_event_name"
         static let eventParams = "firebase_event_params"
+        static let eventKey = "event"
         static let screenName = "firebase_screen_name"
         static let screenClass = "firebase_screen_class"
         static let userPropertyName = "firebase_property_name"

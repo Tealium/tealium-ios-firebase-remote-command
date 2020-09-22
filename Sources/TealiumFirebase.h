@@ -2,11 +2,10 @@
 //  TealiumFirebase.h
 //  TealiumFirebase
 //
-//  Created by Christina Sund on 7/30/19.
-//  Copyright © 2019 Tealium. All rights reserved.
+//  Created by Christina S on 9/21/20.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for TealiumFirebase.
 FOUNDATION_EXPORT double TealiumFirebaseVersionNumber;

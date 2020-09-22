@@ -17,32 +17,36 @@ import FirebaseAnalytics
     import TealiumRemoteCommands
 #endif
 
-public class FirebaseRemoteCommand {
+public class FirebaseRemoteCommand: RemoteCommand {
 
-    var firebaseTracker: FirebaseTrackable
+    var firebaseTracker: FirebaseTrackable?
 
-    public init(firebaseTracker: FirebaseTrackable = FirebaseTracker()) {
+    public init(firebaseTracker: FirebaseTrackable = FirebaseTracker(), type: RemoteCommandType = .webview) {
         self.firebaseTracker = firebaseTracker
+        weak var selfWorkaround: FirebaseRemoteCommand?
+        super.init(commandId: FirebaseConstants.commandId,
+                   description: FirebaseConstants.description,
+            type: type,
+            completion: { response in
+                guard let payload = response.payload else {
+                    return
+                }
+                selfWorkaround?.processRemoteCommand(with: payload)
+            })
+        selfWorkaround = self
     }
 
-    public func remoteCommand() -> RemoteCommand {
-        return RemoteCommand(commandId: FirebaseConstants.commandId,
-                                    description: FirebaseConstants.description) { response in
-            guard let payload = response.payload,
-                let command = payload[FirebaseConstants.commandName] as? String else {
+    func processRemoteCommand(with payload: [String: Any]) {
+        guard let firebaseTracker = firebaseTracker,
+            let command = payload[FirebaseConstants.commandName] as? String else {
                 return
-            }
-            let commands = command.split(separator: FirebaseConstants.separator)
-            let firebaseCommands = commands.map { command in
-                return command.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            }
-            self.parseCommands(firebaseCommands, payload: payload)
         }
-    }
-
-    func parseCommands(_ commands: [String], payload: [String: Any]) {
+        let commands = command.split(separator: FirebaseConstants.separator)
+        let firebaseCommands = commands.map { command in
+            return command.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
         var firebaseLogLevel = FirebaseLoggerLevel.min
-        commands.forEach {
+        firebaseCommands.forEach {
             let command = FirebaseConstants.Commands(rawValue: $0.lowercased())
             switch command {
             case .config:
@@ -61,29 +65,36 @@ public class FirebaseRemoteCommand {
                 if let logLevel = payload[FirebaseConstants.Keys.logLevel] as? String {
                     firebaseLogLevel = self.parseLogLevel(logLevel)
                 }
-                self.firebaseTracker.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
+                firebaseTracker.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
             case .logEvent:
+                var payload = payload
                 guard let name = payload[FirebaseConstants.Keys.eventName] as? String else {
                     return
                 }
                 let eventName = self.mapEvent(name)
                 var normalizedParams = [String: Any]()
+                if let eventKeyFromJSON = payload[FirebaseConstants.Keys.eventKey] as? [String: Any] {
+                    payload[FirebaseConstants.Keys.eventParams] = eventKeyFromJSON
+                }
                 guard let params = payload[FirebaseConstants.Keys.eventParams] as? [String: Any] else {
-                    return self.firebaseTracker.logEvent(eventName, nil)
+                    firebaseTracker.logEvent(eventName, nil)
+                    return
                 }
                 if let items = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
                     var tempItems = [[String: Any]]()
                     var item = [String: Any]()
                     items.forEach {
-                        item = $0.mapParams()
+                        item = eventParameters.map($0)
                         tempItems.append(item)
                     }
                     normalizedParams[FirebaseConstants.Keys.items] = tempItems
+                } else if let items = params.extractItems(), items.count > 0 {
+                    normalizedParams[FirebaseConstants.Keys.items] = items
                 }
-                normalizedParams += params.mapParams().filter {
-                    $0.key != FirebaseConstants.Keys.paramItems
-                }
-                self.firebaseTracker.logEvent(eventName, normalizedParams)
+                normalizedParams += eventParameters
+                                        .map(params)
+                                        .filterOldItems()
+                firebaseTracker.logEvent(eventName, normalizedParams)
             case .setScreenName:
                 guard let screenName = payload[FirebaseConstants.Keys.screenName] as? String else {
                     if firebaseLogLevel == .debug {
@@ -92,21 +103,20 @@ public class FirebaseRemoteCommand {
                     return
                 }
                 let screenClass = payload[FirebaseConstants.Keys.screenClass] as? String
-                self.firebaseTracker.setScreenName(screenName, screenClass)
+                firebaseTracker.setScreenName(screenName, screenClass)
             case .setUserProperty:
-                guard let propertyName = payload[FirebaseConstants.Keys.userPropertyName] as? String else {
-                    if firebaseLogLevel == .debug {
-                        print("\(FirebaseConstants.errorPrefix)`firebase_property_name` required for setUserProperty.")
+                // Multiple user properties
+                if let propertyNames = payload[FirebaseConstants.Keys.userPropertyName] as? [String],
+                   let propertyValues = payload[FirebaseConstants.Keys.userPropertyValue] as? [String] {
+                    zip(propertyNames, propertyValues).forEach {
+                        firebaseTracker.setUserProperty($0.0, value: $0.1)
                     }
-                    return
                 }
-                guard let propertyValue = payload[FirebaseConstants.Keys.userPropertyValue] as? String else {
-                    if firebaseLogLevel == .debug {
-                        print("\(FirebaseConstants.errorPrefix)`firebase_property_value` required for setUserProperty.")
-                    }
-                    return
+                // Single user property
+                if let propertyName = payload[FirebaseConstants.Keys.userPropertyName] as? String,
+                   let propertyValue = payload[FirebaseConstants.Keys.userPropertyValue] as? String {
+                    firebaseTracker.setUserProperty(propertyName, value: propertyValue)
                 }
-                self.firebaseTracker.setUserProperty(propertyName, value: propertyValue)
             case .setUserId:
                 guard let userId = payload[FirebaseConstants.Keys.userId] as? String else {
                     if firebaseLogLevel == .debug {
@@ -114,7 +124,7 @@ public class FirebaseRemoteCommand {
                     }
                     return
                 }
-                self.firebaseTracker.setUserId(userId)
+                firebaseTracker.setUserId(userId)
             default:
                 return
             }
@@ -184,7 +194,7 @@ public class FirebaseRemoteCommand {
         return eventsMap[eventName] ?? eventName
     }
 
-    static let eventParameters = [
+    let eventParameters = [
         "param_achievement_id": AnalyticsParameterAchievementID,
         "param_ad_network_click_id": AnalyticsParameterAdNetworkClickID,
         "param_affiliation": AnalyticsParameterAffiliation,
@@ -247,17 +257,36 @@ public class FirebaseRemoteCommand {
         "param_user_signup_method": AnalyticsUserPropertySignUpMethod
     ]
     
-    static func mapParam(_ param: String) -> String {
-        FirebaseRemoteCommand.eventParameters[param] ?? param
-    }
+    static let firebaseItemKeys = [
+           "param_item_id",
+           "param_item_name",
+           "param_quantity",
+           "param_item_category",
+           "param_item_variant",
+           "param_item_brand",
+           "param_price"
+       ]
 
 }
 
-extension Dictionary where Key == String, Value == Any {
-    func mapParams() -> [String: Any] {
+fileprivate extension Dictionary where Key == String, Value == String {
+    func map(_ payload: [String: Any]) -> [String: Any] {
         return self.reduce(into: [String: Any]()) { result, dictionary in
-            let newKey = FirebaseRemoteCommand.mapParam(dictionary.key)
-            result[newKey] = dictionary.value
+            if payload[dictionary.key] != nil {
+                result[dictionary.value] = payload[dictionary.key]
+            }
         }
+    }
+}
+
+fileprivate extension Dictionary where Key == String, Value == Any {
+    func extractItems() -> [[String: Any]]? {
+        FirebaseItems(from: self)?.dictionaryArray
+    }
+    func filterOldItems() -> [String: Any] {
+        self.filter { !FirebaseRemoteCommand
+                            .firebaseItemKeys
+                            .joined()
+                            .contains($0.key) }
     }
 }

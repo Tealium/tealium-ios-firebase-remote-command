@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TealiumRemoteCommands
 
 struct RemoteCommandResponsePayload: Codable {
     var config: [String: String]
@@ -50,6 +51,20 @@ class HttpTestHelpers {
             return URLRequest(url: url).description
         }
         
+        return nil
+    }
+    
+    class func createRemoteCommandResponse(type: SimpleCommandType, commandId: String, payload: [String: Any]) -> RemoteCommandResponseProtocol? {
+        switch type {
+        case .webview:
+            let responseDescription = HttpTestHelpers.httpRequestDescription(commandId: commandId, config: [:], payload: payload)
+            if let description = responseDescription {
+                return RemoteCommandResponse(urlString: description)
+            }
+        case .JSON:
+            return JSONRemoteCommandResponse(with: payload)
+        }
+        print("Could not create Remote Command Response description from stubs provided")
         return nil
     }
     

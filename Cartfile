@@ -1,0 +1,2 @@
+git "file:///Users/christina/Projects/work-repos/github/tealium-swift-builder" "json-rc-merge"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json"

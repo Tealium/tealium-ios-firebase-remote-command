@@ -1,0 +1,2 @@
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" "6.33.0"
+git "file:///Users/christina/Projects/work-repos/github/tealium-swift-builder" "249cf65ca3384fb67a75da28d0dd37305085587e"

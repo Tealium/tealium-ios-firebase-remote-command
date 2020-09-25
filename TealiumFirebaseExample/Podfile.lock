@@ -1,6 +1,6 @@
 PODS:
-  - Firebase/Analytics (6.31.1):
-    - Firebase/Core
+  - Firebase (6.31.1):
+    - Firebase/Core (= 6.31.1)
   - Firebase/Core (6.31.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.8.0)
@@ -69,13 +69,16 @@ PODS:
     - tealium-swift/Core
   - tealium-swift/TagManagement (2.0.0):
     - tealium-swift/Core
+  - TealiumFirebase (2.0.0):
+    - Firebase (~> 6.3)
+    - FirebaseAnalytics (~> 6.6)
+    - tealium-swift/Core (~> 2.0)
+    - tealium-swift/RemoteCommands (~> 2.0)
+    - tealium-swift/TagManagement (~> 2.0)
 
 DEPENDENCIES:
-  - Firebase/Analytics
-  - tealium-swift/Core (from `/Users/christina/Projects/work-repos/github/tealium-swift-builder`)
-  - tealium-swift/Lifecycle (from `/Users/christina/Projects/work-repos/github/tealium-swift-builder`)
-  - tealium-swift/RemoteCommands (from `/Users/christina/Projects/work-repos/github/tealium-swift-builder`)
-  - tealium-swift/TagManagement (from `/Users/christina/Projects/work-repos/github/tealium-swift-builder`)
+  - tealium-swift/Lifecycle (~> 2.0)
+  - TealiumFirebase (from `../`)
 
 SPEC REPOS:
   trunk:
@@ -89,10 +92,11 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - tealium-swift
 
 EXTERNAL SOURCES:
-  tealium-swift:
-    :path: "/Users/christina/Projects/work-repos/github/tealium-swift-builder"
+  TealiumFirebase:
+    :path: "../"
 
 SPEC CHECKSUMS:
   Firebase: 658370fa0181826a74b7cfca8d68c5856ca749ae
@@ -106,7 +110,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   tealium-swift: c0b58cc749d23805790de1472407723fa41da2dc
+  TealiumFirebase: 04a7972df6b923d8b4c5424c2e27109ac53e0f91
 
-PODFILE CHECKSUM: e7dac4e3c097169c3e0509dbac757af249e14ac7
+PODFILE CHECKSUM: 4d99f7e1bb815146eda09effd61733b1ea9510b0
 
 COCOAPODS: 1.9.3

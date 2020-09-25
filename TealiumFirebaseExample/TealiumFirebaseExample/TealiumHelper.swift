@@ -8,6 +8,7 @@
 
 import Foundation
 import TealiumSwift
+import TealiumFirebase
 
 enum TealiumConfiguration {
     static let account = "tealiummobile"

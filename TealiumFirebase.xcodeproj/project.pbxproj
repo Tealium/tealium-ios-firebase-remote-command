@@ -42,8 +42,6 @@
 		CF71DB66251BA7B400E96CC4 /* FIRAnalyticsConnector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB50251BA7B300E96CC4 /* FIRAnalyticsConnector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF71DB67251BA7B500E96CC4 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB51251BA7B300E96CC4 /* GoogleUtilities.framework */; };
 		CF71DB68251BA7B500E96CC4 /* GoogleUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB51251BA7B300E96CC4 /* GoogleUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB69251BA7B500E96CC4 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB52251BA7B300E96CC4 /* Firebase.framework */; };
-		CF71DB6A251BA7B500E96CC4 /* Firebase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB52251BA7B300E96CC4 /* Firebase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF71DB6C251BA7B500E96CC4 /* TealiumRemoteCommands.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB53251BA7B300E96CC4 /* TealiumRemoteCommands.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF71DB6D251BA7B500E96CC4 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB54251BA7B300E96CC4 /* FirebaseCore.framework */; };
 		CF71DB6E251BA7B500E96CC4 /* FirebaseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB54251BA7B300E96CC4 /* FirebaseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -90,7 +88,6 @@
 				CF71DB60251BA7B400E96CC4 /* FirebaseInstallations.framework in Embed Frameworks */,
 				CF71DB62251BA7B400E96CC4 /* GoogleAppMeasurement.framework in Embed Frameworks */,
 				CF71DB5A251BA7B400E96CC4 /* PromisesObjC.framework in Embed Frameworks */,
-				CF71DB6A251BA7B500E96CC4 /* Firebase.framework in Embed Frameworks */,
 				CF71DB64251BA7B400E96CC4 /* FirebaseAnalytics.framework in Embed Frameworks */,
 				CF71DB6E251BA7B500E96CC4 /* FirebaseCore.framework in Embed Frameworks */,
 				CF71DB5E251BA7B400E96CC4 /* nanopb.framework in Embed Frameworks */,
@@ -159,7 +156,6 @@
 				CF71DB5F251BA7B400E96CC4 /* FirebaseInstallations.framework in Frameworks */,
 				CF71DB61251BA7B400E96CC4 /* GoogleAppMeasurement.framework in Frameworks */,
 				CF71DB59251BA7B400E96CC4 /* PromisesObjC.framework in Frameworks */,
-				CF71DB69251BA7B500E96CC4 /* Firebase.framework in Frameworks */,
 				CF71DB63251BA7B400E96CC4 /* FirebaseAnalytics.framework in Frameworks */,
 				CF71DB6D251BA7B500E96CC4 /* FirebaseCore.framework in Frameworks */,
 				CF71DB5D251BA7B400E96CC4 /* nanopb.framework in Frameworks */,

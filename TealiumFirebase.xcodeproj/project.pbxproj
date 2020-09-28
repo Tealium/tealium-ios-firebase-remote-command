@@ -16,6 +16,10 @@
 		CF3277A0252288F300696BB4 /* TealiumCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF71DB4B251BA7B300E96CC4 /* TealiumCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF3277A1252288F300696BB4 /* TealiumRemoteCommands.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF71DB53251BA7B300E96CC4 /* TealiumRemoteCommands.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF3277A2252288F300696BB4 /* TealiumTagManagement.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF71DB56251BA7B300E96CC4 /* TealiumTagManagement.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF3277B02522962E00696BB4 /* FirebaseTracker.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseTracker.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF6C44EC25199905002648A0 /* TealiumFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = CF6C44EA25199905002648A0 /* TealiumFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF6C450425199947002648A0 /* FirebaseTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450025199946002648A0 /* FirebaseTrackerTests.swift */; };
 		CF6C450525199947002648A0 /* FirebaseCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450125199946002648A0 /* FirebaseCommandTests.swift */; };
@@ -263,6 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6C44EC25199905002648A0 /* TealiumFirebase.h in Headers */,
+				CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */,
+				CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */,
+				CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */,
+				CF3277B02522962E00696BB4 /* FirebaseTracker.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +590,7 @@
 		CF6C44E32519986B002648A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XC939GDC9P;
@@ -607,6 +616,7 @@
 		CF6C44E42519986B002648A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XC939GDC9P;

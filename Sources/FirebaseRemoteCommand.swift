@@ -90,6 +90,8 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     normalizedParams[FirebaseConstants.Keys.items] = tempItems
                 } else if let items = params.extractItems(), items.count > 0 {
                     normalizedParams[FirebaseConstants.Keys.items] = items
+                } else if let items = params.itemsToArray().extractItems(), items.count > 0 {
+                    normalizedParams[FirebaseConstants.Keys.items] = items
                 }
                 normalizedParams += eventParameters
                                         .map(params)

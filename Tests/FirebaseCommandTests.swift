@@ -153,5 +153,4 @@ class FirebaseCommandTests: XCTestCase {
         }
                 
     }
-    
 }

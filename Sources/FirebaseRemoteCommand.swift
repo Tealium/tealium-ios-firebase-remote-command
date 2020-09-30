@@ -296,7 +296,10 @@ fileprivate extension Dictionary where Key == String, Value == Any {
             if dictionary.key.contains("item_") ||
                 dictionary.key.contains("quantity") ||
                 dictionary.key.contains("price") {
-                result[dictionary.key] = [dictionary.value]
+                guard let _ = dictionary.value as? [Any] else {
+                    result[dictionary.key] = [dictionary.value]
+                    return
+                }
             }
         }
     }

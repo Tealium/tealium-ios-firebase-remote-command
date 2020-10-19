@@ -1,5 +1,5 @@
 //
-//  MockFirebaseTracker.swift
+//  MockFirebaseInstance.swift
 //  FirebaseTests
 //
 //  Created by Christina S on 7/12/19.
@@ -12,7 +12,7 @@ import FirebaseCore
 import TealiumRemoteCommands
 
 
-class MockFirebaseTracker: FirebaseTrackable {
+class MockFirebaseInstance: FirebaseCommand {
 
     var createAnalyticsConfigCallCount = 0
     

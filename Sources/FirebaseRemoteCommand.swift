@@ -19,10 +19,10 @@ import FirebaseAnalytics
 
 public class FirebaseRemoteCommand: RemoteCommand {
 
-    var firebaseTracker: FirebaseTrackable?
+    var firebaseInstance: FirebaseCommand?
 
-    public init(firebaseTracker: FirebaseTrackable = FirebaseTracker(), type: RemoteCommandType = .webview) {
-        self.firebaseTracker = firebaseTracker
+    public init(firebaseInstance: FirebaseCommand = FirebaseInstance(), type: RemoteCommandType = .webview) {
+        self.firebaseInstance = firebaseInstance
         weak var selfWorkaround: FirebaseRemoteCommand?
         super.init(commandId: FirebaseConstants.commandId,
                    description: FirebaseConstants.description,
@@ -37,7 +37,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
     }
 
     func processRemoteCommand(with payload: [String: Any]) {
-        guard let firebaseTracker = firebaseTracker,
+        guard let firebaseInstance = firebaseInstance,
             let command = payload[FirebaseConstants.commandName] as? String else {
                 return
         }
@@ -65,7 +65,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 if let logLevel = payload[FirebaseConstants.Keys.logLevel] as? String {
                     firebaseLogLevel = self.parseLogLevel(logLevel)
                 }
-                firebaseTracker.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
+                firebaseInstance.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
             case .logEvent:
                 var payload = payload
                 guard let name = payload[FirebaseConstants.Keys.eventName] as? String else {
@@ -77,7 +77,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     payload[FirebaseConstants.Keys.eventParams] = eventKeyFromJSON
                 }
                 guard let params = payload[FirebaseConstants.Keys.eventParams] as? [String: Any] else {
-                    firebaseTracker.logEvent(eventName, nil)
+                    firebaseInstance.logEvent(eventName, nil)
                     return
                 }
                 if let items = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
@@ -96,7 +96,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 normalizedParams += eventParameters
                                         .map(params)
                                         .filterOldItems()
-                firebaseTracker.logEvent(eventName, normalizedParams)
+                firebaseInstance.logEvent(eventName, normalizedParams)
             case .setScreenName:
                 guard let screenName = payload[FirebaseConstants.Keys.screenName] as? String else {
                     if firebaseLogLevel == .debug {
@@ -105,19 +105,19 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     return
                 }
                 let screenClass = payload[FirebaseConstants.Keys.screenClass] as? String
-                firebaseTracker.setScreenName(screenName, screenClass)
+                firebaseInstance.setScreenName(screenName, screenClass)
             case .setUserProperty:
                 // Multiple user properties
                 if let propertyNames = payload[FirebaseConstants.Keys.userPropertyName] as? [String],
                    let propertyValues = payload[FirebaseConstants.Keys.userPropertyValue] as? [String] {
                     zip(propertyNames, propertyValues).forEach {
-                        firebaseTracker.setUserProperty($0.0, value: $0.1)
+                        firebaseInstance.setUserProperty($0.0, value: $0.1)
                     }
                 }
                 // Single user property
                 if let propertyName = payload[FirebaseConstants.Keys.userPropertyName] as? String,
                    let propertyValue = payload[FirebaseConstants.Keys.userPropertyValue] as? String {
-                    firebaseTracker.setUserProperty(propertyName, value: propertyValue)
+                    firebaseInstance.setUserProperty(propertyName, value: propertyValue)
                 }
             case .setUserId:
                 guard let userId = payload[FirebaseConstants.Keys.userId] as? String else {
@@ -126,7 +126,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     }
                     return
                 }
-                firebaseTracker.setUserId(userId)
+                firebaseInstance.setUserId(userId)
             default:
                 return
             }

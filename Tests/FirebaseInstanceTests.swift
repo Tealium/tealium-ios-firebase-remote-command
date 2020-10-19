@@ -1,5 +1,5 @@
 //
-//  FirebaseTrackerTests.swift
+//  FirebaseInstanceTests.swift
 //  FirebaseTests
 //
 //  Created by Christina S on 7/12/19.
@@ -10,14 +10,14 @@ import XCTest
 @testable import TealiumFirebase
 import TealiumRemoteCommands
 
-class FirebaseTrackerTests: XCTestCase {
+class FirebaseInstanceTests: XCTestCase {
 
-    let firebaseTracker = MockFirebaseTracker()
+    let firebaseInstance = MockFirebaseInstance()
     var firebaseCommand: FirebaseRemoteCommand!
     var remoteCommand: RemoteCommand!
 
     override func setUp() {
-        firebaseCommand = FirebaseRemoteCommand(firebaseTracker: firebaseTracker)
+        firebaseCommand = FirebaseRemoteCommand(firebaseInstance: firebaseInstance)
     }
 
     override func tearDown() { }
@@ -28,7 +28,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "config"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.createAnalyticsConfigCallCount)
+            XCTAssertEqual(1, firebaseInstance.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -39,7 +39,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "config", "firebase_session_timeout_seconds": "60", "firebase_session_minimum_seconds": "30", "firebase_analytics_enabled": "true", "firebase_log_level": "max"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.createAnalyticsConfigCallCount)
+            XCTAssertEqual(1, firebaseInstance.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -50,7 +50,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "initialize"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.createAnalyticsConfigCallCount)
+            XCTAssertEqual(0, firebaseInstance.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -73,7 +73,7 @@ class FirebaseTrackerTests: XCTestCase {
         ]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.logEventWithParamsCallCount)
+            XCTAssertEqual(1, firebaseInstance.logEventWithParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -84,7 +84,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "event_level_up"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.logEventWithoutParamsCallCount)
+            XCTAssertEqual(1, firebaseInstance.logEventWithoutParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -95,7 +95,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setscreenname", "firebase_screen_name": "product_view", "firebase_screen_class": "ProductDetailViewController"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.setScreenNameCallCount)
+            XCTAssertEqual(1, firebaseInstance.setScreenNameCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -106,7 +106,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setscreenname"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.setScreenNameCallCount)
+            XCTAssertEqual(0, firebaseInstance.setScreenNameCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -117,7 +117,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty", "firebase_property_name": "favorite_color", "firebase_property_value": "blue"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.setUserPropertyCallCount)
+            XCTAssertEqual(1, firebaseInstance.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -128,7 +128,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.setUserPropertyCallCount)
+            XCTAssertEqual(0, firebaseInstance.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -139,7 +139,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty", "firebase_property_name": ["favorite_color", "nickname"], "firebase_property_value": ["blue", "sparky"]]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(2, firebaseTracker.setUserPropertyCallCount)
+            XCTAssertEqual(2, firebaseInstance.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -150,7 +150,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserid", "firebase_user_id": "abc123"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.setUserIdCallCount)
+            XCTAssertEqual(1, firebaseInstance.setUserIdCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -161,7 +161,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserid"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.setUserIdCallCount)
+            XCTAssertEqual(0, firebaseInstance.setUserIdCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -172,7 +172,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "ecommerce_purchase", "coupon": "couponCode", "currency": "AUD", "value": 19.99, "tax": 1.99, "shipping": 2.00, "transaction_id": "1232312321"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.logEventWithParamsCallCount)
+            XCTAssertEqual(0, firebaseInstance.logEventWithParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -183,7 +183,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "event_ecommerce_purchase", "param_coupon": "couponCode", "param_currency": "AUD", "param_value": 19.99, "param_tax": 1.99, "param_shipping": 2.00, "param_transaction_id": "1232312321"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.logEventWithParamsCallCount)
+            XCTAssertEqual(0, firebaseInstance.logEventWithParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -195,7 +195,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "config"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.createAnalyticsConfigCallCount)
+            XCTAssertEqual(1, firebaseInstance.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -206,7 +206,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "config", "firebase_session_timeout_seconds": "60", "firebase_session_minimum_seconds": "30", "firebase_analytics_enabled": "true", "firebase_log_level": "max"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.createAnalyticsConfigCallCount)
+            XCTAssertEqual(1, firebaseInstance.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -217,7 +217,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "initialize"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.createAnalyticsConfigCallCount)
+            XCTAssertEqual(0, firebaseInstance.createAnalyticsConfigCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -240,7 +240,7 @@ class FirebaseTrackerTests: XCTestCase {
         ]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.logEventWithParamsCallCount)
+            XCTAssertEqual(1, firebaseInstance.logEventWithParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -251,7 +251,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "event_level_up"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.logEventWithoutParamsCallCount)
+            XCTAssertEqual(1, firebaseInstance.logEventWithoutParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -262,7 +262,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setscreenname", "firebase_screen_name": "product_view", "firebase_screen_class": "ProductDetailViewController"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.setScreenNameCallCount)
+            XCTAssertEqual(1, firebaseInstance.setScreenNameCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -273,7 +273,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setscreenname"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.setScreenNameCallCount)
+            XCTAssertEqual(0, firebaseInstance.setScreenNameCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -284,7 +284,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty", "firebase_property_name": "favorite_color", "firebase_property_value": "blue"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.setUserPropertyCallCount)
+            XCTAssertEqual(1, firebaseInstance.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -295,7 +295,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.setUserPropertyCallCount)
+            XCTAssertEqual(0, firebaseInstance.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -306,7 +306,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserproperty", "firebase_property_name": ["favorite_color", "nickname"], "firebase_property_value": ["blue", "sparky"]]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(2, firebaseTracker.setUserPropertyCallCount)
+            XCTAssertEqual(2, firebaseInstance.setUserPropertyCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -317,7 +317,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserid", "firebase_user_id": "abc123"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(1, firebaseTracker.setUserIdCallCount)
+            XCTAssertEqual(1, firebaseInstance.setUserIdCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -328,7 +328,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setuserid"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.setUserIdCallCount)
+            XCTAssertEqual(0, firebaseInstance.setUserIdCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -339,7 +339,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "ecommerce_purchase", "coupon": "couponCode", "currency": "AUD", "value": 19.99, "tax": 1.99, "shipping": 2.00, "transaction_id": "1232312321"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.logEventWithParamsCallCount)
+            XCTAssertEqual(0, firebaseInstance.logEventWithParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
@@ -350,7 +350,7 @@ class FirebaseTrackerTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "event_ecommerce_purchase", "param_coupon": "couponCode", "param_currency": "AUD", "param_value": 19.99, "param_tax": 1.99, "param_shipping": 2.00, "param_transaction_id": "1232312321"]
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
-            XCTAssertEqual(0, firebaseTracker.logEventWithParamsCallCount)
+            XCTAssertEqual(0, firebaseInstance.logEventWithParamsCallCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)

@@ -19,15 +19,15 @@
 		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF3277B02522962E00696BB4 /* FirebaseTracker.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseTracker.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF3277B02522962E00696BB4 /* FirebaseInstance.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseInstance.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277B22522985B00696BB4 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; };
 		CF3277B32522985B00696BB4 /* FirebaseItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; };
 		CF3277B42522985B00696BB4 /* FirebaseRemoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; };
-		CF3277B52522985B00696BB4 /* FirebaseTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseTracker.swift */; };
+		CF3277B52522985B00696BB4 /* FirebaseInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseInstance.swift */; };
 		CF6C44EC25199905002648A0 /* TealiumFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = CF6C44EA25199905002648A0 /* TealiumFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF6C450425199947002648A0 /* FirebaseTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450025199946002648A0 /* FirebaseTrackerTests.swift */; };
+		CF6C450425199947002648A0 /* FirebaseInstanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */; };
 		CF6C450525199947002648A0 /* FirebaseCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450125199946002648A0 /* FirebaseCommandTests.swift */; };
-		CF6C450625199947002648A0 /* MockFirebaseTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450225199946002648A0 /* MockFirebaseTracker.swift */; };
+		CF6C450625199947002648A0 /* MockFirebaseInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450225199946002648A0 /* MockFirebaseInstance.swift */; };
 		CF6C450725199947002648A0 /* HttpTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450325199946002648A0 /* HttpTestHelpers.swift */; };
 		CF71DB57251BA7B400E96CC4 /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */; };
 		CF71DB58251BA7B400E96CC4 /* GoogleDataTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -123,14 +123,14 @@
 		CF6C44EB25199905002648A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6C44F225199913002648A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6C44FD25199946002648A0 /* TealiumFirebaseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TealiumFirebaseTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		CF6C450025199946002648A0 /* FirebaseTrackerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseTrackerTests.swift; sourceTree = "<group>"; };
+		CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceTests.swift; sourceTree = "<group>"; };
 		CF6C450125199946002648A0 /* FirebaseCommandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseCommandTests.swift; sourceTree = "<group>"; };
-		CF6C450225199946002648A0 /* MockFirebaseTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirebaseTracker.swift; sourceTree = "<group>"; };
+		CF6C450225199946002648A0 /* MockFirebaseInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirebaseInstance.swift; sourceTree = "<group>"; };
 		CF6C450325199946002648A0 /* HttpTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTestHelpers.swift; sourceTree = "<group>"; };
 		CF6C450C25199951002648A0 /* FirebaseItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseItems.swift; sourceTree = "<group>"; };
 		CF6C450D25199951002648A0 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteCommand.swift; sourceTree = "<group>"; };
-		CF6C450F25199952002648A0 /* FirebaseTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseTracker.swift; sourceTree = "<group>"; };
+		CF6C450F25199952002648A0 /* FirebaseInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstance.swift; sourceTree = "<group>"; };
 		CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
 		CF71DB4A251BA7B300E96CC4 /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = Carthage/Build/iOS/PromisesObjC.framework; sourceTree = "<group>"; };
 		CF71DB4B251BA7B300E96CC4 /* TealiumCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TealiumCore.framework; path = Carthage/Build/iOS/TealiumCore.framework; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				CF6C450D25199951002648A0 /* FirebaseConstants.swift */,
 				CF6C450C25199951002648A0 /* FirebaseItems.swift */,
 				CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */,
-				CF6C450F25199952002648A0 /* FirebaseTracker.swift */,
+				CF6C450F25199952002648A0 /* FirebaseInstance.swift */,
 				CF6C44EA25199905002648A0 /* TealiumFirebase.h */,
 				CF6C44EB25199905002648A0 /* Info.plist */,
 			);
@@ -229,9 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				CF6C450125199946002648A0 /* FirebaseCommandTests.swift */,
-				CF6C450025199946002648A0 /* FirebaseTrackerTests.swift */,
+				CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */,
 				CF6C450325199946002648A0 /* HttpTestHelpers.swift */,
-				CF6C450225199946002648A0 /* MockFirebaseTracker.swift */,
+				CF6C450225199946002648A0 /* MockFirebaseInstance.swift */,
 				CF6C44F225199913002648A0 /* Info.plist */,
 				CF6C44FD25199946002648A0 /* TealiumFirebaseTests-Bridging-Header.h */,
 			);
@@ -270,7 +270,7 @@
 				CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */,
 				CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */,
 				CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */,
-				CF3277B02522962E00696BB4 /* FirebaseTracker.swift in Headers */,
+				CF3277B02522962E00696BB4 /* FirebaseInstance.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +383,7 @@
 				CF3277B22522985B00696BB4 /* FirebaseConstants.swift in Sources */,
 				CF3277B32522985B00696BB4 /* FirebaseItems.swift in Sources */,
 				CF3277B42522985B00696BB4 /* FirebaseRemoteCommand.swift in Sources */,
-				CF3277B52522985B00696BB4 /* FirebaseTracker.swift in Sources */,
+				CF3277B52522985B00696BB4 /* FirebaseInstance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,8 +392,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6C450525199947002648A0 /* FirebaseCommandTests.swift in Sources */,
-				CF6C450425199947002648A0 /* FirebaseTrackerTests.swift in Sources */,
-				CF6C450625199947002648A0 /* MockFirebaseTracker.swift in Sources */,
+				CF6C450425199947002648A0 /* FirebaseInstanceTests.swift in Sources */,
+				CF6C450625199947002648A0 /* MockFirebaseInstance.swift in Sources */,
 				CF6C450725199947002648A0 /* HttpTestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

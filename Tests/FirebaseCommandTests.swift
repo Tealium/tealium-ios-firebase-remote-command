@@ -22,11 +22,11 @@ class FirebaseCommandTests: XCTestCase {
     var acceptedTealiumVariableNames = [String]()
     var firebaseParameterNames = [String]()
     
-    var mockFirebaseTracker = MockFirebaseTracker()
+    var mockFirebaseTracker = MockFirebaseInstance()
     var firebaseCommand: FirebaseRemoteCommand!
     
     override func setUp() {
-        firebaseCommand = FirebaseRemoteCommand(firebaseTracker: mockFirebaseTracker)
+        firebaseCommand = FirebaseRemoteCommand(firebaseInstance: mockFirebaseTracker)
     }
 
     override func tearDown() { }

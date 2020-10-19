@@ -1,5 +1,5 @@
 //
-//  FirebaseTracker.swift
+//  FirebaseInstance.swift
 //  TealiumFirebase
 //
 //  Created by Christina S on 7/11/19.
@@ -10,7 +10,7 @@ import Foundation
 import FirebaseCore
 import FirebaseAnalytics
 
-public protocol FirebaseTrackable {
+public protocol FirebaseCommand {
     func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel)
     func logEvent(_ name: String, _ params: [String: Any]?)
     func setScreenName(_ screenName: String, _ screenClass: String?)
@@ -18,7 +18,7 @@ public protocol FirebaseTrackable {
     func setUserId(_ id: String)
 }
 
-public class FirebaseTracker: FirebaseTrackable {
+public class FirebaseInstance: FirebaseCommand {
     
     public init() { }
     

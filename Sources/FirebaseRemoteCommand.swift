@@ -23,7 +23,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
 
     public init(firebaseInstance: FirebaseCommand = FirebaseInstance(), type: RemoteCommandType = .webview) {
         self.firebaseInstance = firebaseInstance
-        weak var selfWorkaround: FirebaseRemoteCommand?
+        weak var weakSelf: FirebaseRemoteCommand?
         super.init(commandId: FirebaseConstants.commandId,
                    description: FirebaseConstants.description,
             type: type,
@@ -31,9 +31,9 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 guard let payload = response.payload else {
                     return
                 }
-                selfWorkaround?.processRemoteCommand(with: payload)
+                weakSelf?.processRemoteCommand(with: payload)
             })
-        selfWorkaround = self
+        weakSelf = self
     }
 
     func processRemoteCommand(with payload: [String: Any]) {

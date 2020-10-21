@@ -144,7 +144,7 @@ class FirebaseCommandTests: XCTestCase {
         "item_brand": "roadrunner",
         "price": 14.99]]
         
-        guard let actual = try? XCTUnwrap(FirebaseItems(from: payload)?.dictionaryArray) else {
+        guard let actual = try? XCTUnwrap([FirebaseItem](from: payload)?.dictionaryArray) else {
             return
         }
         

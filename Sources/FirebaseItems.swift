@@ -8,7 +8,6 @@
 
 import Foundation
 
-typealias FirebaseItems = [FirebaseItem]
 struct FirebaseItemArray: Codable {
     var id: [String]
     var name: [String]?
@@ -49,7 +48,7 @@ struct FirebaseItem: Codable {
     }
 }
 
-extension FirebaseItems {
+extension Array where Element == FirebaseItem {
     init?(from dictionary: [String: Any]) {
         var items = [FirebaseItem]()
         guard

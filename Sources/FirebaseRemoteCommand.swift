@@ -283,7 +283,7 @@ fileprivate extension Dictionary where Key == String, Value == String {
 
 fileprivate extension Dictionary where Key == String, Value == Any {
     func extractItems() -> [[String: Any]]? {
-        FirebaseItems(from: self)?.dictionaryArray
+        [FirebaseItem](from: self)?.dictionaryArray
     }
     func filterOldItems() -> [String: Any] {
         self.filter { !FirebaseRemoteCommand

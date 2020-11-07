@@ -69,12 +69,12 @@ PODS:
     - tealium-swift/Core
   - tealium-swift/TagManagement (2.1.0):
     - tealium-swift/Core
-  - TealiumFirebase (2.0.0):
+  - TealiumFirebase (2.0.1):
     - Firebase (~> 6.3)
     - FirebaseAnalytics (~> 6.6)
-    - tealium-swift/Core (~> 2.1)
-    - tealium-swift/RemoteCommands (~> 2.1)
-    - tealium-swift/TagManagement (~> 2.1)
+    - tealium-swift/Core (~> 2)
+    - tealium-swift/RemoteCommands (~> 2)
+    - tealium-swift/TagManagement (~> 2)
 
 DEPENDENCIES:
   - tealium-swift/Lifecycle (~> 2.1)
@@ -110,7 +110,7 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   tealium-swift: a670c2c6f3e7e5d775d9507387e8858a8541e526
-  TealiumFirebase: 26353b61e3c87074e9ba98a8960fcb2268aa9f35
+  TealiumFirebase: fdd2c059462b674fe9b6304e3308b4a6f089d45e
 
 PODFILE CHECKSUM: 1f04dcf554d5230ff57cbd50804514a1b168ea96
 

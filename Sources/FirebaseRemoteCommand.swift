@@ -77,7 +77,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     payload[FirebaseConstants.Keys.eventParams] = eventKeyFromJSON
                 }
                 guard let params = payload[FirebaseConstants.Keys.eventParams] as? [String: Any] else {
-                    firebaseInstance.logEvent(eventName, nil)
+                    firebaseInstance.logEvent(eventName, items(from: payload))
                     return
                 }
                 if let items = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
@@ -88,14 +88,8 @@ public class FirebaseRemoteCommand: RemoteCommand {
                         tempItems.append(item)
                     }
                     normalizedParams[FirebaseConstants.Keys.items] = tempItems
-                } else if let items = params.extractItems(), items.count > 0 {
-                    normalizedParams[FirebaseConstants.Keys.items] = items
-                } else if let items = params.itemsToArray().extractItems(), items.count > 0 {
-                    normalizedParams[FirebaseConstants.Keys.items] = items
                 }
-                normalizedParams += eventParameters
-                                        .map(params)
-                                        .filterOldItems()
+                normalizedParams += items(from: params)
                 firebaseInstance.logEvent(eventName, normalizedParams)
             case .setScreenName:
                 guard let screenName = payload[FirebaseConstants.Keys.screenName] as? String else {
@@ -132,6 +126,30 @@ public class FirebaseRemoteCommand: RemoteCommand {
             }
         }
     }
+    
+    func items(from payload: [String: Any]) -> [String: Any] {
+        var result = [String: Any]()
+
+        func prepare(items: [String: Any]) -> [String: Any] {
+            var result = [String: Any]()
+            if let items = items.extractItems(), items.count > 0 {
+                result[FirebaseConstants.Keys.items] = items
+            } else if let items = items.itemsToArray().extractItems(), items.count > 0 {
+                result[FirebaseConstants.Keys.items] = items
+            }
+            return result
+        }
+        
+        if let jsonItems = payload[FirebaseConstants.Keys.items] as? [String: Any] {
+            result = prepare(items: jsonItems)
+        } else {
+            result = prepare(items: payload)
+        }
+        result += eventParameters
+                        .map(payload)
+                        .filterOldItems()
+        return result
+    }
 
     func parseLogLevel(_ logLevel: String) -> FirebaseLoggerLevel {
         switch logLevel {
@@ -163,9 +181,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "event_app_open": AnalyticsEventAppOpen,
             "event_begin_checkout": AnalyticsEventBeginCheckout,
             "event_campaign_details": AnalyticsEventCampaignDetails,
-            "event_checkout_progress": AnalyticsEventCheckoutProgress,
             "event_earn_virtual_currency": AnalyticsEventEarnVirtualCurrency,
-            "event_ecommerce_purchase": AnalyticsEventEcommercePurchase,
             "event_generate_lead": AnalyticsEventGenerateLead,
             "event_join_group": AnalyticsEventJoinGroup,
             "event_level_end": AnalyticsEventLevelEnd,
@@ -173,16 +189,16 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "event_level_up": AnalyticsEventLevelUp,
             "event_login": AnalyticsEventLogin,
             "event_post_score": AnalyticsEventPostScore,
-            "event_present_offer": AnalyticsEventPresentOffer,
+            "event_present_offer": AnalyticsEventViewPromotion,
+            "event_ecommerce_purchase": AnalyticsEventPurchase,
             "event_purchase": AnalyticsEventPurchase,
-            "event_purchase_refund": AnalyticsEventPurchaseRefund,
+            "event_purchase_refund": AnalyticsEventRefund,
             "event_refund": AnalyticsEventRefund,
             "event_remove_cart": AnalyticsEventRemoveFromCart,
             "event_search": AnalyticsEventSearch,
             "event_select_content": AnalyticsEventSelectContent,
             "event_select_item": AnalyticsEventSelectItem,
             "event_select_promotion": AnalyticsEventSelectPromotion,
-            "event_set_checkout_option": AnalyticsEventSetCheckoutOption,
             "event_share": AnalyticsEventShare,
             "event_signup": AnalyticsEventSignUp,
             "event_spend_virtual_currency": AnalyticsEventSpendVirtualCurrency,
@@ -203,8 +219,6 @@ public class FirebaseRemoteCommand: RemoteCommand {
         "param_cp1": AnalyticsParameterCP1,
         "param_campaign": AnalyticsParameterCampaign,
         "param_character": AnalyticsParameterCharacter,
-        "param_checkout_option": AnalyticsParameterCheckoutOption,
-        "param_checkout_step": AnalyticsParameterCheckoutStep,
         "param_content": AnalyticsParameterContent,
         "param_content_type": AnalyticsParameterContentType,
         "param_coupon": AnalyticsParameterCoupon,
@@ -221,10 +235,10 @@ public class FirebaseRemoteCommand: RemoteCommand {
         "param_item_brand": AnalyticsParameterItemBrand,
         "param_item_category": AnalyticsParameterItemCategory,
         "param_item_id": AnalyticsParameterItemID,
-        "param_item_list": AnalyticsParameterItemList,
+        "param_item_list": AnalyticsParameterItemListName,
         "param_item_list_id": AnalyticsParameterItemListID,
         "param_item_list_name": AnalyticsParameterItemListName,
-        "param_item_location_id": AnalyticsParameterItemLocationID,
+        "param_item_location_id": AnalyticsParameterLocationID,
         "param_item_name": AnalyticsParameterItemName,
         "param_item_variant": AnalyticsParameterItemVariant,
         "param_level": AnalyticsParameterLevel,
@@ -246,7 +260,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
         "param_search_term": AnalyticsParameterSearchTerm,
         "param_shipping": AnalyticsParameterShipping,
         "param_shipping_tier": AnalyticsParameterShippingTier,
-        "param_signup_method": AnalyticsParameterSignUpMethod,
+        "param_signup_method": AnalyticsParameterMethod,
         "param_source": AnalyticsParameterSource,
         "param_start_date": AnalyticsParameterStartDate,
         "param_success": AnalyticsParameterSuccess,

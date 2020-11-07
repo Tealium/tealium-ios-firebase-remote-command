@@ -31,11 +31,6 @@ class MockFirebaseInstance: FirebaseCommand {
     }
     
     func logEvent(_ name: String, _ params: [String : Any]?) {
-        guard let _ = params else {
-            logEventWithoutParamsCallCount += 1
-            return
-        }
-        print(params)
         logEventWithParamsCallCount += 1
     }
     

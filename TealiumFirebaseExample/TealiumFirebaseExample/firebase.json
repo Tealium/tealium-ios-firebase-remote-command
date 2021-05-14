@@ -60,7 +60,7 @@
         "customer_property": "firebase_property_name",
         "customer_value": "firebase_property_value",
         "customer_id": "firebase_user_id",
-        "customparam1": "event.custom_param_1_mapped, items.custom_item",
+        "customparam1": "event.custom_param_1_mapped",
         "customparam2": "event.custom_param_2_mapped",
         "character": "event.character"
     },

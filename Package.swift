@@ -17,7 +17,7 @@ let package = Package(
         .target(
             name: "TealiumFirebase",
             dependencies: ["Adjust", "TealiumCore", "TealiumRemoteCommands", "TealiumTagManagement", "TealiumCollect"],
-            path: "./Sources")
+            path: "./Sources"),
         .testTarget(
             name: "TealiumFirebaseTests",
             dependencies: ["TealiumFirebase"],

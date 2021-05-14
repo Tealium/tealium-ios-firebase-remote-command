@@ -6,8 +6,12 @@
 //  Copyright © 2019 Tealium. All rights reserved.
 //
 
-import Foundation
-import TealiumSwift
+import UIKit
+import TealiumCore
+import TealiumCollect
+import TealiumLifecycle
+import TealiumTagManagement
+import TealiumRemoteCommands
 import TealiumFirebase
 
 enum TealiumConfiguration {

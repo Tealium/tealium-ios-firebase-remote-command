@@ -80,16 +80,19 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     firebaseInstance.logEvent(eventName, items(from: payload))
                     return
                 }
-                if let items = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
+                normalizedParams += mapParams(params)
+                if let itemsArray = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
                     var tempItems = [[String: Any]]()
                     var item = [String: Any]()
-                    items.forEach {
-                        item = eventParameters.map($0)
+                    itemsArray.forEach {
+                        item = mapParams($0)
                         tempItems.append(item)
                     }
                     normalizedParams[FirebaseConstants.Keys.items] = tempItems
+                    normalizedParams = normalizedParams.filter { $0.key != FirebaseConstants.Keys.paramItems}
+                } else if let jsonItems = payload[FirebaseConstants.Keys.items] as? [String: Any] {
+                    normalizedParams += items(from: jsonItems)
                 }
-                normalizedParams += items(from: params)
                 firebaseInstance.logEvent(eventName, normalizedParams)
             case .setScreenName:
                 guard let screenName = payload[FirebaseConstants.Keys.screenName] as? String else {
@@ -145,9 +148,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
         } else {
             result = prepare(items: payload)
         }
-        result += eventParameters
-                        .map(payload)
-                        .filterOldItems()
+        result += mapParams(result)
         return result
     }
 
@@ -211,99 +212,85 @@ public class FirebaseRemoteCommand: RemoteCommand {
         ]
         return eventsMap[eventName] ?? eventName
     }
-
-    let eventParameters = [
-        "param_achievement_id": AnalyticsParameterAchievementID,
-        "param_ad_network_click_id": AnalyticsParameterAdNetworkClickID,
-        "param_affiliation": AnalyticsParameterAffiliation,
-        "param_cp1": AnalyticsParameterCP1,
-        "param_campaign": AnalyticsParameterCampaign,
-        "param_character": AnalyticsParameterCharacter,
-        "param_content": AnalyticsParameterContent,
-        "param_content_type": AnalyticsParameterContentType,
-        "param_coupon": AnalyticsParameterCoupon,
-        "param_creative_name": AnalyticsParameterCreativeName,
-        "param_creative_slot": AnalyticsParameterCreativeSlot,
-        "param_currency": AnalyticsParameterCurrency,
-        "param_destination": AnalyticsParameterDestination,
-        "param_discount": AnalyticsParameterDiscount,
-        "param_end_date": AnalyticsParameterEndDate,
-        "param_extend_session": AnalyticsParameterExtendSession,
-        "param_flight_number": AnalyticsParameterFlightNumber,
-        "param_group_id": AnalyticsParameterGroupID,
-        "param_index": AnalyticsParameterIndex,
-        "param_item_brand": AnalyticsParameterItemBrand,
-        "param_item_category": AnalyticsParameterItemCategory,
-        "param_item_id": AnalyticsParameterItemID,
-        "param_item_list": AnalyticsParameterItemListName,
-        "param_item_list_id": AnalyticsParameterItemListID,
-        "param_item_list_name": AnalyticsParameterItemListName,
-        "param_item_location_id": AnalyticsParameterLocationID,
-        "param_item_name": AnalyticsParameterItemName,
-        "param_item_variant": AnalyticsParameterItemVariant,
-        "param_level": AnalyticsParameterLevel,
-        "param_level_name": AnalyticsParameterLevelName,
-        "param_location": AnalyticsParameterLocation,
-        "param_location_id": AnalyticsParameterLocationID,
-        "param_medium": AnalyticsParameterMedium,
-        "param_method": AnalyticsParameterMethod,
-        "param_number_nights": AnalyticsParameterNumberOfNights,
-        "param_number_pax": AnalyticsParameterNumberOfPassengers,
-        "param_number_rooms": AnalyticsParameterNumberOfRooms,
-        "param_origin": AnalyticsParameterOrigin,
-        "param_payment_type": AnalyticsParameterPaymentType,
-        "param_price": AnalyticsParameterPrice,
-        "param_promotion_id": AnalyticsParameterPromotionID,
-        "param_promotion_name": AnalyticsParameterPromotionName,
-        "param_quantity": AnalyticsParameterQuantity,
-        "param_score": AnalyticsParameterScore,
-        "param_search_term": AnalyticsParameterSearchTerm,
-        "param_shipping": AnalyticsParameterShipping,
-        "param_shipping_tier": AnalyticsParameterShippingTier,
-        "param_signup_method": AnalyticsParameterMethod,
-        "param_source": AnalyticsParameterSource,
-        "param_start_date": AnalyticsParameterStartDate,
-        "param_success": AnalyticsParameterSuccess,
-        "param_tax": AnalyticsParameterTax,
-        "param_term": AnalyticsParameterTerm,
-        "param_transaction_id": AnalyticsParameterTransactionID,
-        "param_travel_class": AnalyticsParameterTravelClass,
-        "param_value": AnalyticsParameterValue,
-        "param_virtual_currency_name": AnalyticsParameterVirtualCurrencyName,
-        "param_user_signup_method": AnalyticsUserPropertySignUpMethod
-    ]
     
-    static let firebaseItemKeys = [
-           "param_item_id",
-           "param_item_name",
-           "param_quantity",
-           "param_item_category",
-           "param_item_variant",
-           "param_item_brand",
-           "param_price"
-       ]
-
-}
-
-fileprivate extension Dictionary where Key == String, Value == String {
-    func map(_ payload: [String: Any]) -> [String: Any] {
-        return self.reduce(into: [String: Any]()) { result, dictionary in
-            if payload[dictionary.key] != nil {
-                result[dictionary.value] = payload[dictionary.key]
-            }
+    func mapParams(_ payload: [String: Any]) -> [String: Any] {
+        var result = [String: Any]()
+        payload.forEach {
+            let paramName = paramFrom($0.key)
+            result[paramName] = $0.value
         }
+        return result
     }
+    
+    func paramFrom(_ paramName: String) -> String {
+        let eventParameters = [
+            "param_achievement_id": AnalyticsParameterAchievementID,
+            "param_ad_network_click_id": AnalyticsParameterAdNetworkClickID,
+            "param_affiliation": AnalyticsParameterAffiliation,
+            "param_cp1": AnalyticsParameterCP1,
+            "param_campaign": AnalyticsParameterCampaign,
+            "param_character": AnalyticsParameterCharacter,
+            "param_content": AnalyticsParameterContent,
+            "param_content_type": AnalyticsParameterContentType,
+            "param_coupon": AnalyticsParameterCoupon,
+            "param_creative_name": AnalyticsParameterCreativeName,
+            "param_creative_slot": AnalyticsParameterCreativeSlot,
+            "param_currency": AnalyticsParameterCurrency,
+            "param_destination": AnalyticsParameterDestination,
+            "param_discount": AnalyticsParameterDiscount,
+            "param_end_date": AnalyticsParameterEndDate,
+            "param_extend_session": AnalyticsParameterExtendSession,
+            "param_flight_number": AnalyticsParameterFlightNumber,
+            "param_group_id": AnalyticsParameterGroupID,
+            "param_index": AnalyticsParameterIndex,
+            "param_item_brand": AnalyticsParameterItemBrand,
+            "param_item_category": AnalyticsParameterItemCategory,
+            "param_item_id": AnalyticsParameterItemID,
+            "param_item_list": AnalyticsParameterItemListName,
+            "param_item_list_id": AnalyticsParameterItemListID,
+            "param_item_list_name": AnalyticsParameterItemListName,
+            "param_item_location_id": AnalyticsParameterLocationID,
+            "param_item_name": AnalyticsParameterItemName,
+            "param_item_variant": AnalyticsParameterItemVariant,
+            "param_level": AnalyticsParameterLevel,
+            "param_level_name": AnalyticsParameterLevelName,
+            "param_location": AnalyticsParameterLocation,
+            "param_location_id": AnalyticsParameterLocationID,
+            "param_medium": AnalyticsParameterMedium,
+            "param_method": AnalyticsParameterMethod,
+            "param_number_nights": AnalyticsParameterNumberOfNights,
+            "param_number_pax": AnalyticsParameterNumberOfPassengers,
+            "param_number_rooms": AnalyticsParameterNumberOfRooms,
+            "param_origin": AnalyticsParameterOrigin,
+            "param_payment_type": AnalyticsParameterPaymentType,
+            "param_price": AnalyticsParameterPrice,
+            "param_promotion_id": AnalyticsParameterPromotionID,
+            "param_promotion_name": AnalyticsParameterPromotionName,
+            "param_quantity": AnalyticsParameterQuantity,
+            "param_score": AnalyticsParameterScore,
+            "param_search_term": AnalyticsParameterSearchTerm,
+            "param_shipping": AnalyticsParameterShipping,
+            "param_shipping_tier": AnalyticsParameterShippingTier,
+            "param_signup_method": AnalyticsParameterMethod,
+            "param_source": AnalyticsParameterSource,
+            "param_start_date": AnalyticsParameterStartDate,
+            "param_success": AnalyticsParameterSuccess,
+            "param_tax": AnalyticsParameterTax,
+            "param_term": AnalyticsParameterTerm,
+            "param_transaction_id": AnalyticsParameterTransactionID,
+            "param_travel_class": AnalyticsParameterTravelClass,
+            "param_value": AnalyticsParameterValue,
+            "param_virtual_currency_name": AnalyticsParameterVirtualCurrencyName,
+            "param_user_signup_method": AnalyticsUserPropertySignUpMethod
+        ]
+        return eventParameters[paramName] ?? paramName
+    }
+
 }
 
 fileprivate extension Dictionary where Key == String, Value == Any {
     func extractItems() -> [[String: Any]]? {
         [FirebaseItem](from: self)?.dictionaryArray
-    }
-    func filterOldItems() -> [String: Any] {
-        self.filter { !FirebaseRemoteCommand
-                            .firebaseItemKeys
-                            .joined()
-                            .contains($0.key) }
     }
     func itemsToArray() -> [String: Any] {
         self.reduce(into: [String: Any]()) { result, dictionary in

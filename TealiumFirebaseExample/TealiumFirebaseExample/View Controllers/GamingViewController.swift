@@ -91,7 +91,7 @@ extension GamingViewController {
     static let currencyType = "currency_type"
     static let tokens = "tokens"
     static let achievementId = "achievement_id"
-    static let level = "level"
+    static let level = "current_level"
     static let character = "character"
     static let score = "score"
 }

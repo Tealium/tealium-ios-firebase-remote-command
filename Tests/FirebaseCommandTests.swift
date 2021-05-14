@@ -75,7 +75,7 @@ class FirebaseCommandTests: XCTestCase {
                                      "event_view_item",
                                      "event_view_item_list",
                                      "event_view_search_results"]
-        firebaseEventNames = [AnalyticsEventAddPaymentInfo,
+        firebaseParameterNames = [AnalyticsEventAddPaymentInfo,
                               AnalyticsEventAddShippingInfo,
                               AnalyticsEventAddToCart,
                               AnalyticsEventAddToWishlist,
@@ -108,12 +108,155 @@ class FirebaseCommandTests: XCTestCase {
                               AnalyticsEventViewItemList,
                               AnalyticsEventViewSearchResults]
         
+        for (index, name) in acceptedTealiumVariableNames.enumerated() {
+            let actual = firebaseCommand.mapEvent(name)
+            let expected = firebaseParameterNames[index]
+            XCTAssertEqual(expected, actual)
+        }
+        
+    }
+    
+    func testMapParams() {
+        acceptedTealiumVariableNames = [ "param_achievement_id",
+                                      "param_ad_network_click_id",
+                                      "param_affiliation",
+                                      "param_cp1",
+                                      "param_campaign",
+                                      "param_character",
+                                      "param_content",
+                                      "param_content_type",
+                                      "param_coupon",
+                                      "param_creative_name",
+                                      "param_creative_slot",
+                                      "param_currency",
+                                      "param_destination",
+                                      "param_discount",
+                                      "param_end_date",
+                                      "param_extend_session",
+                                      "param_flight_number",
+                                      "param_group_id",
+                                      "param_index",
+                                      "param_item_brand",
+                                      "param_item_category",
+                                      "param_item_id",
+                                      "param_item_list",
+                                      "param_item_list_id",
+                                      "param_item_list_name",
+                                      "param_item_location_id",
+                                      "param_item_name",
+                                      "param_item_variant",
+                                      "param_level",
+                                      "param_level_name",
+                                      "param_location",
+                                      "param_location_id",
+                                      "param_medium",
+                                      "param_method",
+                                      "param_number_nights",
+                                      "param_number_pax",
+                                      "param_number_rooms",
+                                      "param_origin",
+                                      "param_payment_type",
+                                      "param_price",
+                                      "param_promotion_id",
+                                      "param_promotion_name",
+                                      "param_quantity",
+                                      "param_score",
+                                      "param_search_term",
+                                      "param_shipping",
+                                      "param_shipping_tier",
+                                      "param_signup_method",
+                                      "param_source",
+                                      "param_start_date",
+                                      "param_success",
+                                      "param_tax",
+                                      "param_term",
+                                      "param_transaction_id",
+                                      "param_travel_class",
+                                      "param_value",
+                                      "param_virtual_currency_name",
+                                      "param_user_signup_method"]
+        firebaseEventNames = [AnalyticsParameterAchievementID,
+            AnalyticsParameterAdNetworkClickID,
+            AnalyticsParameterAffiliation,
+            AnalyticsParameterCP1,
+            AnalyticsParameterCampaign,
+            AnalyticsParameterCharacter,
+            AnalyticsParameterContent,
+            AnalyticsParameterContentType,
+            AnalyticsParameterCoupon,
+            AnalyticsParameterCreativeName,
+            AnalyticsParameterCreativeSlot,
+            AnalyticsParameterCurrency,
+            AnalyticsParameterDestination,
+            AnalyticsParameterDiscount,
+            AnalyticsParameterEndDate,
+            AnalyticsParameterExtendSession,
+            AnalyticsParameterFlightNumber,
+            AnalyticsParameterGroupID,
+            AnalyticsParameterIndex,
+            AnalyticsParameterItemBrand,
+            AnalyticsParameterItemCategory,
+            AnalyticsParameterItemID,
+            AnalyticsParameterItemListName,
+            AnalyticsParameterItemListID,
+            AnalyticsParameterItemListName,
+            AnalyticsParameterLocationID,
+            AnalyticsParameterItemName,
+            AnalyticsParameterItemVariant,
+            AnalyticsParameterLevel,
+            AnalyticsParameterLevelName,
+            AnalyticsParameterLocation,
+            AnalyticsParameterLocationID,
+            AnalyticsParameterMedium,
+            AnalyticsParameterMethod,
+            AnalyticsParameterNumberOfNights,
+            AnalyticsParameterNumberOfPassengers,
+            AnalyticsParameterNumberOfRooms,
+            AnalyticsParameterOrigin,
+            AnalyticsParameterPaymentType,
+            AnalyticsParameterPrice,
+            AnalyticsParameterPromotionID,
+            AnalyticsParameterPromotionName,
+            AnalyticsParameterQuantity,
+            AnalyticsParameterScore,
+            AnalyticsParameterSearchTerm,
+            AnalyticsParameterShipping,
+            AnalyticsParameterShippingTier,
+            AnalyticsParameterMethod,
+            AnalyticsParameterSource,
+            AnalyticsParameterStartDate,
+            AnalyticsParameterSuccess,
+            AnalyticsParameterTax,
+            AnalyticsParameterTerm,
+            AnalyticsParameterTransactionID,
+            AnalyticsParameterTravelClass,
+            AnalyticsParameterValue,
+            AnalyticsParameterVirtualCurrencyName,
+            AnalyticsUserPropertySignUpMethod]
+        
         for (index, name) in acceptedTealiumEventNames.enumerated() {
             let actual = firebaseCommand.mapEvent(name)
             let expected = firebaseEventNames[index]
             XCTAssertEqual(expected, actual)
         }
         
+    }
+    
+    func testMapParamsWithCustom() {
+        acceptedTealiumVariableNames = ["param_achievement_id",
+                                      "param_ad_network_click_id",
+                                      "param_affiliation",
+                                      "param_cp1", "custom_param_1"]
+        firebaseEventNames = [AnalyticsParameterAchievementID,
+            AnalyticsParameterAdNetworkClickID,
+            AnalyticsParameterAffiliation,
+            AnalyticsParameterCP1, "custom_param_1"]
+        
+        for (index, name) in acceptedTealiumEventNames.enumerated() {
+            let actual = firebaseCommand.mapEvent(name)
+            let expected = firebaseEventNames[index]
+            XCTAssertEqual(expected, actual)
+        }
     }
     
     func testFirebaseItems() {
@@ -150,7 +293,7 @@ class FirebaseCommandTests: XCTestCase {
                 
     }
     
-    func testItemsFromPayload() {
+    func testItemsFromPayloadTag() {
         let payload = ["items": [
                         "param_item_id": ["abc123","xyz456"],
                         "param_item_name": ["cool running shoes", "cool shirt"],
@@ -181,4 +324,62 @@ class FirebaseCommandTests: XCTestCase {
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
         
     }
+    
+    func testItemsWithCustom() {
+        let payload = ["items": [
+                        "param_item_id": ["abc123","xyz456"],
+                        "param_item_name": ["cool running shoes", "cool shirt"],
+                        "param_quantity": [1, 2],
+                        "param_item_category": ["shoes", "shirts"],
+                        "param_item_variant": ["abc-blue-123", "xyz-red-456"],
+                        "param_item_brand": ["acme", "roadrunner"],
+                        "param_price": [10.99, 14.99],
+                        "custom_param_1": ["test": "this"]]]
+        
+        let expected: [String: Any] = ["items": [
+                        ["item_id": "abc123",
+                            "item_name": "cool running shoes",
+                            "quantity": 1,
+                            "item_category": "shoes",
+                            "item_variant": "abc-blue-123",
+                            "item_brand": "acme",
+                            "price": 10.99],
+                        ["item_id": "xyz456",
+                            "item_name": "cool shirt",
+                            "quantity": 2,
+                            "item_category": "shirts",
+                            "item_variant": "xyz-red-456",
+                            "item_brand": "roadrunner",
+                            "price": 14.99]]]
+        
+        let actual = firebaseCommand.items(from: payload)
+        
+        XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
+    }
+    
+    func testItemsWhenProductVariablesNotArray() {
+        let payload = ["items": [
+                        "param_item_id": "abc123",
+                        "param_item_name": "cool running shoes",
+                        "param_quantity": 1,
+                        "param_item_category": "shoes",
+                        "param_item_variant": "abc-blue-123",
+                        "param_item_brand": "acme",
+                        "param_price": 10.99,
+                        "custom_param_1": "test"]]
+        
+        let expected: [String: Any] = ["items": [
+                        ["item_id": "abc123",
+                            "item_name": "cool running shoes",
+                            "quantity": 1,
+                            "item_category": "shoes",
+                            "item_variant": "abc-blue-123",
+                            "item_brand": "acme",
+                            "price": 10.99]]]
+        
+        let actual = firebaseCommand.items(from: payload)
+        
+        XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
+    }
+    
 }

@@ -42,6 +42,8 @@ class ProductViewController: UIViewController {
     @IBAction func addToCart(_ sender: UIButton) {
         let ac = UIAlertController(title: "Added!", message: "\(String(describing: productName.text!)) was added to your cart", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            self.data["customparam1"] = "abc123"
+            self.data["customparam2"] = "abc123234"
             self.data[ProductViewController.productId] = "3d053202-a50b-43f4-9ce7-0d154ad21a8e"
             self.data[ProductViewController.productPrice] = 100
             self.data[ProductViewController.productName] = "Fridge"

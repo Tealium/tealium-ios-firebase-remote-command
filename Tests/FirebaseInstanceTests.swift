@@ -377,5 +377,16 @@ class FirebaseInstanceTests: XCTestCase {
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
     }
+    
+    func testCustomEventParameters() {
+        let expect = expectation(description: "set user id should not run")
+        let payload: [String: Any] = ["command_name": "logevent", "firebase_event_name": "mobile_hoteldetails", "event": ["param_city": "San Diego","param_productdisplaytype": "Opaque","param_numrooms": 1,"param_state": "CA","param_numadults": 2,"param_country": "US","param_numchildren": 0,"param_checkout_yyyymmdd": "2021-05-13","param_checkin_yyyymmdd": "2021-05-12","param_dta": 0]]
+        if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
+            firebaseCommand.completion(response)
+            XCTAssertEqual(1, firebaseInstance.logEventWithParamsCallCount)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
 
 }

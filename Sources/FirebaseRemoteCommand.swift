@@ -83,9 +83,8 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 normalizedParams += mapParams(params)
                 if let itemsArray = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
                     var tempItems = [[String: Any]]()
-                    var item = [String: Any]()
                     itemsArray.forEach {
-                        item = mapParams($0)
+                        let item = mapParams($0)
                         tempItems.append(item)
                     }
                     normalizedParams[FirebaseConstants.Keys.items] = tempItems

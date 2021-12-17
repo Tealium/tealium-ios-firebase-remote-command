@@ -19,6 +19,9 @@ import FirebaseAnalytics
 
 public class FirebaseRemoteCommand: RemoteCommand {
 
+    override public var version: String? {
+        return FirebaseConstants.version
+    }
     var firebaseInstance: FirebaseCommand?
 
     public init(firebaseInstance: FirebaseCommand = FirebaseInstance(), type: RemoteCommandType = .webview) {

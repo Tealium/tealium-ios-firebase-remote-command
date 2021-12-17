@@ -89,14 +89,16 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (1.2.12)
-  - tealium-swift/Collect (2.3.1):
+  - tealium-swift/Attribution (2.5.1):
     - tealium-swift/Core
-  - tealium-swift/Core (2.3.1)
-  - tealium-swift/Lifecycle (2.3.1):
+  - tealium-swift/Collect (2.5.1):
     - tealium-swift/Core
-  - tealium-swift/RemoteCommands (2.3.1):
+  - tealium-swift/Core (2.5.1)
+  - tealium-swift/Lifecycle (2.5.1):
     - tealium-swift/Core
-  - tealium-swift/TagManagement (2.3.1):
+  - tealium-swift/RemoteCommands (2.5.1):
+    - tealium-swift/Core
+  - tealium-swift/TagManagement (2.5.1):
     - tealium-swift/Core
   - TealiumFirebase (2.0.2):
     - Firebase (~> 8.0)
@@ -107,7 +109,9 @@ PODS:
     - tealium-swift/TagManagement (~> 2.3)
 
 DEPENDENCIES:
-  - tealium-swift/Lifecycle (~> 2.3)
+  - tealium-swift/Attribution (from `https://github.com/Tealium/tealium-swift.git`, branch `mt-779`)
+  - tealium-swift/Collect (from `https://github.com/Tealium/tealium-swift.git`, branch `mt-779`)
+  - tealium-swift/Lifecycle (from `https://github.com/Tealium/tealium-swift.git`, branch `mt-779`)
   - TealiumFirebase (from `../`)
 
 SPEC REPOS:
@@ -122,11 +126,18 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
-    - tealium-swift
 
 EXTERNAL SOURCES:
+  tealium-swift:
+    :branch: mt-779
+    :git: https://github.com/Tealium/tealium-swift.git
   TealiumFirebase:
     :path: "../"
+
+CHECKOUT OPTIONS:
+  tealium-swift:
+    :commit: db174d69eb581f944268257038cfde8b54fc4b43
+    :git: https://github.com/Tealium/tealium-swift.git
 
 SPEC CHECKSUMS:
   Firebase: 73c3e3b216ec1ecbc54d2ffdd4670c65c749edb1
@@ -139,9 +150,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: f8a43108b38a68eebe8b3540e1f4f2d28843ce20
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  tealium-swift: 755e1ab63dc619709ec550c868ee5c293b05c10c
-  TealiumFirebase: bc69426156d47d3a46d92b53fb11c7202037a8d4
+  tealium-swift: a7c0f2b6bff641abb1818efbcf22598c99af0517
+  TealiumFirebase: a520377a29be62f10d7e50612db53a3cca8d2100
 
-PODFILE CHECKSUM: cda081dd1302d8deab80543b253c1db25252ee13
+PODFILE CHECKSUM: 8697bf760875a4c51c1cb02f177e5f151c11c51b
 
 COCOAPODS: 1.10.1

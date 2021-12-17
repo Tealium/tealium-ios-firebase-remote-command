@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "TealiumFirebase", targets: ["TealiumFirebase"])
     ],
     dependencies: [
-        .package(name: "TealiumSwift", url: "https://github.com/tealium/tealium-swift", from: "2.3.0"),
+        .package(name: "TealiumSwift", url: "https://github.com/tealium/tealium-swift", from: "2.6.0"),
         .package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk.git", from: "8.0.0")
     ],
     targets: [

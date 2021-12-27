@@ -15,18 +15,10 @@
 		15913F332779CCFF0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */; };
 		15913F342779CCFF0051BCB2 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */; };
 		15913F352779CCFF0051BCB2 /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2D2779CCFF0051BCB2 /* GoogleDataTransport.xcframework */; };
-		15913F422779CD080051BCB2 /* TealiumLifecycle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */; };
 		15913F432779CD080051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
-		15913F442779CD080051BCB2 /* TealiumLocation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F382779CD070051BCB2 /* TealiumLocation.xcframework */; };
-		15913F452779CD080051BCB2 /* TealiumVisitorService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */; };
-		15913F462779CD080051BCB2 /* TealiumAttribution.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */; };
 		15913F472779CD080051BCB2 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */; };
-		15913F482779CD080051BCB2 /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */; };
 		15913F492779CD080051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */; };
-		15913F4A2779CD080051BCB2 /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */; };
-		15913F4B2779CD080051BCB2 /* TealiumAutotracking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */; };
 		15913F4C2779CD080051BCB2 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F402779CD080051BCB2 /* nanopb.xcframework */; };
-		15913F4D2779CD080051BCB2 /* TealiumMedia.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F412779CD080051BCB2 /* TealiumMedia.xcframework */; };
 		15913F4E2779CD3A0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */; };
 		15913F4F2779CD3A0051BCB2 /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */; };
 		15913F502779CD3A0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2A2779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework */; };
@@ -37,28 +29,8 @@
 		15913F552779CD3A0051BCB2 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */; };
 		15913F562779CD3A0051BCB2 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F402779CD080051BCB2 /* nanopb.xcframework */; };
 		15913F572779CD3A0051BCB2 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */; };
-		15913F582779CD3A0051BCB2 /* TealiumAttribution.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */; };
-		15913F592779CD3A0051BCB2 /* TealiumAutotracking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */; };
-		15913F5A2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */; };
-		15913F5B2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */; };
-		15913F5C2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; };
 		15913F5D2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */; };
-		15913F5E2779CD3A0051BCB2 /* TealiumLifecycle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */; };
-		15913F5F2779CD3A0051BCB2 /* TealiumLocation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F382779CD070051BCB2 /* TealiumLocation.xcframework */; };
-		15913F602779CD3A0051BCB2 /* TealiumMedia.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F412779CD080051BCB2 /* TealiumMedia.xcframework */; };
-		15913F612779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */; };
 		15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
-		15913F632779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; };
-		15913F642779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */; };
-		15913F652779CD3A0051BCB2 /* TealiumVisitorService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */; };
-		CF2F9EB6264EF40800DB792C /* TealiumTagManagement.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF2F9EB7264EF40800DB792C /* TealiumCore.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF2F9EB9264EF40800DB792C /* TealiumCollect.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF2F9EBA264EF40800DB792C /* TealiumRemoteCommands.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF2F9EBB264EF45400DB792C /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */; };
-		CF2F9EBC264EF45400DB792C /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; };
-		CF2F9EBD264EF45400DB792C /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */; };
-		CF2F9EBE264EF45400DB792C /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; };
 		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -103,10 +75,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CF2F9EB6264EF40800DB792C /* TealiumTagManagement.xcframework in CopyFiles */,
-				CF2F9EB7264EF40800DB792C /* TealiumCore.xcframework in CopyFiles */,
-				CF2F9EB9264EF40800DB792C /* TealiumCollect.xcframework in CopyFiles */,
-				CF2F9EBA264EF40800DB792C /* TealiumRemoteCommands.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,22 +89,10 @@
 		15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = Carthage/Build/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
 		15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Carthage/Build/GoogleUtilities.xcframework; sourceTree = "<group>"; };
 		15913F2D2779CCFF0051BCB2 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = Carthage/Build/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
-		15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumLifecycle.xcframework; path = Carthage/Build/TealiumLifecycle.xcframework; sourceTree = "<group>"; };
 		15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumRemoteCommands.xcframework; path = Carthage/Build/TealiumRemoteCommands.xcframework; sourceTree = "<group>"; };
-		15913F382779CD070051BCB2 /* TealiumLocation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumLocation.xcframework; path = Carthage/Build/TealiumLocation.xcframework; sourceTree = "<group>"; };
-		15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumVisitorService.xcframework; path = Carthage/Build/TealiumVisitorService.xcframework; sourceTree = "<group>"; };
-		15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumAttribution.xcframework; path = Carthage/Build/TealiumAttribution.xcframework; sourceTree = "<group>"; };
 		15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromisesObjC.xcframework; path = Carthage/Build/PromisesObjC.xcframework; sourceTree = "<group>"; };
-		15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumTagManagement.xcframework; path = Carthage/Build/TealiumTagManagement.xcframework; sourceTree = "<group>"; };
 		15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCore.xcframework; path = Carthage/Build/TealiumCore.xcframework; sourceTree = "<group>"; };
-		15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCollect.xcframework; path = Carthage/Build/TealiumCollect.xcframework; sourceTree = "<group>"; };
-		15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumAutotracking.xcframework; path = Carthage/Build/TealiumAutotracking.xcframework; sourceTree = "<group>"; };
 		15913F402779CD080051BCB2 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Carthage/Build/nanopb.xcframework; sourceTree = "<group>"; };
-		15913F412779CD080051BCB2 /* TealiumMedia.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumMedia.xcframework; path = Carthage/Build/TealiumMedia.xcframework; sourceTree = "<group>"; };
-		CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumTagManagement.xcframework; path = Carthage/Build/TealiumTagManagement.xcframework; sourceTree = "<group>"; };
-		CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCore.xcframework; path = Carthage/Build/TealiumCore.xcframework; sourceTree = "<group>"; };
-		CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCollect.xcframework; path = Carthage/Build/TealiumCollect.xcframework; sourceTree = "<group>"; };
-		CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumRemoteCommands.xcframework; path = Carthage/Build/TealiumRemoteCommands.xcframework; sourceTree = "<group>"; };
 		CF6C44CB2519986B002648A0 /* TealiumFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TealiumFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44D42519986B002648A0 /* TealiumFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TealiumFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44EA25199905002648A0 /* TealiumFirebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TealiumFirebase.h; sourceTree = "<group>"; };
@@ -169,20 +125,8 @@
 				15913F552779CD3A0051BCB2 /* GoogleUtilities.xcframework in Frameworks */,
 				15913F562779CD3A0051BCB2 /* nanopb.xcframework in Frameworks */,
 				15913F572779CD3A0051BCB2 /* PromisesObjC.xcframework in Frameworks */,
-				15913F582779CD3A0051BCB2 /* TealiumAttribution.xcframework in Frameworks */,
-				15913F592779CD3A0051BCB2 /* TealiumAutotracking.xcframework in Frameworks */,
-				15913F5A2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */,
-				15913F5B2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */,
-				15913F5C2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */,
 				15913F5D2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */,
-				15913F5E2779CD3A0051BCB2 /* TealiumLifecycle.xcframework in Frameworks */,
-				15913F5F2779CD3A0051BCB2 /* TealiumLocation.xcframework in Frameworks */,
-				15913F602779CD3A0051BCB2 /* TealiumMedia.xcframework in Frameworks */,
-				15913F612779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */,
 				15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */,
-				15913F632779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */,
-				15913F642779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */,
-				15913F652779CD3A0051BCB2 /* TealiumVisitorService.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,30 +135,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				15913F2E2779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */,
-				15913F442779CD080051BCB2 /* TealiumLocation.xcframework in Frameworks */,
-				15913F452779CD080051BCB2 /* TealiumVisitorService.xcframework in Frameworks */,
 				15913F4C2779CD080051BCB2 /* nanopb.xcframework in Frameworks */,
 				15913F2F2779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
-				15913F4A2779CD080051BCB2 /* TealiumCollect.xcframework in Frameworks */,
 				15913F332779CCFF0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */,
-				15913F462779CD080051BCB2 /* TealiumAttribution.xcframework in Frameworks */,
 				15913F342779CCFF0051BCB2 /* GoogleUtilities.xcframework in Frameworks */,
 				15913F352779CCFF0051BCB2 /* GoogleDataTransport.xcframework in Frameworks */,
 				15913F432779CD080051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */,
-				15913F482779CD080051BCB2 /* TealiumTagManagement.xcframework in Frameworks */,
-				15913F4B2779CD080051BCB2 /* TealiumAutotracking.xcframework in Frameworks */,
 				15913F492779CD080051BCB2 /* TealiumCore.xcframework in Frameworks */,
-				CF2F9EBB264EF45400DB792C /* TealiumCollect.xcframework in Frameworks */,
-				CF2F9EBC264EF45400DB792C /* TealiumCore.xcframework in Frameworks */,
-				CF2F9EBD264EF45400DB792C /* TealiumRemoteCommands.xcframework in Frameworks */,
 				15913F322779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
 				15913F302779CCFF0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */,
-				15913F422779CD080051BCB2 /* TealiumLifecycle.xcframework in Frameworks */,
-				CF2F9EBE264EF45400DB792C /* TealiumTagManagement.xcframework in Frameworks */,
 				15913F312779CCFF0051BCB2 /* FirebaseCore.xcframework in Frameworks */,
 				CF71DB8A251BB91E00E96CC4 /* Firebase.framework in Frameworks */,
 				CF71DB7D251BB8D700E96CC4 /* TealiumFirebase.framework in Frameworks */,
-				15913F4D2779CD080051BCB2 /* TealiumMedia.xcframework in Frameworks */,
 				15913F472779CD080051BCB2 /* PromisesObjC.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,10 +157,6 @@
 		CF6C44C12519986B002648A0 = {
 			isa = PBXGroup;
 			children = (
-				CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */,
-				CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */,
-				CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */,
-				CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */,
 				CF6C44E925199905002648A0 /* Sources */,
 				CF6C44F025199913002648A0 /* Tests */,
 				CF6C44CC2519986B002648A0 /* Products */,
@@ -285,16 +213,8 @@
 				15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */,
 				15913F402779CD080051BCB2 /* nanopb.xcframework */,
 				15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */,
-				15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */,
-				15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */,
-				15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */,
 				15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */,
-				15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */,
-				15913F382779CD070051BCB2 /* TealiumLocation.xcframework */,
-				15913F412779CD080051BCB2 /* TealiumMedia.xcframework */,
 				15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */,
-				15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */,
-				15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

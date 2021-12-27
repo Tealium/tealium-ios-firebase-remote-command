@@ -7,6 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15913F2E2779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */; };
+		15913F2F2779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */; };
+		15913F302779CCFF0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */; };
+		15913F312779CCFF0051BCB2 /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */; };
+		15913F322779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2A2779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework */; };
+		15913F332779CCFF0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */; };
+		15913F342779CCFF0051BCB2 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */; };
+		15913F352779CCFF0051BCB2 /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2D2779CCFF0051BCB2 /* GoogleDataTransport.xcframework */; };
+		15913F422779CD080051BCB2 /* TealiumLifecycle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */; };
+		15913F432779CD080051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
+		15913F442779CD080051BCB2 /* TealiumLocation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F382779CD070051BCB2 /* TealiumLocation.xcframework */; };
+		15913F452779CD080051BCB2 /* TealiumVisitorService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */; };
+		15913F462779CD080051BCB2 /* TealiumAttribution.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */; };
+		15913F472779CD080051BCB2 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */; };
+		15913F482779CD080051BCB2 /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */; };
+		15913F492779CD080051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */; };
+		15913F4A2779CD080051BCB2 /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */; };
+		15913F4B2779CD080051BCB2 /* TealiumAutotracking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */; };
+		15913F4C2779CD080051BCB2 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F402779CD080051BCB2 /* nanopb.xcframework */; };
+		15913F4D2779CD080051BCB2 /* TealiumMedia.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F412779CD080051BCB2 /* TealiumMedia.xcframework */; };
+		15913F4E2779CD3A0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */; };
+		15913F4F2779CD3A0051BCB2 /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */; };
+		15913F502779CD3A0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2A2779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework */; };
+		15913F512779CD3A0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */; };
+		15913F522779CD3A0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */; };
+		15913F532779CD3A0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */; };
+		15913F542779CD3A0051BCB2 /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2D2779CCFF0051BCB2 /* GoogleDataTransport.xcframework */; };
+		15913F552779CD3A0051BCB2 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */; };
+		15913F562779CD3A0051BCB2 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F402779CD080051BCB2 /* nanopb.xcframework */; };
+		15913F572779CD3A0051BCB2 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */; };
+		15913F582779CD3A0051BCB2 /* TealiumAttribution.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */; };
+		15913F592779CD3A0051BCB2 /* TealiumAutotracking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */; };
+		15913F5A2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */; };
+		15913F5B2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */; };
+		15913F5C2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; };
+		15913F5D2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */; };
+		15913F5E2779CD3A0051BCB2 /* TealiumLifecycle.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */; };
+		15913F5F2779CD3A0051BCB2 /* TealiumLocation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F382779CD070051BCB2 /* TealiumLocation.xcframework */; };
+		15913F602779CD3A0051BCB2 /* TealiumMedia.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F412779CD080051BCB2 /* TealiumMedia.xcframework */; };
+		15913F612779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */; };
+		15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
+		15913F632779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; };
+		15913F642779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */; };
+		15913F652779CD3A0051BCB2 /* TealiumVisitorService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */; };
 		CF2F9EB6264EF40800DB792C /* TealiumTagManagement.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF2F9EB7264EF40800DB792C /* TealiumCore.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF2F9EB9264EF40800DB792C /* TealiumCollect.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -15,14 +59,6 @@
 		CF2F9EBC264EF45400DB792C /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; };
 		CF2F9EBD264EF45400DB792C /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */; };
 		CF2F9EBE264EF45400DB792C /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; };
-		CF2F9EBF264EF47D00DB792C /* TealiumCollect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */; };
-		CF2F9EC0264EF47D00DB792C /* TealiumCollect.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF2F9EC1264EF47D00DB792C /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; };
-		CF2F9EC2264EF47E00DB792C /* TealiumCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF2F9EC3264EF47E00DB792C /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */; };
-		CF2F9EC4264EF47E00DB792C /* TealiumRemoteCommands.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EB1264EF40800DB792C /* TealiumRemoteCommands.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF2F9EC5264EF47E00DB792C /* TealiumTagManagement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; };
-		CF2F9EC6264EF47E00DB792C /* TealiumTagManagement.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,37 +72,7 @@
 		CF6C450525199947002648A0 /* FirebaseCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450125199946002648A0 /* FirebaseCommandTests.swift */; };
 		CF6C450625199947002648A0 /* MockFirebaseInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450225199946002648A0 /* MockFirebaseInstance.swift */; };
 		CF6C450725199947002648A0 /* HttpTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450325199946002648A0 /* HttpTestHelpers.swift */; };
-		CF71DB57251BA7B400E96CC4 /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */; };
-		CF71DB58251BA7B400E96CC4 /* GoogleDataTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB59251BA7B400E96CC4 /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4A251BA7B300E96CC4 /* PromisesObjC.framework */; };
-		CF71DB5A251BA7B400E96CC4 /* PromisesObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4A251BA7B300E96CC4 /* PromisesObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB5D251BA7B400E96CC4 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4C251BA7B300E96CC4 /* nanopb.framework */; };
-		CF71DB5E251BA7B400E96CC4 /* nanopb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4C251BA7B300E96CC4 /* nanopb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB5F251BA7B400E96CC4 /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4D251BA7B300E96CC4 /* FirebaseInstallations.framework */; };
-		CF71DB60251BA7B400E96CC4 /* FirebaseInstallations.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4D251BA7B300E96CC4 /* FirebaseInstallations.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB61251BA7B400E96CC4 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4E251BA7B300E96CC4 /* GoogleAppMeasurement.framework */; };
-		CF71DB62251BA7B400E96CC4 /* GoogleAppMeasurement.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4E251BA7B300E96CC4 /* GoogleAppMeasurement.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB63251BA7B400E96CC4 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4F251BA7B300E96CC4 /* FirebaseAnalytics.framework */; };
-		CF71DB64251BA7B400E96CC4 /* FirebaseAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4F251BA7B300E96CC4 /* FirebaseAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB65251BA7B400E96CC4 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB50251BA7B300E96CC4 /* FIRAnalyticsConnector.framework */; };
-		CF71DB66251BA7B400E96CC4 /* FIRAnalyticsConnector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB50251BA7B300E96CC4 /* FIRAnalyticsConnector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB67251BA7B500E96CC4 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB51251BA7B300E96CC4 /* GoogleUtilities.framework */; };
-		CF71DB68251BA7B500E96CC4 /* GoogleUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB51251BA7B300E96CC4 /* GoogleUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB6D251BA7B500E96CC4 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB54251BA7B300E96CC4 /* FirebaseCore.framework */; };
-		CF71DB6E251BA7B500E96CC4 /* FirebaseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB54251BA7B300E96CC4 /* FirebaseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF71DB6F251BA7B500E96CC4 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB55251BA7B300E96CC4 /* FirebaseCoreDiagnostics.framework */; };
-		CF71DB70251BA7B500E96CC4 /* FirebaseCoreDiagnostics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB55251BA7B300E96CC4 /* FirebaseCoreDiagnostics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF71DB7D251BB8D700E96CC4 /* TealiumFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6C44CB2519986B002648A0 /* TealiumFirebase.framework */; };
-		CF71DB7F251BB8F800E96CC4 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4F251BA7B300E96CC4 /* FirebaseAnalytics.framework */; };
-		CF71DB81251BB91E00E96CC4 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB50251BA7B300E96CC4 /* FIRAnalyticsConnector.framework */; };
-		CF71DB82251BB91E00E96CC4 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB54251BA7B300E96CC4 /* FirebaseCore.framework */; };
-		CF71DB83251BB91E00E96CC4 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB55251BA7B300E96CC4 /* FirebaseCoreDiagnostics.framework */; };
-		CF71DB84251BB91E00E96CC4 /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4D251BA7B300E96CC4 /* FirebaseInstallations.framework */; };
-		CF71DB85251BB91E00E96CC4 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4E251BA7B300E96CC4 /* GoogleAppMeasurement.framework */; };
-		CF71DB86251BB91E00E96CC4 /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */; };
-		CF71DB87251BB91E00E96CC4 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB51251BA7B300E96CC4 /* GoogleUtilities.framework */; };
-		CF71DB88251BB91E00E96CC4 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4C251BA7B300E96CC4 /* nanopb.framework */; };
-		CF71DB89251BB91E00E96CC4 /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB4A251BA7B300E96CC4 /* PromisesObjC.framework */; };
 		CF71DB8A251BB91E00E96CC4 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF71DB52251BA7B300E96CC4 /* Firebase.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,20 +93,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CF2F9EC2264EF47E00DB792C /* TealiumCore.xcframework in Embed Frameworks */,
-				CF2F9EC0264EF47D00DB792C /* TealiumCollect.xcframework in Embed Frameworks */,
-				CF2F9EC6264EF47E00DB792C /* TealiumTagManagement.xcframework in Embed Frameworks */,
-				CF71DB68251BA7B500E96CC4 /* GoogleUtilities.framework in Embed Frameworks */,
-				CF71DB70251BA7B500E96CC4 /* FirebaseCoreDiagnostics.framework in Embed Frameworks */,
-				CF71DB60251BA7B400E96CC4 /* FirebaseInstallations.framework in Embed Frameworks */,
-				CF71DB62251BA7B400E96CC4 /* GoogleAppMeasurement.framework in Embed Frameworks */,
-				CF2F9EC4264EF47E00DB792C /* TealiumRemoteCommands.xcframework in Embed Frameworks */,
-				CF71DB5A251BA7B400E96CC4 /* PromisesObjC.framework in Embed Frameworks */,
-				CF71DB64251BA7B400E96CC4 /* FirebaseAnalytics.framework in Embed Frameworks */,
-				CF71DB6E251BA7B500E96CC4 /* FirebaseCore.framework in Embed Frameworks */,
-				CF71DB5E251BA7B400E96CC4 /* nanopb.framework in Embed Frameworks */,
-				CF71DB58251BA7B400E96CC4 /* GoogleDataTransport.framework in Embed Frameworks */,
-				CF71DB66251BA7B400E96CC4 /* FIRAnalyticsConnector.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +113,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Carthage/Build/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Carthage/Build/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
+		15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = Carthage/Build/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
+		15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = Carthage/Build/FirebaseCore.xcframework; sourceTree = "<group>"; };
+		15913F2A2779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreDiagnostics.xcframework; path = Carthage/Build/FirebaseCoreDiagnostics.xcframework; sourceTree = "<group>"; };
+		15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = Carthage/Build/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
+		15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Carthage/Build/GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		15913F2D2779CCFF0051BCB2 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = Carthage/Build/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
+		15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumLifecycle.xcframework; path = Carthage/Build/TealiumLifecycle.xcframework; sourceTree = "<group>"; };
+		15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumRemoteCommands.xcframework; path = Carthage/Build/TealiumRemoteCommands.xcframework; sourceTree = "<group>"; };
+		15913F382779CD070051BCB2 /* TealiumLocation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumLocation.xcframework; path = Carthage/Build/TealiumLocation.xcframework; sourceTree = "<group>"; };
+		15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumVisitorService.xcframework; path = Carthage/Build/TealiumVisitorService.xcframework; sourceTree = "<group>"; };
+		15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumAttribution.xcframework; path = Carthage/Build/TealiumAttribution.xcframework; sourceTree = "<group>"; };
+		15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromisesObjC.xcframework; path = Carthage/Build/PromisesObjC.xcframework; sourceTree = "<group>"; };
+		15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumTagManagement.xcframework; path = Carthage/Build/TealiumTagManagement.xcframework; sourceTree = "<group>"; };
+		15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCore.xcframework; path = Carthage/Build/TealiumCore.xcframework; sourceTree = "<group>"; };
+		15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCollect.xcframework; path = Carthage/Build/TealiumCollect.xcframework; sourceTree = "<group>"; };
+		15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumAutotracking.xcframework; path = Carthage/Build/TealiumAutotracking.xcframework; sourceTree = "<group>"; };
+		15913F402779CD080051BCB2 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Carthage/Build/nanopb.xcframework; sourceTree = "<group>"; };
+		15913F412779CD080051BCB2 /* TealiumMedia.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumMedia.xcframework; path = Carthage/Build/TealiumMedia.xcframework; sourceTree = "<group>"; };
 		CF2F9EAD264EF40800DB792C /* TealiumTagManagement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumTagManagement.xcframework; path = Carthage/Build/TealiumTagManagement.xcframework; sourceTree = "<group>"; };
 		CF2F9EAE264EF40800DB792C /* TealiumCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCore.xcframework; path = Carthage/Build/TealiumCore.xcframework; sourceTree = "<group>"; };
 		CF2F9EB0264EF40800DB792C /* TealiumCollect.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCollect.xcframework; path = Carthage/Build/TealiumCollect.xcframework; sourceTree = "<group>"; };
@@ -139,20 +151,7 @@
 		CF6C450D25199951002648A0 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteCommand.swift; sourceTree = "<group>"; };
 		CF6C450F25199952002648A0 /* FirebaseInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstance.swift; sourceTree = "<group>"; };
-		CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
-		CF71DB4A251BA7B300E96CC4 /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = Carthage/Build/iOS/PromisesObjC.framework; sourceTree = "<group>"; };
-		CF71DB4B251BA7B300E96CC4 /* TealiumCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TealiumCore.framework; path = Carthage/Build/iOS/TealiumCore.framework; sourceTree = "<group>"; };
-		CF71DB4C251BA7B300E96CC4 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = Carthage/Build/iOS/nanopb.framework; sourceTree = "<group>"; };
-		CF71DB4D251BA7B300E96CC4 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstallations.framework; path = Carthage/Build/iOS/FirebaseInstallations.framework; sourceTree = "<group>"; };
-		CF71DB4E251BA7B300E96CC4 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Carthage/Build/iOS/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
-		CF71DB4F251BA7B300E96CC4 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		CF71DB50251BA7B300E96CC4 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
-		CF71DB51251BA7B300E96CC4 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
 		CF71DB52251BA7B300E96CC4 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Carthage/Build/iOS/Firebase.framework; sourceTree = "<group>"; };
-		CF71DB53251BA7B300E96CC4 /* TealiumRemoteCommands.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TealiumRemoteCommands.framework; path = Carthage/Build/iOS/TealiumRemoteCommands.framework; sourceTree = "<group>"; };
-		CF71DB54251BA7B300E96CC4 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
-		CF71DB55251BA7B300E96CC4 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Carthage/Build/iOS/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
-		CF71DB56251BA7B300E96CC4 /* TealiumTagManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TealiumTagManagement.framework; path = Carthage/Build/iOS/TealiumTagManagement.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,20 +159,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF2F9EC1264EF47D00DB792C /* TealiumCore.xcframework in Frameworks */,
-				CF2F9EBF264EF47D00DB792C /* TealiumCollect.xcframework in Frameworks */,
-				CF2F9EC5264EF47E00DB792C /* TealiumTagManagement.xcframework in Frameworks */,
-				CF71DB67251BA7B500E96CC4 /* GoogleUtilities.framework in Frameworks */,
-				CF71DB6F251BA7B500E96CC4 /* FirebaseCoreDiagnostics.framework in Frameworks */,
-				CF71DB5F251BA7B400E96CC4 /* FirebaseInstallations.framework in Frameworks */,
-				CF71DB61251BA7B400E96CC4 /* GoogleAppMeasurement.framework in Frameworks */,
-				CF2F9EC3264EF47E00DB792C /* TealiumRemoteCommands.xcframework in Frameworks */,
-				CF71DB59251BA7B400E96CC4 /* PromisesObjC.framework in Frameworks */,
-				CF71DB63251BA7B400E96CC4 /* FirebaseAnalytics.framework in Frameworks */,
-				CF71DB6D251BA7B500E96CC4 /* FirebaseCore.framework in Frameworks */,
-				CF71DB5D251BA7B400E96CC4 /* nanopb.framework in Frameworks */,
-				CF71DB57251BA7B400E96CC4 /* GoogleDataTransport.framework in Frameworks */,
-				CF71DB65251BA7B400E96CC4 /* FIRAnalyticsConnector.framework in Frameworks */,
+				15913F4E2779CD3A0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */,
+				15913F4F2779CD3A0051BCB2 /* FirebaseCore.xcframework in Frameworks */,
+				15913F502779CD3A0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
+				15913F512779CD3A0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */,
+				15913F522779CD3A0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */,
+				15913F532779CD3A0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
+				15913F542779CD3A0051BCB2 /* GoogleDataTransport.xcframework in Frameworks */,
+				15913F552779CD3A0051BCB2 /* GoogleUtilities.xcframework in Frameworks */,
+				15913F562779CD3A0051BCB2 /* nanopb.xcframework in Frameworks */,
+				15913F572779CD3A0051BCB2 /* PromisesObjC.xcframework in Frameworks */,
+				15913F582779CD3A0051BCB2 /* TealiumAttribution.xcframework in Frameworks */,
+				15913F592779CD3A0051BCB2 /* TealiumAutotracking.xcframework in Frameworks */,
+				15913F5A2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */,
+				15913F5B2779CD3A0051BCB2 /* TealiumCollect.xcframework in Frameworks */,
+				15913F5C2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */,
+				15913F5D2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */,
+				15913F5E2779CD3A0051BCB2 /* TealiumLifecycle.xcframework in Frameworks */,
+				15913F5F2779CD3A0051BCB2 /* TealiumLocation.xcframework in Frameworks */,
+				15913F602779CD3A0051BCB2 /* TealiumMedia.xcframework in Frameworks */,
+				15913F612779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */,
+				15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */,
+				15913F632779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */,
+				15913F642779CD3A0051BCB2 /* TealiumTagManagement.xcframework in Frameworks */,
+				15913F652779CD3A0051BCB2 /* TealiumVisitorService.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,22 +190,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15913F2E2779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */,
+				15913F442779CD080051BCB2 /* TealiumLocation.xcframework in Frameworks */,
+				15913F452779CD080051BCB2 /* TealiumVisitorService.xcframework in Frameworks */,
+				15913F4C2779CD080051BCB2 /* nanopb.xcframework in Frameworks */,
+				15913F2F2779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
+				15913F4A2779CD080051BCB2 /* TealiumCollect.xcframework in Frameworks */,
+				15913F332779CCFF0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */,
+				15913F462779CD080051BCB2 /* TealiumAttribution.xcframework in Frameworks */,
+				15913F342779CCFF0051BCB2 /* GoogleUtilities.xcframework in Frameworks */,
+				15913F352779CCFF0051BCB2 /* GoogleDataTransport.xcframework in Frameworks */,
+				15913F432779CD080051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */,
+				15913F482779CD080051BCB2 /* TealiumTagManagement.xcframework in Frameworks */,
+				15913F4B2779CD080051BCB2 /* TealiumAutotracking.xcframework in Frameworks */,
+				15913F492779CD080051BCB2 /* TealiumCore.xcframework in Frameworks */,
 				CF2F9EBB264EF45400DB792C /* TealiumCollect.xcframework in Frameworks */,
 				CF2F9EBC264EF45400DB792C /* TealiumCore.xcframework in Frameworks */,
 				CF2F9EBD264EF45400DB792C /* TealiumRemoteCommands.xcframework in Frameworks */,
+				15913F322779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
+				15913F302779CCFF0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */,
+				15913F422779CD080051BCB2 /* TealiumLifecycle.xcframework in Frameworks */,
 				CF2F9EBE264EF45400DB792C /* TealiumTagManagement.xcframework in Frameworks */,
-				CF71DB81251BB91E00E96CC4 /* FIRAnalyticsConnector.framework in Frameworks */,
-				CF71DB82251BB91E00E96CC4 /* FirebaseCore.framework in Frameworks */,
-				CF71DB83251BB91E00E96CC4 /* FirebaseCoreDiagnostics.framework in Frameworks */,
-				CF71DB84251BB91E00E96CC4 /* FirebaseInstallations.framework in Frameworks */,
-				CF71DB85251BB91E00E96CC4 /* GoogleAppMeasurement.framework in Frameworks */,
-				CF71DB86251BB91E00E96CC4 /* GoogleDataTransport.framework in Frameworks */,
-				CF71DB87251BB91E00E96CC4 /* GoogleUtilities.framework in Frameworks */,
-				CF71DB88251BB91E00E96CC4 /* nanopb.framework in Frameworks */,
-				CF71DB89251BB91E00E96CC4 /* PromisesObjC.framework in Frameworks */,
+				15913F312779CCFF0051BCB2 /* FirebaseCore.xcframework in Frameworks */,
 				CF71DB8A251BB91E00E96CC4 /* Firebase.framework in Frameworks */,
-				CF71DB7F251BB8F800E96CC4 /* FirebaseAnalytics.framework in Frameworks */,
 				CF71DB7D251BB8D700E96CC4 /* TealiumFirebase.framework in Frameworks */,
+				15913F4D2779CD080051BCB2 /* TealiumMedia.xcframework in Frameworks */,
+				15913F472779CD080051BCB2 /* PromisesObjC.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,20 +274,27 @@
 		CF77A2BF251A5FA7002270B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF71DB50251BA7B300E96CC4 /* FIRAnalyticsConnector.framework */,
 				CF71DB52251BA7B300E96CC4 /* Firebase.framework */,
-				CF71DB4F251BA7B300E96CC4 /* FirebaseAnalytics.framework */,
-				CF71DB54251BA7B300E96CC4 /* FirebaseCore.framework */,
-				CF71DB55251BA7B300E96CC4 /* FirebaseCoreDiagnostics.framework */,
-				CF71DB4D251BA7B300E96CC4 /* FirebaseInstallations.framework */,
-				CF71DB4E251BA7B300E96CC4 /* GoogleAppMeasurement.framework */,
-				CF71DB49251BA7B300E96CC4 /* GoogleDataTransport.framework */,
-				CF71DB51251BA7B300E96CC4 /* GoogleUtilities.framework */,
-				CF71DB4C251BA7B300E96CC4 /* nanopb.framework */,
-				CF71DB4A251BA7B300E96CC4 /* PromisesObjC.framework */,
-				CF71DB4B251BA7B300E96CC4 /* TealiumCore.framework */,
-				CF71DB53251BA7B300E96CC4 /* TealiumRemoteCommands.framework */,
-				CF71DB56251BA7B300E96CC4 /* TealiumTagManagement.framework */,
+				15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */,
+				15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */,
+				15913F2A2779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework */,
+				15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */,
+				15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */,
+				15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */,
+				15913F2D2779CCFF0051BCB2 /* GoogleDataTransport.xcframework */,
+				15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */,
+				15913F402779CD080051BCB2 /* nanopb.xcframework */,
+				15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */,
+				15913F3A2779CD070051BCB2 /* TealiumAttribution.xcframework */,
+				15913F3F2779CD070051BCB2 /* TealiumAutotracking.xcframework */,
+				15913F3E2779CD070051BCB2 /* TealiumCollect.xcframework */,
+				15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */,
+				15913F362779CD070051BCB2 /* TealiumLifecycle.xcframework */,
+				15913F382779CD070051BCB2 /* TealiumLocation.xcframework */,
+				15913F412779CD080051BCB2 /* TealiumMedia.xcframework */,
+				15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */,
+				15913F3C2779CD070051BCB2 /* TealiumTagManagement.xcframework */,
+				15913F392779CD070051BCB2 /* TealiumVisitorService.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

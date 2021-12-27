@@ -20,13 +20,14 @@ let package = Package(
                 .product(name: "FirebaseAnalytics", package: "Firebase", condition: .when(platforms: [.iOS])),
                 .product(name: "TealiumCore", package: "TealiumSwift"),
                 .product(name: "TealiumCollect", package: "TealiumSwift"),
-                .product(name: "TealiumRemoteCommands", package: "TealiumSwift"),
-                .product(name: "TealiumTagManagement", package: "TealiumSwift")
+                .product(name: "TealiumRemoteCommands", package: "TealiumSwift")
             ],
-            path: "./Sources"),
+            path: "./Sources",
+            exclude: ["Support"]),
         .testTarget(
             name: "TealiumFirebaseTests",
             dependencies: ["TealiumFirebase"],
-            path: "./Tests")
+            path: "./Tests",
+            exclude: ["Support"])
     ]
 )

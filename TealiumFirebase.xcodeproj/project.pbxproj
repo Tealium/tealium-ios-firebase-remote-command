@@ -31,6 +31,7 @@
 		15913F572779CD3A0051BCB2 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */; };
 		15913F5D2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */; };
 		15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
+		15914AE5277A2BD80051BCB2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15914AE4277A2BD80051BCB2 /* Info.plist */; };
 		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,11 +94,11 @@
 		15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromisesObjC.xcframework; path = Carthage/Build/PromisesObjC.xcframework; sourceTree = "<group>"; };
 		15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCore.xcframework; path = Carthage/Build/TealiumCore.xcframework; sourceTree = "<group>"; };
 		15913F402779CD080051BCB2 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Carthage/Build/nanopb.xcframework; sourceTree = "<group>"; };
+		15914AE4277A2BD80051BCB2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15914AE7277A2BE10051BCB2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6C44CB2519986B002648A0 /* TealiumFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TealiumFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44D42519986B002648A0 /* TealiumFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TealiumFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44EA25199905002648A0 /* TealiumFirebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TealiumFirebase.h; sourceTree = "<group>"; };
-		CF6C44EB25199905002648A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF6C44F225199913002648A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6C44FD25199946002648A0 /* TealiumFirebaseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TealiumFirebaseTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceTests.swift; sourceTree = "<group>"; };
 		CF6C450125199946002648A0 /* FirebaseCommandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseCommandTests.swift; sourceTree = "<group>"; };
@@ -154,6 +155,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15914AE3277A2BD80051BCB2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				15914AE4277A2BD80051BCB2 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		15914AE6277A2BE10051BCB2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				15914AE7277A2BE10051BCB2 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		CF6C44C12519986B002648A0 = {
 			isa = PBXGroup;
 			children = (
@@ -176,12 +193,12 @@
 		CF6C44E925199905002648A0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				15914AE3277A2BD80051BCB2 /* Support */,
 				CF6C450D25199951002648A0 /* FirebaseConstants.swift */,
 				CF6C450C25199951002648A0 /* FirebaseItems.swift */,
 				CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */,
 				CF6C450F25199952002648A0 /* FirebaseInstance.swift */,
 				CF6C44EA25199905002648A0 /* TealiumFirebase.h */,
-				CF6C44EB25199905002648A0 /* Info.plist */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -189,11 +206,11 @@
 		CF6C44F025199913002648A0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				15914AE6277A2BE10051BCB2 /* Support */,
 				CF6C450125199946002648A0 /* FirebaseCommandTests.swift */,
 				CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */,
 				CF6C450325199946002648A0 /* HttpTestHelpers.swift */,
 				CF6C450225199946002648A0 /* MockFirebaseInstance.swift */,
-				CF6C44F225199913002648A0 /* Info.plist */,
 				CF6C44FD25199946002648A0 /* TealiumFirebaseTests-Bridging-Header.h */,
 			);
 			path = Tests;
@@ -323,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15914AE5277A2BD80051BCB2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +525,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -540,7 +558,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -570,7 +588,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +614,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

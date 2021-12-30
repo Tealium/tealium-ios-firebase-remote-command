@@ -19,7 +19,6 @@ let package = Package(
             dependencies: [
                 .product(name: "FirebaseAnalytics", package: "Firebase", condition: .when(platforms: [.iOS])),
                 .product(name: "TealiumCore", package: "TealiumSwift"),
-                .product(name: "TealiumCollect", package: "TealiumSwift"),
                 .product(name: "TealiumRemoteCommands", package: "TealiumSwift")
             ],
             path: "./Sources",

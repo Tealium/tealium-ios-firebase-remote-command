@@ -31,7 +31,6 @@
 		15913F572779CD3A0051BCB2 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3B2779CD070051BCB2 /* PromisesObjC.xcframework */; };
 		15913F5D2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */; };
 		15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
-		15914AE5277A2BD80051BCB2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15914AE4277A2BD80051BCB2 /* Info.plist */; };
 		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -340,7 +339,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15914AE5277A2BD80051BCB2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

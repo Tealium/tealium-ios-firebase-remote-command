@@ -39,6 +39,6 @@ Pod::Spec.new do |s|
     s.ios.dependency 'tealium-swift/RemoteCommands', '~> 2.6'
     s.ios.dependency 'tealium-swift/TagManagement', '~> 2.6'
     s.ios.dependency 'tealium-swift/Collect', '~> 2.6'
-    s.dependency 'Firebase', '~> 8.0'
-    s.dependency 'FirebaseAnalytics', '~> 8.0'
+    s.dependency 'Firebase', '~> 8.12'
+    s.dependency 'FirebaseAnalytics', '~> 8.12'
 end

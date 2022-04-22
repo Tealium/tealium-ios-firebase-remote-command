@@ -240,14 +240,14 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "param_affiliation": AnalyticsParameterAffiliation,
             "param_cp1": AnalyticsParameterCP1,
             "param_campaign": AnalyticsParameterCampaign,
-            "param_campaign_id": AnalyticsParameterCampaignID,
+            "param_campaign_id": AnalyticsParameterCampaignID, // Version 8.12.1
             "param_character": AnalyticsParameterCharacter,
             "param_checkout_step": AnalyticsParameterCheckoutStep,
             "param_checkout_option": AnalyticsParameterCheckoutOption,
             "param_content": AnalyticsParameterContent,
             "param_content_type": AnalyticsParameterContentType,
             "param_coupon": AnalyticsParameterCoupon,
-            "param_creative_format": AnalyticsParameterCreativeFormat,
+            "param_creative_format": AnalyticsParameterCreativeFormat, // Version 8.12.1
             "param_creative_name": AnalyticsParameterCreativeName,
             "param_creative_slot": AnalyticsParameterCreativeSlot,
             "param_currency": AnalyticsParameterCurrency,
@@ -276,7 +276,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "param_level_name": AnalyticsParameterLevelName,
             "param_location": AnalyticsParameterLocation,
             "param_location_id": AnalyticsParameterLocationID,
-            "param_marketing_tactic": AnalyticsParameterMarketingTactic,
+            "param_marketing_tactic": AnalyticsParameterMarketingTactic, // version 8.12.1
             "param_medium": AnalyticsParameterMedium,
             "param_method": AnalyticsParameterMethod,
             "param_number_nights": AnalyticsParameterNumberOfNights,
@@ -296,7 +296,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "param_screen_name": AnalyticsParameterScreenName,
             "param_screen_class": AnalyticsParameterScreenClass,
             "param_source": AnalyticsParameterSource,
-            "param_source_platform": AnalyticsParameterSourcePlatform,
+            "param_source_platform": AnalyticsParameterSourcePlatform, // Version 8.12.1
             "param_start_date": AnalyticsParameterStartDate,
             "param_success": AnalyticsParameterSuccess,
             "param_tax": AnalyticsParameterTax,
@@ -306,8 +306,8 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "param_value": AnalyticsParameterValue,
             "param_virtual_currency_name": AnalyticsParameterVirtualCurrencyName,
             "param_user_signup_method": AnalyticsUserPropertySignUpMethod,
+            "param_user_allow_ad_personalization_signals": AnalyticsUserPropertyAllowAdPersonalizationSignals
         ]
-        // Param signup method was mapped to just param, same for location id and item list
         return eventParameters[paramName] ?? paramName
     }
 

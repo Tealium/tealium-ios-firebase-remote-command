@@ -193,7 +193,6 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "event_level_up": AnalyticsEventLevelUp,
             "event_login": AnalyticsEventLogin,
             "event_post_score": AnalyticsEventPostScore,
-            "event_present_offer": AnalyticsEventViewPromotion,
             "event_ecommerce_purchase": AnalyticsEventEcommercePurchase,
             "event_present_offer": AnalyticsEventPresentOffer,
             "event_purchase": AnalyticsEventPurchase,
@@ -215,6 +214,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "event_view_cart": AnalyticsEventViewCart,
             "event_view_item": AnalyticsEventViewItem,
             "event_view_item_list": AnalyticsEventViewItemList,
+            "event_view_promotion": AnalyticsEventViewPromotion,
             "event_view_search_results": AnalyticsEventViewSearchResults,
         ]
         return eventsMap[eventName] ?? eventName

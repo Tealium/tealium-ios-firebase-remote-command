@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15DBED66281AF105000A6BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15DBED65281AF105000A6BEE /* GoogleService-Info.plist */; };
 		B77A03BFD1EFDAD3EDF7289E /* Pods_TealiumFirebaseExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E34172041517CCAFCDE071 /* Pods_TealiumFirebaseExample.framework */; };
 		CF71DB05251A7EB300E96CC4 /* firebase.json in Resources */ = {isa = PBXBuildFile; fileRef = CF71DAFF251A7EB300E96CC4 /* firebase.json */; };
 		CF71DB1C251A97A100E96CC4 /* EventMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF71DB1B251A97A100E96CC4 /* EventMapper.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15DBED65281AF105000A6BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB20BD073BB8AE2DEEDCDB97 /* Pods-TealiumFirebaseExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.release.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.release.xcconfig"; sourceTree = "<group>"; };
 		BB6EF3D00A32D88F43492383 /* Pods-TealiumFirebaseExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.debug.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.debug.xcconfig"; sourceTree = "<group>"; };
 		C3E34172041517CCAFCDE071 /* Pods_TealiumFirebaseExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TealiumFirebaseExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +103,6 @@
 				BB6EF3D00A32D88F43492383 /* Pods-TealiumFirebaseExample.debug.xcconfig */,
 				AB20BD073BB8AE2DEEDCDB97 /* Pods-TealiumFirebaseExample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -162,6 +163,7 @@
 				CFDD8BC322E5344F00358234 /* ProductCell.swift */,
 				CF71DB1B251A97A100E96CC4 /* EventMapper.swift */,
 				CF71DAFF251A7EB300E96CC4 /* firebase.json */,
+				15DBED65281AF105000A6BEE /* GoogleService-Info.plist */,
 				CFDD8BCE22E676B800358234 /* View Controllers */,
 				CFDD8BCF22E676CF00358234 /* Storyboards */,
 				CFDD8B3422E1195800358234 /* Assets.xcassets */,
@@ -259,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFDD8B6F22E234AB00358234 /* Activities.storyboard in Resources */,
+				15DBED66281AF105000A6BEE /* GoogleService-Info.plist in Resources */,
 				CFC34EF022F8D7EB00E8723F /* REPLACE-ME.md in Resources */,
 				CFDD8B3822E1195800358234 /* LaunchScreen.storyboard in Resources */,
 				CFDD8B3522E1195800358234 /* Assets.xcassets in Resources */,

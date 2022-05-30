@@ -16,6 +16,7 @@ public protocol FirebaseCommand {
     func setScreenName(_ screenName: String, _ screenClass: String?)
     func setUserProperty(_ property: String, value: String)
     func setUserId(_ id: String)
+    func initiateOnDeviceConversionMeasurement(emailAddress: String)
 }
 
 public class FirebaseInstance: FirebaseCommand {
@@ -57,6 +58,10 @@ public class FirebaseInstance: FirebaseCommand {
     
     public func setUserId(_ id: String) {
         Analytics.setUserID(id)
+    }
+    
+    public func initiateOnDeviceConversionMeasurement(emailAddress: String) {
+        Analytics.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
     }
     
 }

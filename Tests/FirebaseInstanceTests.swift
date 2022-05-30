@@ -189,6 +189,28 @@ class FirebaseInstanceTests: XCTestCase {
         wait(for: [expect], timeout: 2.0)
     }
     
+    func testInitiateConversionMeasurementWithValues() {
+        let expect = expectation(description: "initiate conversion measurement should run")
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com"]
+        if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
+            firebaseCommand.completion(response)
+            XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
+
+    func testInitiateConversionMeasurementWithoutValues() {
+        let expect = expectation(description: "initiate conversion measurement should not run")
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement"]
+        if let response = HttpTestHelpers.createRemoteCommandResponse(type: .webview, commandId: "firebase", payload: payload) {
+            firebaseCommand.completion(response)
+            XCTAssertEqual(0, firebaseInstance.initateConversionCount)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
+    
     // MARK: JSON Remote Command Tests
     func testCreateAnalyticsConfigWithoutValuesJSON() {
         let expect = expectation(description: "firebase config should run")
@@ -373,6 +395,28 @@ class FirebaseInstanceTests: XCTestCase {
         if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
             firebaseCommand.completion(response)
             XCTAssertEqual(1, firebaseInstance.logEventWithParamsCallCount)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
+    
+    func testInitiateConversionMeasurementWithValuesJSON() {
+        let expect = expectation(description: "initiate conversion measurement should run")
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com"]
+        if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
+            firebaseCommand.completion(response)
+            XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
+
+    func testInitiateConversionMeasurementWithoutValuesJSON() {
+        let expect = expectation(description: "initiate conversion measurement should not run")
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement"]
+        if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
+            firebaseCommand.completion(response)
+            XCTAssertEqual(0, firebaseInstance.initateConversionCount)
         }
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)

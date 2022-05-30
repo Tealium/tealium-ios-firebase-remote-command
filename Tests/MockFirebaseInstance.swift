@@ -13,6 +13,8 @@ import TealiumRemoteCommands
 
 
 class MockFirebaseInstance: FirebaseCommand {
+    
+    
 
     var createAnalyticsConfigCallCount = 0
     
@@ -25,6 +27,8 @@ class MockFirebaseInstance: FirebaseCommand {
     var setUserPropertyCallCount = 0
     
     var setUserIdCallCount = 0
+    
+    var initateConversionCount = 0
     
     func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel) {
         createAnalyticsConfigCallCount += 1
@@ -46,4 +50,7 @@ class MockFirebaseInstance: FirebaseCommand {
         setUserIdCallCount += 1
     }    
     
+    func initiateOnDeviceConversionMeasurement(emailAddress: String) {
+        initateConversionCount += 1
+    }
 }

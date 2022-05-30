@@ -48,8 +48,9 @@ public class FirebaseRemoteCommand: RemoteCommand {
             return command.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         var firebaseLogLevel = FirebaseLoggerLevel.min
-        firebaseCommands.forEach {
-            let command = FirebaseConstants.Commands(rawValue: $0.lowercased())
+        firebaseCommands
+            .compactMap { FirebaseConstants.Commands(rawValue: $0.lowercased()) }
+            .forEach { command in
             switch command {
             case .config:
                 var firebaseSessionTimeout: TimeInterval?
@@ -76,7 +77,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 let eventName = self.mapEvent(name)
                 var normalizedParams = [String: Any]()
                 if let eventKeyFromJSON = payload[FirebaseConstants.Keys.eventKey] as? [String: Any] {
-                    payload[FirebaseConstants.Keys.eventParams] = eventKeyFromJSON
+                    payload[FirebaseConstants.Keys.eventParams] = eventKeyFromJSON // event params from json remote command
                 }
                 guard let params = payload[FirebaseConstants.Keys.eventParams] as? [String: Any] else {
                     firebaseInstance.logEvent(eventName, items(from: payload))
@@ -84,13 +85,8 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 }
                 normalizedParams += mapParams(params)
                 if let itemsArray = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
-                    var tempItems = [[String: Any]]()
-                    itemsArray.forEach {
-                        let item = mapParams($0)
-                        tempItems.append(item)
-                    }
-                    normalizedParams[FirebaseConstants.Keys.items] = tempItems
-                    normalizedParams = normalizedParams.filter { $0.key != FirebaseConstants.Keys.paramItems}
+                    normalizedParams[FirebaseConstants.Keys.items] = itemsArray.map(mapParams(_:))
+                    normalizedParams.removeValue(forKey: FirebaseConstants.Keys.paramItems)
                 } else if let jsonItems = payload[FirebaseConstants.Keys.items] as? [String: Any] {
                     normalizedParams += items(from: jsonItems)
                 }
@@ -125,8 +121,15 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     return
                 }
                 firebaseInstance.setUserId(userId)
-            default:
-                return
+            case .initiateConversionMeasurement:
+                guard let emailAddress = payload[FirebaseConstants.Keys.emailAddress] as? String else {
+                    if firebaseLogLevel == .debug {
+                        print("\(FirebaseConstants.errorPrefix)`\(FirebaseConstants.Keys.emailAddress)` required for \(command).")
+                    }
+                    
+                    return
+                }
+                firebaseInstance.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
             }
         }
     }
@@ -184,7 +187,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "event_app_open": AnalyticsEventAppOpen,
             "event_begin_checkout": AnalyticsEventBeginCheckout,
             "event_campaign_details": AnalyticsEventCampaignDetails,
-            "event_checkout_progress": AnalyticsEventCheckoutProgress,
+//            "event_checkout_progress": AnalyticsEventCheckoutProgress,
             "event_earn_virtual_currency": AnalyticsEventEarnVirtualCurrency,
             "event_generate_lead": AnalyticsEventGenerateLead,
             "event_join_group": AnalyticsEventJoinGroup,
@@ -193,10 +196,10 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "event_level_up": AnalyticsEventLevelUp,
             "event_login": AnalyticsEventLogin,
             "event_post_score": AnalyticsEventPostScore,
-            "event_ecommerce_purchase": AnalyticsEventEcommercePurchase,
-            "event_present_offer": AnalyticsEventPresentOffer,
+//            "event_ecommerce_purchase": AnalyticsEventEcommercePurchase,
+//            "event_present_offer": AnalyticsEventPresentOffer,
             "event_purchase": AnalyticsEventPurchase,
-            "event_purchase_refund": AnalyticsEventPurchaseRefund,
+//            "event_purchase_refund": AnalyticsEventPurchaseRefund,
             "event_refund": AnalyticsEventRefund,
             "event_remove_cart": AnalyticsEventRemoveFromCart,
             "event_screen_view": AnalyticsEventScreenView,
@@ -204,7 +207,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "event_select_content": AnalyticsEventSelectContent,
             "event_select_item": AnalyticsEventSelectItem,
             "event_select_promotion": AnalyticsEventSelectPromotion,
-            "event_set_checkout_option": AnalyticsEventSetCheckoutOption,
+//            "event_set_checkout_option": AnalyticsEventSetCheckoutOption,
             "event_share": AnalyticsEventShare,
             "event_signup": AnalyticsEventSignUp,
             "event_spend_virtual_currency": AnalyticsEventSpendVirtualCurrency,
@@ -242,8 +245,8 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "param_campaign": AnalyticsParameterCampaign,
             "param_campaign_id": AnalyticsParameterCampaignID, // Version 8.12.1
             "param_character": AnalyticsParameterCharacter,
-            "param_checkout_step": AnalyticsParameterCheckoutStep,
-            "param_checkout_option": AnalyticsParameterCheckoutOption,
+//            "param_checkout_step": AnalyticsParameterCheckoutStep,
+//            "param_checkout_option": AnalyticsParameterCheckoutOption,
             "param_content": AnalyticsParameterContent,
             "param_content_type": AnalyticsParameterContentType,
             "param_coupon": AnalyticsParameterCoupon,
@@ -265,10 +268,10 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "param_item_category4": AnalyticsParameterItemCategory4,
             "param_item_category5": AnalyticsParameterItemCategory5,
             "param_item_id": AnalyticsParameterItemID,
-            "param_item_list": AnalyticsParameterItemList,
+//            "param_item_list": AnalyticsParameterItemList,
             "param_item_list_id": AnalyticsParameterItemListID,
             "param_item_list_name": AnalyticsParameterItemListName,
-            "param_item_location_id": AnalyticsParameterItemLocationID,
+//            "param_item_location_id": AnalyticsParameterItemLocationID,
             "param_item_name": AnalyticsParameterItemName,
             "param_item_variant": AnalyticsParameterItemVariant,
             "param_items": AnalyticsParameterItems,
@@ -292,7 +295,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
             "param_search_term": AnalyticsParameterSearchTerm,
             "param_shipping": AnalyticsParameterShipping,
             "param_shipping_tier": AnalyticsParameterShippingTier,
-            "param_signup_method": AnalyticsParameterSignUpMethod,
+//            "param_signup_method": AnalyticsParameterSignUpMethod,
             "param_screen_name": AnalyticsParameterScreenName,
             "param_screen_class": AnalyticsParameterScreenClass,
             "param_source": AnalyticsParameterSource,

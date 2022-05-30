@@ -15,7 +15,7 @@ enum FirebaseConstants {
     static let commandId = "firebaseAnalytics"
     static let description = "Firebase Remote Command"
     static let errorPrefix = "Tealium Firebase: "
-    static let version = "2.1.0"
+    static let version = "2.2.0"
     
     enum Keys {
         static let sessionTimeout = "firebase_session_timeout_seconds"
@@ -33,6 +33,7 @@ enum FirebaseConstants {
         static let paramItems = "param_items"
         static let items = "items"
         static let productId = "param_item_id"
+        static let emailAddress = "param_email_address"
     }
 
     enum Commands: String {
@@ -41,6 +42,7 @@ enum FirebaseConstants {
         case setScreenName = "setscreenname"
         case setUserProperty = "setuserproperty"
         case setUserId = "setuserid"
+        case initiateConversionMeasurement = "initiateconversionmeasurement"
     }
     
 }

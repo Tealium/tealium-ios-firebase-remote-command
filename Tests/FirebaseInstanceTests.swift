@@ -432,5 +432,29 @@ class FirebaseInstanceTests: XCTestCase {
         expect.fulfill()
         wait(for: [expect], timeout: 2.0)
     }
+    
+    func testSetDefaultParameters() {
+        let expect = expectation(description: "set user id should not run")
+        let defaultParameters: [String: Any]? = ["defaultParam1": "defaultValue1"]
+        let payload: [String: Any] = ["command_name": "setdefaultparameters", "default": defaultParameters as Any]
+        if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
+            firebaseCommand.completion(response)
+            XCTAssertNotNil(firebaseInstance.defaultParameters)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
+    
+    func testSetDefaultParametersFromTag() {
+        let expect = expectation(description: "set user id should not run")
+        let defaultParameters: [String: Any]? = ["defaultParam1": "defaultValue1"]
+        let payload: [String: Any] = ["command_name": "setdefaultparameters", "firebase_default_params": defaultParameters as Any]
+        if let response = HttpTestHelpers.createRemoteCommandResponse(type: .JSON, commandId: "firebase", payload: payload) {
+            firebaseCommand.completion(response)
+            XCTAssertNotNil(firebaseInstance.defaultParameters)
+        }
+        expect.fulfill()
+        wait(for: [expect], timeout: 2.0)
+    }
 
 }

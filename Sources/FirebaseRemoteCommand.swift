@@ -130,6 +130,10 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     return
                 }
                 firebaseInstance.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
+            case .setDefaultParameters:
+                let params = payload[FirebaseConstants.Keys.defaultParams] as? [String: Any]
+                    ?? payload[FirebaseConstants.Keys.tagDefaultParams] as? [String: Any]
+                firebaseInstance.setDefaultEventParameters(parameters: params)
             }
         }
     }

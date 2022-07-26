@@ -17,6 +17,7 @@ public protocol FirebaseCommand {
     func setUserProperty(_ property: String, value: String)
     func setUserId(_ id: String)
     func initiateOnDeviceConversionMeasurement(emailAddress: String)
+    func setDefaultEventParameters(parameters: [String: Any]?)
 }
 
 public class FirebaseInstance: FirebaseCommand {
@@ -64,4 +65,7 @@ public class FirebaseInstance: FirebaseCommand {
         Analytics.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
     }
     
+    public func setDefaultEventParameters(parameters: [String: Any]?) {
+        Analytics.setDefaultEventParameters(parameters)
+    }
 }

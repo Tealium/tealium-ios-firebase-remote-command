@@ -34,6 +34,8 @@ enum FirebaseConstants {
         static let items = "items"
         static let productId = "param_item_id"
         static let emailAddress = "param_email_address"
+        static let defaultParams = "default"
+        static let tagDefaultParams = "firebase_default_params";
     }
 
     enum Commands: String {
@@ -43,6 +45,7 @@ enum FirebaseConstants {
         case setUserProperty = "setuserproperty"
         case setUserId = "setuserid"
         case initiateConversionMeasurement = "initiateconversionmeasurement"
+        case setDefaultParameters = "setdefaultparameters";
     }
     
 }

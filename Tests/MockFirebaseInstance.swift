@@ -30,6 +30,8 @@ class MockFirebaseInstance: FirebaseCommand {
     
     var initateConversionCount = 0
     
+    var defaultParameters: [String:Any]?
+    
     func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel) {
         createAnalyticsConfigCallCount += 1
     }
@@ -52,5 +54,9 @@ class MockFirebaseInstance: FirebaseCommand {
     
     func initiateOnDeviceConversionMeasurement(emailAddress: String) {
         initateConversionCount += 1
+    }
+    
+    func setDefaultEventParameters(parameters: [String : Any]?) {
+        defaultParameters = parameters
     }
 }

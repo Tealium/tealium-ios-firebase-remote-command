@@ -47,7 +47,6 @@
 		CF6C450425199947002648A0 /* FirebaseInstanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */; };
 		CF6C450525199947002648A0 /* FirebaseCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450125199946002648A0 /* FirebaseCommandTests.swift */; };
 		CF6C450625199947002648A0 /* MockFirebaseInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450225199946002648A0 /* MockFirebaseInstance.swift */; };
-		CF6C450725199947002648A0 /* HttpTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450325199946002648A0 /* HttpTestHelpers.swift */; };
 		CF71DB7D251BB8D700E96CC4 /* TealiumFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6C44CB2519986B002648A0 /* TealiumFirebase.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +106,6 @@
 		CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceTests.swift; sourceTree = "<group>"; };
 		CF6C450125199946002648A0 /* FirebaseCommandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseCommandTests.swift; sourceTree = "<group>"; };
 		CF6C450225199946002648A0 /* MockFirebaseInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirebaseInstance.swift; sourceTree = "<group>"; };
-		CF6C450325199946002648A0 /* HttpTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTestHelpers.swift; sourceTree = "<group>"; };
 		CF6C450C25199951002648A0 /* FirebaseItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseItems.swift; sourceTree = "<group>"; };
 		CF6C450D25199951002648A0 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteCommand.swift; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 				15914AE6277A2BE10051BCB2 /* Support */,
 				CF6C450125199946002648A0 /* FirebaseCommandTests.swift */,
 				CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */,
-				CF6C450325199946002648A0 /* HttpTestHelpers.swift */,
 				CF6C450225199946002648A0 /* MockFirebaseInstance.swift */,
 				CF6C44FD25199946002648A0 /* TealiumFirebaseTests-Bridging-Header.h */,
 			);
@@ -378,7 +375,6 @@
 				CF6C450525199947002648A0 /* FirebaseCommandTests.swift in Sources */,
 				CF6C450425199947002648A0 /* FirebaseInstanceTests.swift in Sources */,
 				CF6C450625199947002648A0 /* MockFirebaseInstance.swift in Sources */,
-				CF6C450725199947002648A0 /* HttpTestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

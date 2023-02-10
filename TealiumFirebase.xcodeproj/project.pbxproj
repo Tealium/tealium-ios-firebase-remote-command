@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		151C39C82844D5E800868096 /* FirebaseAnalyticsSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151C39C72844D5E800868096 /* FirebaseAnalyticsSwift.xcframework */; };
-		151C39C92844D5E800868096 /* FirebaseAnalyticsSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151C39C72844D5E800868096 /* FirebaseAnalyticsSwift.xcframework */; };
 		151C39CB2844D6B300868096 /* FirebaseCoreInternal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */; };
 		151C39CC2844D6B300868096 /* FirebaseCoreInternal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */; };
 		15913F2E2779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */; };
@@ -83,7 +81,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		151C39C72844D5E800868096 /* FirebaseAnalyticsSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalyticsSwift.xcframework; path = Carthage/Build/FirebaseAnalyticsSwift.xcframework; sourceTree = "<group>"; };
 		151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreInternal.xcframework; path = Carthage/Build/FirebaseCoreInternal.xcframework; sourceTree = "<group>"; };
 		15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Carthage/Build/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Carthage/Build/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
@@ -120,7 +117,6 @@
 				15913F4E2779CD3A0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */,
 				15913F4F2779CD3A0051BCB2 /* FirebaseCore.xcframework in Frameworks */,
 				15913F502779CD3A0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
-				151C39C82844D5E800868096 /* FirebaseAnalyticsSwift.xcframework in Frameworks */,
 				15913F512779CD3A0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */,
 				15913F522779CD3A0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */,
 				151C39CB2844D6B300868096 /* FirebaseCoreInternal.xcframework in Frameworks */,
@@ -144,7 +140,6 @@
 				15913F332779CCFF0051BCB2 /* FirebaseInstallations.xcframework in Frameworks */,
 				15913F342779CCFF0051BCB2 /* GoogleUtilities.xcframework in Frameworks */,
 				15913F352779CCFF0051BCB2 /* GoogleDataTransport.xcframework in Frameworks */,
-				151C39C92844D5E800868096 /* FirebaseAnalyticsSwift.xcframework in Frameworks */,
 				15913F432779CD080051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */,
 				15913F492779CD080051BCB2 /* TealiumCore.xcframework in Frameworks */,
 				15913F322779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
@@ -223,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */,
-				151C39C72844D5E800868096 /* FirebaseAnalyticsSwift.xcframework */,
 				15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */,
 				151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */,
 				15913F2A2779CCFF0051BCB2 /* FirebaseCoreDiagnostics.xcframework */,

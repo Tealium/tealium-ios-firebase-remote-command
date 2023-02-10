@@ -102,7 +102,7 @@ PODS:
     - tealium-swift/RemoteCommands (~> 2.9)
 
 DEPENDENCIES:
-  - tealium-swift/Lifecycle (~> 2.6)
+  - tealium-swift/Lifecycle
   - TealiumFirebase (from `../`)
 
 SPEC REPOS:
@@ -139,6 +139,6 @@ SPEC CHECKSUMS:
   tealium-swift: 137769254e97d4c9f7ed6e16e0768b40888e6452
   TealiumFirebase: 3513cccfbd9f42dbc2635f18d5d3643162d2845c
 
-PODFILE CHECKSUM: 3fd45363bc3bb83253988fd05159061c8de9753e
+PODFILE CHECKSUM: 115a18829b9e3ae84bc788dc7c94c48fcebabc11
 
 COCOAPODS: 1.11.3

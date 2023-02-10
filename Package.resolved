@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk.git",
         "state": {
           "branch": null,
-          "revision": "0df86ea17d5d281415be74f2290df8431644f156",
-          "version": "10.4.0"
+          "revision": "7e80c25b51c2ffa238879b07fbfc5baa54bb3050",
+          "version": "9.6.0"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
         "state": {
           "branch": null,
-          "revision": "9a09ece724128e8d1e14c5133b87c0e236844ac0",
-          "version": "10.4.0"
+          "revision": "c1cfde8067668027b23a42c29d11c246152fe046",
+          "version": "9.6.0"
         }
       },
       {
@@ -69,8 +69,8 @@
         "repositoryURL": "https://github.com/google/gtm-session-fetcher.git",
         "state": {
           "branch": null,
-          "revision": "96d7cc73a71ce950723aa3c50ce4fb275ae180b8",
-          "version": "3.1.0"
+          "revision": "5ccda3981422a84186387dbb763ba739178b529c",
+          "version": "2.3.0"
         }
       },
       {

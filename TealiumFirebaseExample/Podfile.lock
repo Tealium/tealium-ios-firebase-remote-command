@@ -95,7 +95,7 @@ PODS:
     - tealium-swift/Core
   - tealium-swift/RemoteCommands (2.9.1):
     - tealium-swift/Core
-  - TealiumFirebase (2.3.0):
+  - TealiumFirebase (2.2.1):
     - Firebase (~> 9.1)
     - FirebaseAnalytics (~> 9.1)
     - tealium-swift/Core (~> 2.9)
@@ -137,7 +137,7 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   tealium-swift: 137769254e97d4c9f7ed6e16e0768b40888e6452
-  TealiumFirebase: 3513cccfbd9f42dbc2635f18d5d3643162d2845c
+  TealiumFirebase: f4f3f2cc6f60449d4adc4ccf211e6d218e85ed8e
 
 PODFILE CHECKSUM: 115a18829b9e3ae84bc788dc7c94c48fcebabc11
 

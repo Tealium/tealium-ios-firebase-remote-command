@@ -13,8 +13,9 @@ import TealiumRemoteCommands
 
 
 class MockFirebaseInstance: FirebaseCommand {
-    
-    
+    func onReady(_ onReady: @escaping () -> Void) {
+        onReady()
+    }
 
     var createAnalyticsConfigCallCount = 0
     

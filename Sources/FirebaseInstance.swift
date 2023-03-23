@@ -9,9 +9,18 @@
 import Foundation
 import FirebaseCore
 import FirebaseAnalytics
+#if COCOAPODS
+    import TealiumSwift
+#else
+    import TealiumCore
+#endif
 
 public protocol FirebaseCommand {
-    func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel)
+    func onReady(_ onReady: @escaping () -> Void)
+    func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?,
+                               _ minimumSessionSeconds: TimeInterval?,
+                               _ analyticsEnabled: Bool?,
+                               _ logLevel: FirebaseLoggerLevel)
     func logEvent(_ name: String, _ params: [String: Any]?)
     func setScreenName(_ screenName: String, _ screenClass: String?)
     func setUserProperty(_ property: String, value: String)
@@ -24,7 +33,28 @@ public class FirebaseInstance: FirebaseCommand {
     
     public init() { }
     
-    public func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel) {
+    private var _onReady = TealiumReplaySubject<Void>(cacheSize: 1)
+    
+    var isConfigured: Bool {
+        // Analytics is only logged on default instance
+        FirebaseApp.app() != nil
+    }
+    /// Waits for the default FirebaseApp to be configured for the first time and then calls the completion block. If the default app gets deleted later this won't wait anymore.
+    public func onReady(_ onReady: @escaping () -> Void) {
+        guard !isConfigured else {
+            if _onReady.last() == nil {
+                _onReady.publish()
+            }
+            onReady()
+            return
+        }
+        _onReady.subscribeOnce(onReady)
+    }
+    
+    public func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?,
+                                      _ minimumSessionSeconds: TimeInterval?,
+                                      _ analyticsEnabled: Bool?,
+                                      _ logLevel: FirebaseLoggerLevel) {
         if let sessionTimeoutSeconds = sessionTimeoutSeconds {
             Analytics.setSessionTimeoutInterval(sessionTimeoutSeconds)
         }
@@ -32,40 +62,59 @@ public class FirebaseInstance: FirebaseCommand {
             Analytics.setAnalyticsCollectionEnabled(analyticsEnabled)
         }
         FirebaseConfiguration.shared.setLoggerLevel(logLevel)
-        if FirebaseApp.app() == nil {
+        if !isConfigured {
             DispatchQueue.main.async {
                 FirebaseApp.configure()
+                TealiumQueues.backgroundSerialQueue.async {
+                    self._onReady.publish()
+                }
             }
+        } else {
+            _onReady.publish()
         }
     }
     
     public func logEvent(_ name: String, _ params: [String : Any]?) {
-        Analytics.logEvent(name, parameters: params)
+        onReady {
+            Analytics.logEvent(name, parameters: params)
+        }
     }
     
     public func setScreenName(_ screenName: String, _ screenClass: String?) {
-        Analytics.logEvent(AnalyticsEventScreenView,
-                           parameters: [AnalyticsParameterScreenName: screenName,
-                                        AnalyticsParameterScreenClass: screenClass ?? ""])
+        onReady {
+            Analytics.logEvent(<#T##name: String##String#>, parameters: <#T##[String : Any]?#>)
+            Analytics.logEvent(AnalyticsEventScreenView,
+                               parameters: [
+                                AnalyticsParameterScreenName: screenName,
+                                AnalyticsParameterScreenClass: screenClass ?? ""])
+        }
     }
     
     public func setUserProperty(_ property: String, value: String) {
-        if value == "" {
-            Analytics.setUserProperty(nil, forName: property)
-        } else {
-            Analytics.setUserProperty(value, forName: property)
+        onReady {
+            if value == "" {
+                Analytics.setUserProperty(nil, forName: property)
+            } else {
+                Analytics.setUserProperty(value, forName: property)
+            }
         }
     }
     
     public func setUserId(_ id: String) {
-        Analytics.setUserID(id)
+        onReady {
+            Analytics.setUserID(id)
+        }
     }
     
     public func initiateOnDeviceConversionMeasurement(emailAddress: String) {
-        Analytics.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
+        onReady {
+            Analytics.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
+        }
     }
     
     public func setDefaultEventParameters(parameters: [String: Any]?) {
-        Analytics.setDefaultEventParameters(parameters)
+        onReady {
+            Analytics.setDefaultEventParameters(parameters)
+        }
     }
 }

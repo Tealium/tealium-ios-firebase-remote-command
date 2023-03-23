@@ -21,7 +21,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
     override public var version: String? {
         return FirebaseConstants.version
     }
-    var firebaseInstance: FirebaseCommand?
+    let firebaseInstance: FirebaseCommand
 
     public init(firebaseInstance: FirebaseCommand = FirebaseInstance(), type: RemoteCommandType = .webview) {
         self.firebaseInstance = firebaseInstance
@@ -37,10 +37,15 @@ public class FirebaseRemoteCommand: RemoteCommand {
             })
         weakSelf = self
     }
+    
+    public func onReady(_ onReady: @escaping () -> Void) {
+        TealiumQueues.backgroundSerialQueue.async {
+            self.firebaseInstance.onReady(onReady)
+        }
+    }
 
     func processRemoteCommand(with payload: [String: Any]) {
-        guard let firebaseInstance = firebaseInstance,
-            let command = payload[FirebaseConstants.commandName] as? String else {
+        guard let command = payload[FirebaseConstants.commandName] as? String else {
                 return
         }
         let commands = command.split(separator: FirebaseConstants.separator)

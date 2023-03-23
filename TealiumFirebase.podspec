@@ -32,6 +32,6 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.ios.dependency 'tealium-swift/Core', '~> 2.9'
     s.ios.dependency 'tealium-swift/RemoteCommands', '~> 2.9'
-    s.dependency 'Firebase', '~> 9.1'
-    s.dependency 'FirebaseAnalytics', '~> 9.1'
+    s.dependency 'Firebase', '~> 10.7'
+    s.dependency 'FirebaseAnalytics', '~> 10.7'
 end

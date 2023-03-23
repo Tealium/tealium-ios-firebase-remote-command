@@ -1,2 +1,2 @@
 github "tealium/tealium-swift" ~> 2.9
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" ~> 9.1
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" ~> 10.7

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		151C39CB2844D6B300868096 /* FirebaseCoreInternal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */; };
 		151C39CC2844D6B300868096 /* FirebaseCoreInternal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */; };
+		15226A7729CDF1370056D920 /* DictionaryUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15226A7629CDF1370056D920 /* DictionaryUtilitiesTests.swift */; };
 		15913F2E2779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */; };
 		15913F2F2779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */; };
 		15913F302779CCFF0051BCB2 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */; };
@@ -34,11 +35,9 @@
 		15913F5D2779CD3A0051BCB2 /* TealiumCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */; };
 		15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
 		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277B02522962E00696BB4 /* FirebaseInstance.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseInstance.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277B22522985B00696BB4 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; };
-		CF3277B32522985B00696BB4 /* FirebaseItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450C25199951002648A0 /* FirebaseItems.swift */; };
 		CF3277B42522985B00696BB4 /* FirebaseRemoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; };
 		CF3277B52522985B00696BB4 /* FirebaseInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseInstance.swift */; };
 		CF6C44EC25199905002648A0 /* TealiumFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = CF6C44EA25199905002648A0 /* TealiumFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -82,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreInternal.xcframework; path = Carthage/Build/FirebaseCoreInternal.xcframework; sourceTree = "<group>"; };
+		15226A7629CDF1370056D920 /* DictionaryUtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilitiesTests.swift; sourceTree = "<group>"; };
 		15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Carthage/Build/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Carthage/Build/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
 		15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = Carthage/Build/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 		CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceTests.swift; sourceTree = "<group>"; };
 		CF6C450125199946002648A0 /* FirebaseCommandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseCommandTests.swift; sourceTree = "<group>"; };
 		CF6C450225199946002648A0 /* MockFirebaseInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirebaseInstance.swift; sourceTree = "<group>"; };
-		CF6C450C25199951002648A0 /* FirebaseItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseItems.swift; sourceTree = "<group>"; };
 		CF6C450D25199951002648A0 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteCommand.swift; sourceTree = "<group>"; };
 		CF6C450F25199952002648A0 /* FirebaseInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstance.swift; sourceTree = "<group>"; };
@@ -194,7 +193,6 @@
 			children = (
 				15914AE3277A2BD80051BCB2 /* Support */,
 				CF6C450D25199951002648A0 /* FirebaseConstants.swift */,
-				CF6C450C25199951002648A0 /* FirebaseItems.swift */,
 				CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */,
 				CF6C450F25199952002648A0 /* FirebaseInstance.swift */,
 				CF6C44EA25199905002648A0 /* TealiumFirebase.h */,
@@ -206,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				15914AE6277A2BE10051BCB2 /* Support */,
+				15226A7629CDF1370056D920 /* DictionaryUtilitiesTests.swift */,
 				CF6C450125199946002648A0 /* FirebaseCommandTests.swift */,
 				CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */,
 				CF6C450225199946002648A0 /* MockFirebaseInstance.swift */,
@@ -243,7 +242,6 @@
 			files = (
 				CF6C44EC25199905002648A0 /* TealiumFirebase.h in Headers */,
 				CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */,
-				CF3277AE2522962E00696BB4 /* FirebaseItems.swift in Headers */,
 				CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */,
 				CF3277B02522962E00696BB4 /* FirebaseInstance.swift in Headers */,
 			);
@@ -356,7 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF3277B22522985B00696BB4 /* FirebaseConstants.swift in Sources */,
-				CF3277B32522985B00696BB4 /* FirebaseItems.swift in Sources */,
 				CF3277B42522985B00696BB4 /* FirebaseRemoteCommand.swift in Sources */,
 				CF3277B52522985B00696BB4 /* FirebaseInstance.swift in Sources */,
 			);
@@ -368,6 +365,7 @@
 			files = (
 				CF6C450525199947002648A0 /* FirebaseCommandTests.swift in Sources */,
 				CF6C450425199947002648A0 /* FirebaseInstanceTests.swift in Sources */,
+				15226A7729CDF1370056D920 /* DictionaryUtilitiesTests.swift in Sources */,
 				CF6C450625199947002648A0 /* MockFirebaseInstance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,10 +578,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XC939GDC9P;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Tests/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -606,10 +600,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XC939GDC9P;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Tests/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

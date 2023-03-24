@@ -259,40 +259,6 @@ class FirebaseCommandTests: XCTestCase {
         }
     }
     
-    func testFirebaseItems() {
-        let payload = ["param_item_id": ["abc123", "xyz456"],
-            "param_item_name": ["cool running shoes", "cool shirt"],
-            "param_quantity": [1, 2],
-            "param_item_category": ["shoes", "shirts"],
-            "param_item_variant": ["abc-blue-123", "xyz-red-456"],
-            "param_item_brand": ["acme", "roadrunner"],
-            "param_price": [10.99, 14.99]]
-        
-        let expected = [["item_id": "abc123",
-        "item_name": "cool running shoes",
-        "quantity": 1,
-        "item_category": "shoes",
-        "item_variant": "abc-blue-123",
-        "item_brand": "acme",
-        "price": 10.99],
-        ["item_id": "xyz456",
-        "item_name": "cool shirt",
-        "quantity": 2,
-        "item_category": "shirts",
-        "item_variant": "xyz-red-456",
-        "item_brand": "roadrunner",
-        "price": 14.99]]
-        
-        guard let actual = try? XCTUnwrap([FirebaseItem](from: payload)?.dictionaryArray) else {
-            return
-        }
-        
-        zip(actual, expected).forEach {
-            XCTAssert(NSDictionary(dictionary: $0.0).isEqual(to:  $0.1))
-        }
-                
-    }
-    
     func testItemsFromPayloadTag() {
         let payload = ["items": [
                         "param_item_id": ["abc123","xyz456"],
@@ -353,7 +319,6 @@ class FirebaseCommandTests: XCTestCase {
                             "price": 14.99]]]
         
         let actual = firebaseCommand.items(from: payload)
-        
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
     }
     
@@ -378,7 +343,32 @@ class FirebaseCommandTests: XCTestCase {
                             "price": 10.99]]]
         
         let actual = firebaseCommand.items(from: payload)
+        XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
+    }
+    
+    func testItemsWhithValidCustomParameter() {
+        let payload = ["items": [
+                        "param_item_id": "abc123",
+                        "param_item_name": "cool running shoes",
+                        "param_quantity": 1,
+                        "param_item_category": "shoes",
+                        "param_item_variant": "abc-blue-123",
+                        "param_item_brand": "acme",
+                        "param_price": 10.99,
+                        "custom_item_param": "valid",
+                        "custom_param": "invalid",]]
         
+        let expected: [String: Any] = ["items": [
+                        ["item_id": "abc123",
+                            "item_name": "cool running shoes",
+                            "quantity": 1,
+                            "item_category": "shoes",
+                            "item_variant": "abc-blue-123",
+                            "item_brand": "acme",
+                            "price": 10.99,
+                            "custom_item_param": "valid"]]]
+        
+        let actual = firebaseCommand.items(from: payload)
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
     }
     

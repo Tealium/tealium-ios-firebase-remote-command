@@ -144,25 +144,10 @@ public class FirebaseRemoteCommand: RemoteCommand {
     }
     
     func items(from payload: [String: Any]) -> [String: Any] {
-        var result = [String: Any]()
-
-        func prepare(items: [String: Any]) -> [String: Any] {
-            var result = [String: Any]()
-            if let items = items.extractItems(), items.count > 0 {
-                result[FirebaseConstants.Keys.items] = items
-            } else if let items = items.itemsToArray().extractItems(), items.count > 0 {
-                result[FirebaseConstants.Keys.items] = items
-            }
-            return result
-        }
-        
-        if let jsonItems = payload[FirebaseConstants.Keys.items] as? [String: Any] {
-            result = prepare(items: jsonItems)
-        } else {
-            result = prepare(items: payload)
-        }
-        result += mapParams(result)
-        return result
+        let payloadParameters = payload[FirebaseConstants.Keys.items] as? [String: Any] ?? payload
+        return [
+            FirebaseConstants.Keys.items: payloadParameters.itemArraysToArrayOfItems().map { mapParams($0) }
+        ]
     }
 
     func parseLogLevel(_ logLevel: String) -> FirebaseLoggerLevel {
@@ -325,20 +310,27 @@ public class FirebaseRemoteCommand: RemoteCommand {
 
 }
 
-fileprivate extension Dictionary where Key == String, Value == Any {
-    func extractItems() -> [[String: Any]]? {
-        [FirebaseItem](from: self)?.dictionaryArray
+extension Dictionary where Key == String, Value == Any {
+    
+    func normalizeParamsArrays() -> [String: [Any]] {
+        self.filter { $0.key.contains("item_") || $0.key.contains("quantity") || $0.key.contains("price") }
+            .reduce(into: [String: [Any]]()) { result, dictionary in
+                result[dictionary.key] = dictionary.value as? [Any] ?? [dictionary.value]
+            }
     }
-    func itemsToArray() -> [String: Any] {
-        self.reduce(into: [String: Any]()) { result, dictionary in
-            if dictionary.key.contains("item_") ||
-                dictionary.key.contains("quantity") ||
-                dictionary.key.contains("price") {
-                guard let _ = dictionary.value as? [Any] else {
-                    result[dictionary.key] = [dictionary.value]
-                    return
+    
+    func itemArraysToArrayOfItems() -> [[String: Any]] {
+        let itemParamsArrays = normalizeParamsArrays()
+        // We assume that all arrays have the same length
+        let count = itemParamsArrays.first?.value.count ?? 0
+        var result = Array<[String: Any]>(repeating: [:], count: count)
+        for i in 0 ..< count {
+            for key in itemParamsArrays.keys {
+                if let values = itemParamsArrays[key], values.count > i {
+                    result[i][key] = values[i]
                 }
             }
         }
+        return result
     }
 }

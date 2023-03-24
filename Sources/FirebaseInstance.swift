@@ -82,7 +82,6 @@ public class FirebaseInstance: FirebaseCommand {
     
     public func setScreenName(_ screenName: String, _ screenClass: String?) {
         onReady {
-            Analytics.logEvent(<#T##name: String##String#>, parameters: <#T##[String : Any]?#>)
             Analytics.logEvent(AnalyticsEventScreenView,
                                parameters: [
                                 AnalyticsParameterScreenName: screenName,

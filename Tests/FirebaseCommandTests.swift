@@ -355,7 +355,7 @@ class FirebaseCommandTests: XCTestCase {
                         "param_item_variant": "abc-blue-123",
                         "param_item_brand": "acme",
                         "param_price": 10.99,
-                        "custom_item_param": "valid",
+                        "param_item_custom": "valid",
                         "custom_param": "invalid",]]
         
         let expected: [String: Any] = ["items": [
@@ -366,10 +366,34 @@ class FirebaseCommandTests: XCTestCase {
                             "item_variant": "abc-blue-123",
                             "item_brand": "acme",
                             "price": 10.99,
-                            "custom_item_param": "valid"]]]
+                            "param_item_custom": "valid"]]]
         
         let actual = firebaseCommand.items(from: payload)
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
     }
-    
+    func testPerformanceItemsWhenProductVariablesNotArray() {
+            let count = 1000
+            let payload = ["items": [
+                            "param_item_id": Array(repeating: "abc123", count: count),
+                            "param_item_name": Array(repeating: "cool running shoes", count: count),
+                            "param_quantity": Array(repeating: 1, count: count),
+                            "param_item_category": Array(repeating: "shoes", count: count),
+                            "param_item_variant": Array(repeating: "abc-blue-123", count: count),
+                            "param_item_brand": Array(repeating: "acme", count: count),
+                            "param_price": Array(repeating: 10.99, count: count)]]
+            
+            let expected: [String: Any] = ["items": Array(repeating:
+                            ["item_id": "abc123",
+                                "item_name": "cool running shoes",
+                                "quantity": 1,
+                                "item_category": "shoes",
+                                "item_variant": "abc-blue-123",
+                                "item_brand": "acme",
+                             "price": 10.99], count: count)]
+            measure {
+                let _ = firebaseCommand.items(from: payload)
+            }
+            
+    //        XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
+        }
 }

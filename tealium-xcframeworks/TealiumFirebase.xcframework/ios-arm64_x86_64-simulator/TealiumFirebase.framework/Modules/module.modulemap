@@ -1,0 +1,11 @@
+framework module TealiumFirebase {
+  umbrella header "TealiumFirebase.h"
+
+  export *
+  module * { export * }
+}
+
+module TealiumFirebase.Swift {
+  header "TealiumFirebase-Swift.h"
+  requires objc
+}

@@ -1,0 +1,1401 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "FirebaseCore",
+        "printedName": "FirebaseCore",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase"
+      },
+      {
+        "kind": "Import",
+        "name": "FirebaseAnalytics",
+        "printedName": "FirebaseAnalytics",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase"
+      },
+      {
+        "kind": "Import",
+        "name": "TealiumCore",
+        "printedName": "TealiumCore",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase"
+      },
+      {
+        "kind": "Import",
+        "name": "TealiumRemoteCommands",
+        "printedName": "TealiumRemoteCommands",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FirebaseRemoteCommand",
+        "printedName": "FirebaseRemoteCommand",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "version",
+            "printedName": "version",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TealiumFirebase0B13RemoteCommandC7versionSSSgvp",
+            "mangledName": "$s15TealiumFirebase0B13RemoteCommandC7versionSSSgvp",
+            "moduleName": "TealiumFirebase",
+            "overriding": true,
+            "declAttributes": [
+              "AccessControl",
+              "Override"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TealiumFirebase0B13RemoteCommandC7versionSSSgvg",
+                "mangledName": "$s15TealiumFirebase0B13RemoteCommandC7versionSSSgvg",
+                "moduleName": "TealiumFirebase",
+                "overriding": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(firebaseInstance:type:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseRemoteCommand",
+                "printedName": "TealiumFirebase.FirebaseRemoteCommand",
+                "usr": "s:15TealiumFirebase0B13RemoteCommandC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseCommand",
+                "printedName": "TealiumFirebase.FirebaseCommand",
+                "hasDefaultArg": true,
+                "usr": "s:15TealiumFirebase0B7CommandP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RemoteCommandType",
+                "printedName": "TealiumRemoteCommands.RemoteCommandType",
+                "hasDefaultArg": true,
+                "usr": "s:21TealiumRemoteCommands0B11CommandTypeO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15TealiumFirebase0B13RemoteCommandC16firebaseInstance4typeAcA0bD0_p_0aC8Commands0cD4TypeOtcfc",
+            "mangledName": "$s15TealiumFirebase0B13RemoteCommandC16firebaseInstance4typeAcA0bD0_p_0aC8Commands0cD4TypeOtcfc",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(commandId:description:type:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseRemoteCommand",
+                "printedName": "TealiumFirebase.FirebaseRemoteCommand",
+                "usr": "s:15TealiumFirebase0B13RemoteCommandC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RemoteCommandType",
+                "printedName": "TealiumRemoteCommands.RemoteCommandType",
+                "hasDefaultArg": true,
+                "usr": "s:21TealiumRemoteCommands0B11CommandTypeO"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TealiumRemoteCommands.RemoteCommandResponseProtocol) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RemoteCommandResponseProtocol",
+                    "printedName": "TealiumRemoteCommands.RemoteCommandResponseProtocol",
+                    "usr": "s:21TealiumRemoteCommands0B23CommandResponseProtocolP"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15TealiumFirebase0B13RemoteCommandC9commandId11description4type10completionACSS_SSSg0aC8Commands0cD4TypeOyAI0cD16ResponseProtocol_pctcfc",
+            "mangledName": "$s15TealiumFirebase0B13RemoteCommandC9commandId11description4type10completionACSS_SSSg0aC8Commands0cD4TypeOyAI0cD16ResponseProtocol_pctcfc",
+            "moduleName": "TealiumFirebase",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15TealiumFirebase0B13RemoteCommandC",
+        "mangledName": "$s15TealiumFirebase0B13RemoteCommandC",
+        "moduleName": "TealiumFirebase",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:21TealiumRemoteCommands0B7CommandC",
+        "superclassNames": [
+          "TealiumRemoteCommands.RemoteCommand"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "RemoteCommandProtocol",
+            "printedName": "RemoteCommandProtocol",
+            "usr": "s:21TealiumRemoteCommands0B15CommandProtocolP",
+            "mangledName": "$s21TealiumRemoteCommands0B15CommandProtocolP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "FirebaseCore",
+        "printedName": "FirebaseCore",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase"
+      },
+      {
+        "kind": "Import",
+        "name": "FirebaseAnalytics",
+        "printedName": "FirebaseAnalytics",
+        "declKind": "Import",
+        "moduleName": "TealiumFirebase"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FirebaseCommand",
+        "printedName": "FirebaseCommand",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "createAnalyticsConfig",
+            "printedName": "createAnalyticsConfig(_:_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseLoggerLevel",
+                "printedName": "FirebaseCore.FirebaseLoggerLevel",
+                "usr": "c:@E@FIRLoggerLevel"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B7CommandP21createAnalyticsConfigyySdSg_AESbSgSo14FIRLoggerLevelVtF",
+            "mangledName": "$s15TealiumFirebase0B7CommandP21createAnalyticsConfigyySdSg_AESbSgSo14FIRLoggerLevelVtF",
+            "moduleName": "TealiumFirebase",
+            "genericSig": "<τ_0_0 where τ_0_0 : TealiumFirebase.FirebaseCommand>",
+            "sugared_genericSig": "<Self where Self : TealiumFirebase.FirebaseCommand>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "logEvent",
+            "printedName": "logEvent(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B7CommandP8logEventyySS_SDySSypGSgtF",
+            "mangledName": "$s15TealiumFirebase0B7CommandP8logEventyySS_SDySSypGSgtF",
+            "moduleName": "TealiumFirebase",
+            "genericSig": "<τ_0_0 where τ_0_0 : TealiumFirebase.FirebaseCommand>",
+            "sugared_genericSig": "<Self where Self : TealiumFirebase.FirebaseCommand>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setScreenName",
+            "printedName": "setScreenName(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B7CommandP13setScreenNameyySS_SSSgtF",
+            "mangledName": "$s15TealiumFirebase0B7CommandP13setScreenNameyySS_SSSgtF",
+            "moduleName": "TealiumFirebase",
+            "genericSig": "<τ_0_0 where τ_0_0 : TealiumFirebase.FirebaseCommand>",
+            "sugared_genericSig": "<Self where Self : TealiumFirebase.FirebaseCommand>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setUserProperty",
+            "printedName": "setUserProperty(_:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B7CommandP15setUserProperty_5valueySS_SStF",
+            "mangledName": "$s15TealiumFirebase0B7CommandP15setUserProperty_5valueySS_SStF",
+            "moduleName": "TealiumFirebase",
+            "genericSig": "<τ_0_0 where τ_0_0 : TealiumFirebase.FirebaseCommand>",
+            "sugared_genericSig": "<Self where Self : TealiumFirebase.FirebaseCommand>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setUserId",
+            "printedName": "setUserId(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B7CommandP9setUserIdyySSF",
+            "mangledName": "$s15TealiumFirebase0B7CommandP9setUserIdyySSF",
+            "moduleName": "TealiumFirebase",
+            "genericSig": "<τ_0_0 where τ_0_0 : TealiumFirebase.FirebaseCommand>",
+            "sugared_genericSig": "<Self where Self : TealiumFirebase.FirebaseCommand>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initiateOnDeviceConversionMeasurement",
+            "printedName": "initiateOnDeviceConversionMeasurement(emailAddress:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B7CommandP37initiateOnDeviceConversionMeasurement12emailAddressySS_tF",
+            "mangledName": "$s15TealiumFirebase0B7CommandP37initiateOnDeviceConversionMeasurement12emailAddressySS_tF",
+            "moduleName": "TealiumFirebase",
+            "genericSig": "<τ_0_0 where τ_0_0 : TealiumFirebase.FirebaseCommand>",
+            "sugared_genericSig": "<Self where Self : TealiumFirebase.FirebaseCommand>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setDefaultEventParameters",
+            "printedName": "setDefaultEventParameters(parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B7CommandP25setDefaultEventParameters10parametersySDySSypGSg_tF",
+            "mangledName": "$s15TealiumFirebase0B7CommandP25setDefaultEventParameters10parametersySDySSypGSg_tF",
+            "moduleName": "TealiumFirebase",
+            "genericSig": "<τ_0_0 where τ_0_0 : TealiumFirebase.FirebaseCommand>",
+            "sugared_genericSig": "<Self where Self : TealiumFirebase.FirebaseCommand>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:15TealiumFirebase0B7CommandP",
+        "mangledName": "$s15TealiumFirebase0B7CommandP",
+        "moduleName": "TealiumFirebase",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FirebaseInstance",
+        "printedName": "FirebaseInstance",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseInstance",
+                "printedName": "TealiumFirebase.FirebaseInstance",
+                "usr": "s:15TealiumFirebase0B8InstanceC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15TealiumFirebase0B8InstanceCACycfc",
+            "mangledName": "$s15TealiumFirebase0B8InstanceCACycfc",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createAnalyticsConfig",
+            "printedName": "createAnalyticsConfig(_:_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FirebaseLoggerLevel",
+                "printedName": "FirebaseCore.FirebaseLoggerLevel",
+                "usr": "c:@E@FIRLoggerLevel"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B8InstanceC21createAnalyticsConfigyySdSg_AESbSgSo14FIRLoggerLevelVtF",
+            "mangledName": "$s15TealiumFirebase0B8InstanceC21createAnalyticsConfigyySdSg_AESbSgSo14FIRLoggerLevelVtF",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "logEvent",
+            "printedName": "logEvent(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B8InstanceC8logEventyySS_SDySSypGSgtF",
+            "mangledName": "$s15TealiumFirebase0B8InstanceC8logEventyySS_SDySSypGSgtF",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setScreenName",
+            "printedName": "setScreenName(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B8InstanceC13setScreenNameyySS_SSSgtF",
+            "mangledName": "$s15TealiumFirebase0B8InstanceC13setScreenNameyySS_SSSgtF",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setUserProperty",
+            "printedName": "setUserProperty(_:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B8InstanceC15setUserProperty_5valueySS_SStF",
+            "mangledName": "$s15TealiumFirebase0B8InstanceC15setUserProperty_5valueySS_SStF",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setUserId",
+            "printedName": "setUserId(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B8InstanceC9setUserIdyySSF",
+            "mangledName": "$s15TealiumFirebase0B8InstanceC9setUserIdyySSF",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initiateOnDeviceConversionMeasurement",
+            "printedName": "initiateOnDeviceConversionMeasurement(emailAddress:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B8InstanceC37initiateOnDeviceConversionMeasurement12emailAddressySS_tF",
+            "mangledName": "$s15TealiumFirebase0B8InstanceC37initiateOnDeviceConversionMeasurement12emailAddressySS_tF",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setDefaultEventParameters",
+            "printedName": "setDefaultEventParameters(parameters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TealiumFirebase0B8InstanceC25setDefaultEventParameters10parametersySDySSypGSg_tF",
+            "mangledName": "$s15TealiumFirebase0B8InstanceC25setDefaultEventParameters10parametersySDySSypGSg_tF",
+            "moduleName": "TealiumFirebase",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15TealiumFirebase0B8InstanceC",
+        "mangledName": "$s15TealiumFirebase0B8InstanceC",
+        "moduleName": "TealiumFirebase",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "FirebaseCommand",
+            "printedName": "FirebaseCommand",
+            "usr": "s:15TealiumFirebase0B7CommandP",
+            "mangledName": "$s15TealiumFirebase0B7CommandP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 227,
+      "length": 14,
+      "value": "\"command_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 280,
+      "length": 3,
+      "value": "\",\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 311,
+      "length": 19,
+      "value": "\"firebaseAnalytics\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 360,
+      "length": 25,
+      "value": "\"Firebase Remote Command\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 415,
+      "length": 20,
+      "value": "\"Tealium Firebase: \""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 461,
+      "length": 7,
+      "value": "\"2.3.0\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 526,
+      "length": 34,
+      "value": "\"firebase_session_timeout_seconds\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 593,
+      "length": 34,
+      "value": "\"firebase_session_minimum_seconds\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 666,
+      "length": 28,
+      "value": "\"firebase_analytics_enabled\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 725,
+      "length": 20,
+      "value": "\"firebase_log_level\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 777,
+      "length": 21,
+      "value": "\"firebase_event_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 832,
+      "length": 23,
+      "value": "\"firebase_event_params\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 886,
+      "length": 7,
+      "value": "\"event\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 926,
+      "length": 22,
+      "value": "\"firebase_screen_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 982,
+      "length": 23,
+      "value": "\"firebase_screen_class\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1044,
+      "length": 24,
+      "value": "\"firebase_property_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1108,
+      "length": 25,
+      "value": "\"firebase_property_value\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1162,
+      "length": 18,
+      "value": "\"firebase_user_id\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1213,
+      "length": 13,
+      "value": "\"param_items\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1254,
+      "length": 7,
+      "value": "\"items\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1293,
+      "length": 15,
+      "value": "\"param_item_id\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1343,
+      "length": 21,
+      "value": "\"param_email_address\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1400,
+      "length": 9,
+      "value": "\"default\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1448,
+      "length": 25,
+      "value": "\"firebase_default_params\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1532,
+      "length": 8,
+      "value": "\"config\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1565,
+      "length": 10,
+      "value": "\"logevent\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1605,
+      "length": 15,
+      "value": "\"setscreenname\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1652,
+      "length": 17,
+      "value": "\"setuserproperty\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1695,
+      "length": 11,
+      "value": "\"setuserid\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1752,
+      "length": 31,
+      "value": "\"initiateconversionmeasurement\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1820,
+      "length": 22,
+      "value": "\"setdefaultparameters\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1532,
+      "length": 8,
+      "value": "\"config\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1565,
+      "length": 10,
+      "value": "\"logevent\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1605,
+      "length": 15,
+      "value": "\"setscreenname\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1652,
+      "length": 17,
+      "value": "\"setuserproperty\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1695,
+      "length": 11,
+      "value": "\"setuserid\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1752,
+      "length": 31,
+      "value": "\"initiateconversionmeasurement\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1820,
+      "length": 22,
+      "value": "\"setdefaultparameters\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 435,
+      "length": 15,
+      "value": "\"param_item_id\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 471,
+      "length": 17,
+      "value": "\"param_item_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 513,
+      "length": 16,
+      "value": "\"param_quantity\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 554,
+      "length": 21,
+      "value": "\"param_item_category\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 599,
+      "length": 20,
+      "value": "\"param_item_variant\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 641,
+      "length": 18,
+      "value": "\"param_item_brand\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 681,
+      "length": 13,
+      "value": "\"param_price\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 435,
+      "length": 15,
+      "value": "\"param_item_id\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 471,
+      "length": 17,
+      "value": "\"param_item_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 513,
+      "length": 16,
+      "value": "\"param_quantity\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 554,
+      "length": 21,
+      "value": "\"param_item_category\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 599,
+      "length": 20,
+      "value": "\"param_item_variant\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 641,
+      "length": 18,
+      "value": "\"param_item_brand\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 681,
+      "length": 13,
+      "value": "\"param_price\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 956,
+      "length": 9,
+      "value": "\"item_id\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 986,
+      "length": 11,
+      "value": "\"item_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1022,
+      "length": 10,
+      "value": "\"quantity\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1057,
+      "length": 15,
+      "value": "\"item_category\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1096,
+      "length": 14,
+      "value": "\"item_variant\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1132,
+      "length": 12,
+      "value": "\"item_brand\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1166,
+      "length": 7,
+      "value": "\"price\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 956,
+      "length": 9,
+      "value": "\"item_id\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 986,
+      "length": 11,
+      "value": "\"item_name\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1022,
+      "length": 10,
+      "value": "\"quantity\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1057,
+      "length": 15,
+      "value": "\"item_category\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1096,
+      "length": 14,
+      "value": "\"item_variant\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1132,
+      "length": 12,
+      "value": "\"item_brand\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseItems.swift",
+      "kind": "StringLiteral",
+      "offset": 1166,
+      "length": 7,
+      "value": "\"price\""
+    },
+    {
+      "filePath": "\/Users\/enricozannini\/Progetti\/tealium-ios-firebase-remote-command\/Sources\/FirebaseRemoteCommand.swift",
+      "kind": "StringLiteral",
+      "offset": 338,
+      "length": 21,
+      "value": "\"TealiumFirebase.FirebaseRemoteCommand\""
+    }
+  ]
+}

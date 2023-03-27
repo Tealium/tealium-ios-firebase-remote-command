@@ -193,7 +193,7 @@ public class FirebaseRemoteCommand: RemoteCommand {
 extension Dictionary where Key == String, Value == Any {
     
     func normalizeParamsArrays() -> [String: [Any]] {
-        self.filter { $0.key.contains("item_") || $0.key.contains("quantity") || $0.key.contains("price") }
+        self.filter { $0.key.starts(with: "param_item") || $0.key == "param_quantity" || $0.key == "param_price" }
             .reduce(into: [String: [Any]]()) { result, dictionary in
                 result[dictionary.key] = dictionary.value as? [Any] ?? [dictionary.value]
             }

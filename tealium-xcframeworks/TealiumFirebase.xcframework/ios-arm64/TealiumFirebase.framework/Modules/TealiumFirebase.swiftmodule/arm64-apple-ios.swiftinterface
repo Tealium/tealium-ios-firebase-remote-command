@@ -1,0 +1,40 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TealiumFirebase
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import FirebaseAnalytics
+import FirebaseCore
+import Foundation
+import Swift
+import TealiumCore
+@_exported import TealiumFirebase
+import TealiumRemoteCommands
+import _Concurrency
+import _StringProcessing
+public class FirebaseRemoteCommand : TealiumRemoteCommands.RemoteCommand {
+  override public var version: Swift.String? {
+    get
+  }
+  public init(firebaseInstance: TealiumFirebase.FirebaseCommand = FirebaseInstance(), type: TealiumRemoteCommands.RemoteCommandType = .webview)
+  @objc deinit
+}
+public protocol FirebaseCommand {
+  func createAnalyticsConfig(_ sessionTimeoutSeconds: Foundation.TimeInterval?, _ minimumSessionSeconds: Foundation.TimeInterval?, _ analyticsEnabled: Swift.Bool?, _ logLevel: FirebaseCore.FirebaseLoggerLevel)
+  func logEvent(_ name: Swift.String, _ params: [Swift.String : Any]?)
+  func setScreenName(_ screenName: Swift.String, _ screenClass: Swift.String?)
+  func setUserProperty(_ property: Swift.String, value: Swift.String)
+  func setUserId(_ id: Swift.String)
+  func initiateOnDeviceConversionMeasurement(emailAddress: Swift.String)
+  func setDefaultEventParameters(parameters: [Swift.String : Any]?)
+}
+public class FirebaseInstance : TealiumFirebase.FirebaseCommand {
+  public init()
+  public func createAnalyticsConfig(_ sessionTimeoutSeconds: Foundation.TimeInterval?, _ minimumSessionSeconds: Foundation.TimeInterval?, _ analyticsEnabled: Swift.Bool?, _ logLevel: FirebaseCore.FirebaseLoggerLevel)
+  public func logEvent(_ name: Swift.String, _ params: [Swift.String : Any]?)
+  public func setScreenName(_ screenName: Swift.String, _ screenClass: Swift.String?)
+  public func setUserProperty(_ property: Swift.String, value: Swift.String)
+  public func setUserId(_ id: Swift.String)
+  public func initiateOnDeviceConversionMeasurement(emailAddress: Swift.String)
+  public func setDefaultEventParameters(parameters: [Swift.String : Any]?)
+  @objc deinit
+}

@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
     # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
     s.name         = "TealiumFirebase"
     s.module_name  = "TealiumFirebase"
-    s.version      = "2.3.0"
+    s.version      = "2.4.0"
     s.summary      = "Tealium Swift and Firebase integration"
     s.description  = <<-DESC
     Tealium's integration with Firebase for iOS.

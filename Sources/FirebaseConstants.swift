@@ -15,7 +15,7 @@ enum FirebaseConstants {
     static let commandId = "firebaseAnalytics"
     static let description = "Firebase Remote Command"
     static let errorPrefix = "Tealium Firebase: "
-    static let version = "2.3.0"
+    static let version = "2.4.0"
     
     enum Keys {
         static let sessionTimeout = "firebase_session_timeout_seconds"

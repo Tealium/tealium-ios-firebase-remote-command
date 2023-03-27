@@ -27,7 +27,8 @@ class TealiumHelper {
     var tealium: Tealium?
     
     // JSON Remote Command
-    let firebaseRemoteCommand = FirebaseRemoteCommand(type: .remote(url: "https://tags.tiqcdn.com/dle/tealiummobile/demo/firebase.json"))
+//    let firebaseRemoteCommand = FirebaseRemoteCommand(type: .remote(url: "https://tags.tiqcdn.com/dle/tealiummobile/demo/firebase.json"))
+    let firebaseRemoteCommand = FirebaseRemoteCommand(type: .local(file: "firebase"))
 
     private init() {
         config.shouldUseRemotePublishSettings = false

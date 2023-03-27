@@ -28,6 +28,7 @@
         "product_brand": "items.param_item_brand",
         "product_category": "items.param_item_category",
         "product_id": "items.param_item_id",
+        "tealium_event": "items.param_item_custom_id",
         "product_unit_price": "items.param_price",
         "product_quantity": "items.param_quantity",
         "product_list": "items.param_item_list",

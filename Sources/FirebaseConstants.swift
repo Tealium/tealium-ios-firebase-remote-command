@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAnalytics
 
 enum FirebaseConstants {
     
@@ -35,7 +36,8 @@ enum FirebaseConstants {
         static let productId = "param_item_id"
         static let emailAddress = "param_email_address"
         static let defaultParams = "default"
-        static let tagDefaultParams = "firebase_default_params";
+        static let tagDefaultParams = "firebase_default_params"
+        static let consentSettings = "consent_settings"
     }
 
     enum Commands: String {
@@ -45,7 +47,39 @@ enum FirebaseConstants {
         case setUserProperty = "setuserproperty"
         case setUserId = "setuserid"
         case initiateConversionMeasurement = "initiateconversionmeasurement"
-        case setDefaultParameters = "setdefaultparameters";
+        case setDefaultParameters = "setdefaultparameters"
+        case setConsent = "setconsent"
     }
     
+}
+
+
+extension ConsentType {
+    static func from(_ consentString: String) -> ConsentType {
+        switch consentString {
+        case "ad_personalization":
+            return .adPersonalization
+        case "ad_user_data":
+            return .adUserData
+        case "ad_storage":
+            return .adStorage
+        case "analytics_storage":
+            return .analyticsStorage
+        default:
+            return ConsentType(rawValue: consentString)
+        }
+    }
+}
+
+extension ConsentStatus {
+    static func from(_ statusString: String) -> ConsentStatus {
+        switch statusString {
+        case "granted":
+            return .granted
+        case "denied":
+            return .denied
+        default:
+            return ConsentStatus(rawValue: statusString)
+        }
+    }
 }

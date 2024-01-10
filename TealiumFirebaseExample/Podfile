@@ -8,5 +8,6 @@ target 'TealiumFirebaseExample' do
   # Pods for TealiumFirebaseExample
   pod 'TealiumFirebase', :path=> '../'
   pod 'tealium-swift/Lifecycle'
+  pod 'tealium-swift/TagManagement'
 
 end

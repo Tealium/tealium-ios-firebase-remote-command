@@ -54,7 +54,6 @@ class AccountViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
-    
 }
 
 extension AccountViewController: UITextFieldDelegate {

@@ -139,6 +139,11 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 let params = payload[FirebaseConstants.Keys.defaultParams] as? [String: Any]
                     ?? payload[FirebaseConstants.Keys.tagDefaultParams] as? [String: Any]
                 firebaseInstance.setDefaultEventParameters(parameters: params)
+            case .setConsent:
+                guard let settings = payload[FirebaseConstants.Keys.consentSettings] as? [String: String] else {
+                    return
+                }
+                firebaseInstance.setConsent(settings)
             }
         }
     }

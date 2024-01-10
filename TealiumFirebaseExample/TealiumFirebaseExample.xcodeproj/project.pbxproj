@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		15DBED66281AF105000A6BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15DBED65281AF105000A6BEE /* GoogleService-Info.plist */; };
+		15F4AEFA2B4EB66000B84208 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F4AEF92B4EB66000B84208 /* ConsentViewController.swift */; };
 		B77A03BFD1EFDAD3EDF7289E /* Pods_TealiumFirebaseExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E34172041517CCAFCDE071 /* Pods_TealiumFirebaseExample.framework */; };
 		CF71DB05251A7EB300E96CC4 /* firebase.json in Resources */ = {isa = PBXBuildFile; fileRef = CF71DAFF251A7EB300E96CC4 /* firebase.json */; };
 		CF71DB1C251A97A100E96CC4 /* EventMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF71DB1B251A97A100E96CC4 /* EventMapper.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		15DBED65281AF105000A6BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		15F4AEF92B4EB66000B84208 /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
 		AB20BD073BB8AE2DEEDCDB97 /* Pods-TealiumFirebaseExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.release.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.release.xcconfig"; sourceTree = "<group>"; };
 		BB6EF3D00A32D88F43492383 /* Pods-TealiumFirebaseExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.debug.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.debug.xcconfig"; sourceTree = "<group>"; };
 		C3E34172041517CCAFCDE071 /* Pods_TealiumFirebaseExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TealiumFirebaseExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 				CFDD8B7622E27F2F00358234 /* ProductViewController.swift */,
 				CFDD8B7822E27F3900358234 /* CheckoutViewController.swift */,
 				CFDD8B7A22E27F4500358234 /* OrderViewController.swift */,
+				15F4AEF92B4EB66000B84208 /* ConsentViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				CFDD8B7722E27F2F00358234 /* ProductViewController.swift in Sources */,
 				CFDD8B6C22E2330200358234 /* EcommerceMainViewController.swift in Sources */,
 				CFDD8B7B22E27F4500358234 /* OrderViewController.swift in Sources */,
+				15F4AEFA2B4EB66000B84208 /* ConsentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

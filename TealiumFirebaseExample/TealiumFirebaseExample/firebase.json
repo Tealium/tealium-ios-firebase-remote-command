@@ -63,7 +63,11 @@
         "customer_id": "firebase_user_id",
         "customparam1": "event.custom_param_1_mapped",
         "customparam2": "event.custom_param_2_mapped",
-        "character": "event.character"
+        "character": "event.character",
+        "consent_ad_storage": "consent_settings.ad_storage",
+        "consent_analytics_storage": "consent_settings.analytics_storage",
+        "consent_ad_user_data": "consent_settings.ad_user_data",
+        "consent_ad_personalization": "consent_settings.ad_personalization"
     },
     "commands": {
         "launch": "config",
@@ -87,6 +91,7 @@
         "checkout": "logevent,setscreenname",
         "checkout_progress": "logevent",
         "email_signup": "logevent",
-        "order": "logevent,setscreenname"
+        "order": "logevent,setscreenname",
+        "setconsent": "setconsent"
     }
 }

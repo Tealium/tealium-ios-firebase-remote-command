@@ -27,6 +27,7 @@ public protocol FirebaseCommand {
     func setUserId(_ id: String)
     func initiateOnDeviceConversionMeasurement(emailAddress: String)
     func setDefaultEventParameters(parameters: [String: Any]?)
+    func setConsent(_ consentSettings: [String: String])
 }
 
 public class FirebaseInstance: FirebaseCommand {
@@ -114,6 +115,13 @@ public class FirebaseInstance: FirebaseCommand {
     public func setDefaultEventParameters(parameters: [String: Any]?) {
         onReady {
             Analytics.setDefaultEventParameters(parameters)
+        }
+    }
+
+    public func setConsent(_ consentSettings: [String: String]) {
+        onReady {
+            Analytics.setConsent(Dictionary(consentSettings.map { (ConsentType.from($0.0), ConsentStatus.from($0.1)) }, 
+                                            uniquingKeysWith: { first, _ in first }))
         }
     }
 }

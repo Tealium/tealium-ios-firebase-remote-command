@@ -158,4 +158,14 @@ class FirebaseInstanceTests: XCTestCase {
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertNotNil(firebaseInstance.defaultParameters)
     }
+
+    func testSetConsent() {
+        let consentSettings = ["ad_personalization": "granted",
+                               "ad_storage": "granted",
+                               "analytics_storage": "denied",
+                               "ad_user_data": "denied"]
+        let payload: [String: Any] = ["command_name": "setconsent", "consent_settings": consentSettings]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(consentSettings, firebaseInstance.consentSettings)
+    }
 }

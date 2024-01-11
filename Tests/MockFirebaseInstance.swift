@@ -32,6 +32,8 @@ class MockFirebaseInstance: FirebaseCommand {
     var initateConversionCount = 0
     
     var defaultParameters: [String:Any]?
+
+    var consentSettings: [String: String]?
     
     func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel) {
         createAnalyticsConfigCallCount += 1
@@ -59,5 +61,9 @@ class MockFirebaseInstance: FirebaseCommand {
     
     func setDefaultEventParameters(parameters: [String : Any]?) {
         defaultParameters = parameters
+    }
+
+    func setConsent(_ consentSettings: [String : String]) {
+        self.consentSettings = consentSettings
     }
 }

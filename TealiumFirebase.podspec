@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
     # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
     s.name         = "TealiumFirebase"
     s.module_name  = "TealiumFirebase"
-    s.version      = "3.0.0"
+    s.version      = "3.1.0"
     s.summary      = "Tealium Swift and Firebase integration"
     s.description  = <<-DESC
     Tealium's integration with Firebase for iOS.
@@ -30,8 +30,8 @@ Pod::Spec.new do |s|
 
     # ――― Dependencies ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
     s.static_framework = true
-    s.ios.dependency 'tealium-swift/Core', '~> 2.9'
-    s.ios.dependency 'tealium-swift/RemoteCommands', '~> 2.9'
-    s.dependency 'Firebase', '~> 10.7'
-    s.dependency 'FirebaseAnalytics', '~> 10.7'
+    s.ios.dependency 'tealium-swift/Core', '~> 2.10'
+    s.ios.dependency 'tealium-swift/RemoteCommands', '~> 2.10'
+    s.dependency 'Firebase', '~> 10.17'
+    s.dependency 'FirebaseAnalytics', '~> 10.17'
 end

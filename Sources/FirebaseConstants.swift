@@ -37,7 +37,7 @@ enum FirebaseConstants {
         static let emailAddress = "param_email_address"
         static let defaultParams = "default"
         static let tagDefaultParams = "firebase_default_params"
-        static let consentSettings = "consent_settings"
+        static let consentSettings = "firebase_consent_settings"
     }
 
     enum Commands: String {

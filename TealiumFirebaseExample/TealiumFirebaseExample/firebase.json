@@ -64,10 +64,10 @@
         "customparam1": "event.custom_param_1_mapped",
         "customparam2": "event.custom_param_2_mapped",
         "character": "event.character",
-        "consent_ad_storage": "consent_settings.ad_storage",
-        "consent_analytics_storage": "consent_settings.analytics_storage",
-        "consent_ad_user_data": "consent_settings.ad_user_data",
-        "consent_ad_personalization": "consent_settings.ad_personalization"
+        "consent_ad_storage": "firebase_consent_settings.ad_storage",
+        "consent_analytics_storage": "firebase_consent_settings.analytics_storage",
+        "consent_ad_user_data": "firebase_consent_settings.ad_user_data",
+        "consent_ad_personalization": "firebase_consent_settings.ad_personalization"
     },
     "commands": {
         "launch": "config",

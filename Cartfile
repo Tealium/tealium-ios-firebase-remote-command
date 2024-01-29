@@ -1,2 +1,2 @@
-github "tealium/tealium-swift" ~> 2.10
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" ~> 10.17
+github "tealium/tealium-swift" ~> 2.11
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" == 10.7

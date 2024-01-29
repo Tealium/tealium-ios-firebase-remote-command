@@ -388,14 +388,18 @@ class FirebaseCommandTests: XCTestCase {
         }
 
     func testConsentTypeParsing() {
-        XCTAssertEqual(ConsentType.from("ad_storage"), ConsentType.adStorage)
-        XCTAssertEqual(ConsentType.from(ConsentType.adStorage.rawValue), ConsentType.adStorage)
-        XCTAssertEqual(ConsentType.from("ad_personalization"), ConsentType.adPersonalization)
-        XCTAssertEqual(ConsentType.from(ConsentType.adPersonalization.rawValue), ConsentType.adPersonalization)
-        XCTAssertEqual(ConsentType.from("ad_user_data"), ConsentType.adUserData)
-        XCTAssertEqual(ConsentType.from(ConsentType.adUserData.rawValue), ConsentType.adUserData)
         XCTAssertEqual(ConsentType.from("analytics_storage"), ConsentType.analyticsStorage)
         XCTAssertEqual(ConsentType.from(ConsentType.analyticsStorage.rawValue), ConsentType.analyticsStorage)
+        XCTAssertEqual(ConsentType.from("ad_storage"), ConsentType.adStorage)
+        XCTAssertEqual(ConsentType.from(ConsentType.adStorage.rawValue), ConsentType.adStorage)
+        XCTAssertEqual(ConsentType.from("ad_personalization").rawValue, "ad_personalization")
+        XCTAssertEqual(ConsentType.from("ad_personalization").rawValue, "ad_personalization")
+        XCTAssertEqual(ConsentType.from("ad_user_data").rawValue, "ad_user_data")
+        XCTAssertEqual(ConsentType.from("ad_user_data").rawValue, "ad_user_data")
+    }
+
+    func testConsentTypeParsingWrongKey() {
+        XCTAssertEqual(ConsentType.from("wrong_key").rawValue, "wrong_key")
     }
 
     func testConsentStatusParsing() {
@@ -403,5 +407,9 @@ class FirebaseCommandTests: XCTestCase {
         XCTAssertEqual(ConsentStatus.from(ConsentStatus.granted.rawValue), ConsentStatus.granted)
         XCTAssertEqual(ConsentStatus.from("denied"), ConsentStatus.denied)
         XCTAssertEqual(ConsentStatus.from(ConsentStatus.denied.rawValue), ConsentStatus.denied)
+    }
+
+    func testConsentStatusParsingWrongKey() {
+        XCTAssertEqual(ConsentStatus.from("wrong_key").rawValue, "wrong_key")
     }
 }

@@ -57,10 +57,6 @@ enum FirebaseConstants {
 extension ConsentType {
     static func from(_ consentString: String) -> ConsentType {
         switch consentString {
-        case "ad_personalization":
-            return .adPersonalization
-        case "ad_user_data":
-            return .adUserData
         case "ad_storage":
             return .adStorage
         case "analytics_storage":

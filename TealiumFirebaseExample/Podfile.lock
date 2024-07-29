@@ -80,18 +80,18 @@ PODS:
   - nanopb/decode (2.30909.1)
   - nanopb/encode (2.30909.1)
   - PromisesObjC (2.3.1)
-  - tealium-swift/Core (2.12.2)
-  - tealium-swift/Lifecycle (2.12.2):
+  - tealium-swift/Core (2.13.0)
+  - tealium-swift/Lifecycle (2.13.0):
     - tealium-swift/Core
-  - tealium-swift/RemoteCommands (2.12.2):
+  - tealium-swift/RemoteCommands (2.13.0):
     - tealium-swift/Core
-  - tealium-swift/TagManagement (2.12.2):
+  - tealium-swift/TagManagement (2.13.0):
     - tealium-swift/Core
-  - TealiumFirebase (3.2.0):
+  - TealiumFirebase (3.3.0):
     - Firebase (~> 10.7)
     - FirebaseAnalytics (~> 10.7)
-    - tealium-swift/Core (~> 2.12)
-    - tealium-swift/RemoteCommands (~> 2.12)
+    - tealium-swift/Core (~> 2.13)
+    - tealium-swift/RemoteCommands (~> 2.13)
 
 DEPENDENCIES:
   - tealium-swift/Lifecycle
@@ -125,8 +125,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 202e7a9f5128accd11160fb9c19612de1911aa19
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
-  tealium-swift: 4b7e3dda42d7c1de6acb769abad9920346d17d43
-  TealiumFirebase: b489c74d3a1d7d81ad806e4da4638be6ea9870b9
+  tealium-swift: f2a1d022bae58151c7ff31d2a063008cfe6463d8
+  TealiumFirebase: 2afc11e00415f232672e3095e8dbd32c5af52fdc
 
 PODFILE CHECKSUM: a4e910fa3529d9d8e69f4558a9a644ea2b7341b5
 

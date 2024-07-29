@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import TealiumCore
 @testable import TealiumFirebase
 import TealiumRemoteCommands
 
@@ -42,6 +43,29 @@ class FirebaseInstanceTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "initialize"]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(0, firebaseInstance.createAnalyticsConfigCallCount)
+    }
+
+    func testCreateAnalyticsForcesOnReadyToBeCalled() {
+        let onReadyCalled = expectation(description: "On Ready is called")
+        firebaseInstance.onReady {
+            XCTAssertTrue(self.firebaseInstance._isConfigured)
+            dispatchPrecondition(condition: .onQueue(TealiumQueues.backgroundSerialQueue))
+            onReadyCalled.fulfill()
+        }
+        let payload: [String: Any] = ["command_name": "config"]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(1, firebaseInstance.createAnalyticsConfigCallCount)
+        waitForExpectations(timeout: 1.0)
+    }
+
+    func testOnReadyCalledImmmediatelyIfAlreadyConfigured() {
+        let onReadyCalled = expectation(description: "On Ready is called")
+        firebaseInstance.configure()
+        firebaseInstance.onReady {
+            dispatchPrecondition(condition: .onQueue(TealiumQueues.backgroundSerialQueue))
+            onReadyCalled.fulfill()
+        }
+        waitForExpectations(timeout: 1.0)
     }
     
     func testLogEventWithParams() {

@@ -30,26 +30,34 @@ public protocol FirebaseCommand {
     func setConsent(_ consentSettings: [String: String])
 }
 
+/// A simple wrapper around the Firebase API. All public methods are expected to be called on the `TealiumQueues.backgroundSerialQueue`
 public class FirebaseInstance: FirebaseCommand {
     
     public init() { }
     
-    private var _onReady = TealiumReplaySubject<Void>(cacheSize: 1)
+    private var onReadySubject = TealiumReplaySubject<Void>(cacheSize: 1)
     
+    /// Must be called on the main queue
     var isConfigured: Bool {
         // Analytics is only logged on default instance
         FirebaseApp.app() != nil
     }
     /// Waits for the default FirebaseApp to be configured for the first time and then calls the completion block. If the default app gets deleted later this won't wait anymore.
     public func onReady(_ onReady: @escaping () -> Void) {
-        guard !isConfigured else {
-            if _onReady.last() == nil {
-                _onReady.publish()
-            }
-            onReady()
+        onReadySubject.subscribeOnce(onReady)
+        guard self.onReadySubject.last() == nil else {
             return
         }
-        _onReady.subscribeOnce(onReady)
+        DispatchQueue.main.async {
+            guard self.isConfigured else {
+                return
+            }
+            TealiumQueues.backgroundSerialQueue.async {
+                if self.onReadySubject.last() == nil {
+                    self.onReadySubject.publish()
+                }
+            }
+        }
     }
     
     public func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?,
@@ -63,15 +71,20 @@ public class FirebaseInstance: FirebaseCommand {
             Analytics.setAnalyticsCollectionEnabled(analyticsEnabled)
         }
         FirebaseConfiguration.shared.setLoggerLevel(logLevel)
-        if !isConfigured {
-            DispatchQueue.main.async {
-                FirebaseApp.configure()
-                TealiumQueues.backgroundSerialQueue.async {
-                    self._onReady.publish()
+        DispatchQueue.main.async {
+            self.configure()
+            TealiumQueues.backgroundSerialQueue.async {
+                if self.onReadySubject.last() == nil {
+                    self.onReadySubject.publish()
                 }
             }
-        } else {
-            _onReady.publish()
+        }
+    }
+
+    /// Must be called on the main queue
+    func configure() {
+        if !self.isConfigured {
+            FirebaseApp.configure()
         }
     }
     

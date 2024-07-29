@@ -39,7 +39,7 @@ class TravelViewController: UIViewController {
     }
     
     @objc func share() {
-        TealiumHelper.trackEvent(title: "share", data: [TravelViewController.contentType: "travel screen", TravelViewController.shareId: "traqwe123", "event_title": EventNames.lookup["share"]])
+        TealiumHelper.trackEvent(title: "share", data: [TravelViewController.contentType: "travel screen", TravelViewController.shareId: "traqwe123", "event_title": EventNames.lookup["share"] as Any])
         let vc = UIActivityViewController(activityItems: ["Travel"], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)

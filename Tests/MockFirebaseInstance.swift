@@ -8,13 +8,20 @@
 
 import Foundation
 import FirebaseCore
+import TealiumCore
 @testable import TealiumFirebase
 import TealiumRemoteCommands
 
 
-class MockFirebaseInstance: FirebaseCommand {
-    func onReady(_ onReady: @escaping () -> Void) {
-        onReady()
+class MockFirebaseInstance: FirebaseInstance {
+    var _isConfigured = false
+    override var isConfigured: Bool {
+        get {
+            dispatchPrecondition(condition: .onQueue(.main))
+            return _isConfigured
+        }
+        
+        
     }
 
     var createAnalyticsConfigCallCount = 0
@@ -35,35 +42,40 @@ class MockFirebaseInstance: FirebaseCommand {
 
     var consentSettings: [String: String]?
     
-    func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel) {
+    override func configure() {
+        dispatchPrecondition(condition: .onQueue(.main))
+        _isConfigured = true
+    }
+    override func createAnalyticsConfig(_ sessionTimeoutSeconds: TimeInterval?, _ minimumSessionSeconds: TimeInterval?, _ analyticsEnabled: Bool?, _ logLevel: FirebaseLoggerLevel) {
         createAnalyticsConfigCallCount += 1
+        super.createAnalyticsConfig(sessionTimeoutSeconds, minimumSessionSeconds, analyticsEnabled, logLevel)
     }
     
-    func logEvent(_ name: String, _ params: [String : Any]?) {
+    override func logEvent(_ name: String, _ params: [String : Any]?) {
         logEventWithParamsCallCount += 1
     }
     
-    func setScreenName(_ screenName: String, _ screenClass: String?) {
+    override func setScreenName(_ screenName: String, _ screenClass: String?) {
         setScreenNameCallCount += 1
     }
     
-    func setUserProperty(_ property: String, value: String) {
+    override func setUserProperty(_ property: String, value: String) {
         setUserPropertyCallCount += 1
     }
     
-    func setUserId(_ id: String) {
+    override func setUserId(_ id: String) {
         setUserIdCallCount += 1
     }    
     
-    func initiateOnDeviceConversionMeasurement(emailAddress: String) {
+    override func initiateOnDeviceConversionMeasurement(emailAddress: String) {
         initateConversionCount += 1
     }
     
-    func setDefaultEventParameters(parameters: [String : Any]?) {
+    override func setDefaultEventParameters(parameters: [String : Any]?) {
         defaultParameters = parameters
     }
 
-    func setConsent(_ consentSettings: [String : String]) {
+    override func setConsent(_ consentSettings: [String : String]) {
         self.consentSettings = consentSettings
     }
 }

@@ -6,8 +6,17 @@
         "repositoryURL": "https://github.com/google/abseil-cpp-binary.git",
         "state": {
           "branch": null,
-          "revision": "bfc0b6f81adc06ce5121eb23f628473638d67c5c",
-          "version": "1.2022062300.0"
+          "revision": "194a6706acbd25e4ef639bcaddea16e8758a3e27",
+          "version": "1.2024011602.0"
+        }
+      },
+      {
+        "package": "AppCheck",
+        "repositoryURL": "https://github.com/google/app-check.git",
+        "state": {
+          "branch": null,
+          "revision": "61b85103a1aeed8218f17c794687781505fbbef5",
+          "version": "11.2.0"
         }
       },
       {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk.git",
         "state": {
           "branch": null,
-          "revision": "8872dbd7d947acf757abab933da10e83c1842280",
-          "version": "10.17.0"
+          "revision": "dbdfdc44bee8b8e4eaa5ec27eb12b9338f3f2bc1",
+          "version": "11.5.0"
         }
       },
       {
@@ -24,8 +33,8 @@
         "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
         "state": {
           "branch": null,
-          "revision": "6b332152355c372ace9966d8ee76ed191f97025e",
-          "version": "10.17.0"
+          "revision": "4f234bcbdae841d7015258fbbf8e7743a39b8200",
+          "version": "11.4.0"
         }
       },
       {
@@ -33,8 +42,8 @@
         "repositoryURL": "https://github.com/google/GoogleDataTransport.git",
         "state": {
           "branch": null,
-          "revision": "f6b558e3f801f2cac336b04f615ce111fa9ddaa0",
-          "version": "9.2.1"
+          "revision": "617af071af9aa1d6a091d59a202910ac482128f9",
+          "version": "10.1.0"
         }
       },
       {
@@ -42,8 +51,8 @@
         "repositoryURL": "https://github.com/google/GoogleUtilities.git",
         "state": {
           "branch": null,
-          "revision": "0543562f85620b5b7c510c6bcbef75b562a5127b",
-          "version": "7.11.0"
+          "revision": "53156c7ec267db846e6b64c9f4c4e31ba4cf75eb",
+          "version": "8.0.2"
         }
       },
       {
@@ -51,8 +60,8 @@
         "repositoryURL": "https://github.com/google/grpc-binary.git",
         "state": {
           "branch": null,
-          "revision": "a673bc2937fbe886dd1f99c401b01b6d977a9c98",
-          "version": "1.49.1"
+          "revision": "f56d8fc3162de9a498377c7b6cea43431f4f5083",
+          "version": "1.65.1"
         }
       },
       {
@@ -60,8 +69,8 @@
         "repositoryURL": "https://github.com/google/gtm-session-fetcher.git",
         "state": {
           "branch": null,
-          "revision": "5ccda3981422a84186387dbb763ba739178b529c",
-          "version": "2.3.0"
+          "revision": "5cfe5f090c982de9c58605d2a82a4fc77b774fbd",
+          "version": "4.1.0"
         }
       },
       {
@@ -78,8 +87,8 @@
         "repositoryURL": "https://github.com/firebase/leveldb.git",
         "state": {
           "branch": null,
-          "revision": "0706abcc6b0bd9cedfbb015ba840e4a780b5159b",
-          "version": "1.22.2"
+          "revision": "a0bc79961d7be727d258d33d5a6b2f1023270ba1",
+          "version": "1.22.5"
         }
       },
       {
@@ -87,8 +96,8 @@
         "repositoryURL": "https://github.com/firebase/nanopb.git",
         "state": {
           "branch": null,
-          "revision": "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
-          "version": "2.30909.0"
+          "revision": "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
+          "version": "2.30910.0"
         }
       },
       {
@@ -96,8 +105,8 @@
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
           "branch": null,
-          "revision": "3e4e743631e86c8c70dbc6efdc7beaa6e90fd3bb",
-          "version": "2.1.1"
+          "revision": "540318ecedd63d883069ae7f1ed811a2df00b6ac",
+          "version": "2.4.0"
         }
       },
       {
@@ -105,8 +114,8 @@
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
           "branch": null,
-          "revision": "ab3a58b7209a17d781c0d1dbb3e1ff3da306bae8",
-          "version": "1.20.3"
+          "revision": "ebc7251dd5b37f627c93698e4374084d98409633",
+          "version": "1.28.2"
         }
       },
       {
@@ -114,8 +123,8 @@
         "repositoryURL": "https://github.com/tealium/tealium-swift",
         "state": {
           "branch": null,
-          "revision": "ad34c088b5e38992581a514a12fac4744b769cbf",
-          "version": "2.9.0"
+          "revision": "cada3f75c2409b32762656feadb4fdb5f6b6d92c",
+          "version": "2.14.0"
         }
       }
     ]

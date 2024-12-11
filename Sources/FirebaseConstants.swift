@@ -35,11 +35,14 @@ enum FirebaseConstants {
         static let items = "items"
         static let productId = "param_item_id"
         static let emailAddress = "param_email_address"
+        static let phoneNumber = "param_phone_number"
+        static let hashedEmailAddress = "param_hashed_email_address"
+        static let hashedPhoneNumber = "param_hashed_phone_number"
         static let defaultParams = "default"
         static let tagDefaultParams = "firebase_default_params"
         static let consentSettings = "firebase_consent_settings"
     }
-
+    
     enum Commands: String {
         case config = "config"
         case logEvent = "logevent"
@@ -49,6 +52,7 @@ enum FirebaseConstants {
         case initiateConversionMeasurement = "initiateconversionmeasurement"
         case setDefaultParameters = "setdefaultparameters"
         case setConsent = "setconsent"
+        case resetAnalyticsData = "resetanalyticsdata"
     }
     
 }

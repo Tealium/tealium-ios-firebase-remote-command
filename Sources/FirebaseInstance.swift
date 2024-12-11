@@ -10,9 +10,9 @@ import Foundation
 import FirebaseCore
 import FirebaseAnalytics
 #if COCOAPODS
-    import TealiumSwift
+import TealiumSwift
 #else
-    import TealiumCore
+import TealiumCore
 #endif
 
 public protocol FirebaseCommand {
@@ -26,8 +26,12 @@ public protocol FirebaseCommand {
     func setUserProperty(_ property: String, value: String)
     func setUserId(_ id: String)
     func initiateOnDeviceConversionMeasurement(emailAddress: String)
+    func initiateOnDeviceConversionMeasurement(phoneNumber: String)
+    func initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data)
+    func initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data)
     func setDefaultEventParameters(parameters: [String: Any]?)
     func setConsent(_ consentSettings: [String: String])
+    func resetAnalyticsData()
 }
 
 /// A simple wrapper around the Firebase API. All public methods are expected to be called on the `TealiumQueues.backgroundSerialQueue`
@@ -80,7 +84,7 @@ public class FirebaseInstance: FirebaseCommand {
             }
         }
     }
-
+    
     /// Must be called on the main queue
     func configure() {
         if !self.isConfigured {
@@ -125,16 +129,40 @@ public class FirebaseInstance: FirebaseCommand {
         }
     }
     
+    public func initiateOnDeviceConversionMeasurement(phoneNumber: String) {
+        onReady {
+            Analytics.initiateOnDeviceConversionMeasurement(phoneNumber: phoneNumber)
+        }
+    }
+    
+    public func initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data) {
+        onReady {
+            Analytics.initiateOnDeviceConversionMeasurement(hashedEmailAddress: hashedEmailAdress)
+        }
+    }
+    
+    public func initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data) {
+        onReady {
+            Analytics.initiateOnDeviceConversionMeasurement(hashedPhoneNumber: hashedPhoneNumber)
+        }
+    }
+    
     public func setDefaultEventParameters(parameters: [String: Any]?) {
         onReady {
             Analytics.setDefaultEventParameters(parameters)
         }
     }
-
+    
     public func setConsent(_ consentSettings: [String: String]) {
         onReady {
             Analytics.setConsent(Dictionary(consentSettings.map { (ConsentType.from($0.0), ConsentStatus.from($0.1)) }, 
                                             uniquingKeysWith: { first, _ in first }))
+        }
+    }
+    
+    public func resetAnalyticsData() {
+        onReady {
+            Analytics.resetAnalyticsData()
         }
     }
 }

@@ -42,6 +42,8 @@ class MockFirebaseInstance: FirebaseInstance {
 
     var consentSettings: [String: String]?
     
+    var hasResetAnalyticsData = false
+    
     override func configure() {
         dispatchPrecondition(condition: .onQueue(.main))
         _isConfigured = true
@@ -71,11 +73,27 @@ class MockFirebaseInstance: FirebaseInstance {
         initateConversionCount += 1
     }
     
+    override func initiateOnDeviceConversionMeasurement(phoneNumber: String) {
+        initateConversionCount += 1
+    }
+    
+    override func initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data) {
+        initateConversionCount += 1
+    }
+    
+    override func initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data) {
+        initateConversionCount += 1
+    }
+    
     override func setDefaultEventParameters(parameters: [String : Any]?) {
         defaultParameters = parameters
     }
 
     override func setConsent(_ consentSettings: [String : String]) {
         self.consentSettings = consentSettings
+    }
+    
+    override func resetAnalyticsData(){
+        hasResetAnalyticsData = true
     }
 }

@@ -146,10 +146,34 @@ class FirebaseInstanceTests: XCTestCase {
         XCTAssertEqual(1, firebaseInstance.logEventWithParamsCallCount)
     }
     
-    func testInitiateConversionMeasurementWithValues() {
+    func testInitiateConversionMeasurementWithEmail() {
         let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com"]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+    }
+    
+    func testInitiateConversionMeasurementWithPhone() {
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_phone_number": "+444444444444"]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+    }
+    
+    func testInitiateConversionMeasurementWithHashEmail() {
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_email_address": Data("normalised_email".utf8)]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+    }
+    
+    func testInitiateConversionMeasurementWithHashPhone() {
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_phone_number": Data("normalised_phone".utf8)]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+    }
+    
+    func testInitiateConversionMeasurementWithValues() {
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com", "param_phone_number": "+444444444444", "param_hashed_email_address": Data("normalised_email".utf8), "param_hashed_phone_number": Data("normalised_phone".utf8)]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(4, firebaseInstance.initateConversionCount)
     }
     
     func testInitiateConversionMeasurementWithoutValues() {
@@ -191,5 +215,11 @@ class FirebaseInstanceTests: XCTestCase {
         let payload: [String: Any] = ["command_name": "setconsent", "firebase_consent_settings": consentSettings]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(consentSettings, firebaseInstance.consentSettings)
+    }
+    
+    func testResetAnalyticsData() {
+        let payload: [String: Any] = ["command_name": "resetAnalyticsData"]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(true, firebaseInstance.hasResetAnalyticsData)
     }
 }

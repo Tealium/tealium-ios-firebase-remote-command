@@ -159,21 +159,21 @@ class FirebaseInstanceTests: XCTestCase {
     }
     
     func testInitiateConversionMeasurementWithHashEmail() {
-        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_email_address": Data("normalised_email".utf8)]
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_email_address": "normalised_email"]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(1, firebaseInstance.initateConversionCount)
     }
     
     func testInitiateConversionMeasurementWithHashPhone() {
-        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_phone_number": Data("normalised_phone".utf8)]
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_phone_number": "normalised_phone"]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(1, firebaseInstance.initateConversionCount)
     }
     
     func testInitiateConversionMeasurementWithValues() {
-        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com", "param_phone_number": "+444444444444", "param_hashed_email_address": Data("normalised_email".utf8), "param_hashed_phone_number": Data("normalised_phone".utf8)]
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com", "param_phone_number": "+444444444444", "param_hashed_email_address": "normalised_email", "param_hashed_phone_number": "normalised_phone"]
         firebaseCommand.processRemoteCommand(with: payload)
-        XCTAssertEqual(4, firebaseInstance.initateConversionCount)
+        XCTAssertEqual(1, firebaseInstance.initateConversionCount)
     }
     
     func testInitiateConversionMeasurementWithoutValues() {

@@ -127,31 +127,16 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 }
                 firebaseInstance.setUserId(userId)
             case .initiateConversionMeasurement:
-                
-                let emailAddress = payload[FirebaseConstants.Keys.emailAddress] as? String
-                let phoneNumber = payload[FirebaseConstants.Keys.phoneNumber] as? String
-                let hashedEmailAddress = payload[FirebaseConstants.Keys.hashedEmailAddress] as? Data
-                let hashedPhoneNumber = payload[FirebaseConstants.Keys.hashedPhoneNumber] as? Data
-                
-                if let emailAddress = emailAddress {
+                if let hashedEmailAddress = payload[FirebaseConstants.Keys.hashedEmailAddress] as? String {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data(hashedEmailAddress.utf8))
+                } else if let hashedPhoneNumber = payload[FirebaseConstants.Keys.hashedPhoneNumber] as? String {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data(hashedPhoneNumber.utf8))
+                } else if let emailAddress = payload[FirebaseConstants.Keys.emailAddress] as? String {
                     firebaseInstance.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
-                }
-                if let phoneNumber = phoneNumber {
+                } else if let phoneNumber = payload[FirebaseConstants.Keys.phoneNumber] as? String {
                     firebaseInstance.initiateOnDeviceConversionMeasurement(phoneNumber: phoneNumber)
-                }
-                if let hashedEmailAddress = hashedEmailAddress {
-                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedEmailAdress: hashedEmailAddress)
-                }
-                
-                if let hashedPhoneNumber = hashedPhoneNumber {
-                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedPhoneNumber: hashedPhoneNumber)
-                }
-                
-                if (emailAddress ?? phoneNumber) == nil && (hashedEmailAddress ?? hashedPhoneNumber) == nil {
-                    if firebaseLogLevel == .debug {
-                        print("\(FirebaseConstants.errorPrefix) one of the following: `\(FirebaseConstants.Keys.emailAddress)`, `\(FirebaseConstants.Keys.phoneNumber)`,`\(FirebaseConstants.Keys.hashedEmailAddress)`, `\(FirebaseConstants.Keys.phoneNumber) is required for \(command).")
-                    }
-                    return
+                } else if firebaseLogLevel == .debug {
+                    print("\(FirebaseConstants.errorPrefix) one of the following: `\(FirebaseConstants.Keys.emailAddress)`, `\(FirebaseConstants.Keys.phoneNumber)`,`\(FirebaseConstants.Keys.hashedEmailAddress)`, `\(FirebaseConstants.Keys.phoneNumber) is required for \(command).")
                 }
             case .setDefaultParameters:
                 let params = payload[FirebaseConstants.Keys.defaultParams] as? [String: Any]

@@ -127,14 +127,17 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 }
                 firebaseInstance.setUserId(userId)
             case .initiateConversionMeasurement:
-                guard let emailAddress = payload[FirebaseConstants.Keys.emailAddress] as? String else {
-                    if firebaseLogLevel == .debug {
-                        print("\(FirebaseConstants.errorPrefix)`\(FirebaseConstants.Keys.emailAddress)` required for \(command).")
-                    }
-                    
-                    return
+                if let hashedEmailAddress = payload[FirebaseConstants.Keys.hashedEmailAddress] as? String {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data(hashedEmailAddress.utf8))
+                } else if let hashedPhoneNumber = payload[FirebaseConstants.Keys.hashedPhoneNumber] as? String {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data(hashedPhoneNumber.utf8))
+                } else if let emailAddress = payload[FirebaseConstants.Keys.emailAddress] as? String {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
+                } else if let phoneNumber = payload[FirebaseConstants.Keys.phoneNumber] as? String {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(phoneNumber: phoneNumber)
+                } else if firebaseLogLevel == .debug {
+                    print("\(FirebaseConstants.errorPrefix) one of the following: `\(FirebaseConstants.Keys.emailAddress)`, `\(FirebaseConstants.Keys.phoneNumber)`,`\(FirebaseConstants.Keys.hashedEmailAddress)`, `\(FirebaseConstants.Keys.phoneNumber) is required for \(command).")
                 }
-                firebaseInstance.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
             case .setDefaultParameters:
                 let params = payload[FirebaseConstants.Keys.defaultParams] as? [String: Any]
                     ?? payload[FirebaseConstants.Keys.tagDefaultParams] as? [String: Any]
@@ -144,6 +147,8 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     return
                 }
                 firebaseInstance.setConsent(settings)
+            case .resetAnalyticsData:
+                firebaseInstance.resetAnalyticsData()
             }
         }
     }

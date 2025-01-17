@@ -16,7 +16,7 @@ enum FirebaseConstants {
     static let commandId = "firebaseAnalytics"
     static let description = "Firebase Remote Command"
     static let errorPrefix = "Tealium Firebase: "
-    static let version = "3.3.0"
+    static let version = "3.4.0"
     
     enum Keys {
         static let sessionTimeout = "firebase_session_timeout_seconds"
@@ -35,11 +35,14 @@ enum FirebaseConstants {
         static let items = "items"
         static let productId = "param_item_id"
         static let emailAddress = "param_email_address"
+        static let phoneNumber = "param_phone_number"
+        static let hashedEmailAddress = "param_hashed_email_address"
+        static let hashedPhoneNumber = "param_hashed_phone_number"
         static let defaultParams = "default"
         static let tagDefaultParams = "firebase_default_params"
         static let consentSettings = "firebase_consent_settings"
     }
-
+    
     enum Commands: String {
         case config = "config"
         case logEvent = "logevent"
@@ -49,6 +52,7 @@ enum FirebaseConstants {
         case initiateConversionMeasurement = "initiateconversionmeasurement"
         case setDefaultParameters = "setdefaultparameters"
         case setConsent = "setconsent"
+        case resetAnalyticsData = "resetanalyticsdata"
     }
     
 }

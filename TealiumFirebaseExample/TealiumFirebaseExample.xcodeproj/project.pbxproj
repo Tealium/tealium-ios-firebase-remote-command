@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		15DBED66281AF105000A6BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15DBED65281AF105000A6BEE /* GoogleService-Info.plist */; };
 		15F4AEFA2B4EB66000B84208 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F4AEF92B4EB66000B84208 /* ConsentViewController.swift */; };
-		B77A03BFD1EFDAD3EDF7289E /* Pods_TealiumFirebaseExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E34172041517CCAFCDE071 /* Pods_TealiumFirebaseExample.framework */; };
+		28A89F6BADC6D6AACF408B7C /* Pods_TealiumFirebaseExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49678470EDD5BA0B3DB8775 /* Pods_TealiumFirebaseExample.framework */; };
 		CF71DB05251A7EB300E96CC4 /* firebase.json in Resources */ = {isa = PBXBuildFile; fileRef = CF71DAFF251A7EB300E96CC4 /* firebase.json */; };
 		CF71DB1C251A97A100E96CC4 /* EventMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF71DB1B251A97A100E96CC4 /* EventMapper.swift */; };
-		CFC34EF022F8D7EB00E8723F /* REPLACE-ME.md in Resources */ = {isa = PBXBuildFile; fileRef = CFC34EEF22F8D7EB00E8723F /* REPLACE-ME.md */; };
 		CFDD8B2E22E1195800358234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDD8B2D22E1195800358234 /* AppDelegate.swift */; };
 		CFDD8B3322E1195800358234 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDD8B3122E1195800358234 /* Main.storyboard */; };
 		CFDD8B3522E1195800358234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFDD8B3422E1195800358234 /* Assets.xcassets */; };
@@ -37,9 +36,8 @@
 /* Begin PBXFileReference section */
 		15DBED65281AF105000A6BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15F4AEF92B4EB66000B84208 /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
-		AB20BD073BB8AE2DEEDCDB97 /* Pods-TealiumFirebaseExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.release.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.release.xcconfig"; sourceTree = "<group>"; };
-		BB6EF3D00A32D88F43492383 /* Pods-TealiumFirebaseExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.debug.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.debug.xcconfig"; sourceTree = "<group>"; };
-		C3E34172041517CCAFCDE071 /* Pods_TealiumFirebaseExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TealiumFirebaseExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98AFE5A7604DF61A8D7333B5 /* Pods-TealiumFirebaseExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.release.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.release.xcconfig"; sourceTree = "<group>"; };
+		B49678470EDD5BA0B3DB8775 /* Pods_TealiumFirebaseExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TealiumFirebaseExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2F9F22264F39CD00DB792C /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
 		CF2F9F23264F39CD00DB792C /* TealiumCollect.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TealiumCollect.xcframework; path = Carthage/Build/TealiumCollect.xcframework; sourceTree = "<group>"; };
 		CF2F9F24264F39CD00DB792C /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 		CF2F9F36264F39CD00DB792C /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
 		CF71DAFF251A7EB300E96CC4 /* firebase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firebase.json; sourceTree = "<group>"; };
 		CF71DB1B251A97A100E96CC4 /* EventMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapper.swift; sourceTree = "<group>"; };
-		CFC34EEF22F8D7EB00E8723F /* REPLACE-ME.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "REPLACE-ME.md"; sourceTree = "<group>"; };
 		CFDD8B2A22E1195800358234 /* TealiumFirebaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TealiumFirebaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDD8B2D22E1195800358234 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFDD8B3222E1195800358234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +82,7 @@
 		CFDD8B7D22E2800A00358234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TealiumFirebaseExample/TealiumFirebaseExample/Base.lproj/Ecommerce.storyboard; sourceTree = "<group>"; };
 		CFDD8BC322E5344F00358234 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		CFDD8BC522E670E500358234 /* TealiumHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TealiumHelper.swift; sourceTree = "<group>"; };
+		D5963F7FDE77680A047EB500 /* Pods-TealiumFirebaseExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TealiumFirebaseExample.debug.xcconfig"; path = "Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B77A03BFD1EFDAD3EDF7289E /* Pods_TealiumFirebaseExample.framework in Frameworks */,
+				28A89F6BADC6D6AACF408B7C /* Pods_TealiumFirebaseExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +100,8 @@
 		9D580B0B88496B53046182F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB6EF3D00A32D88F43492383 /* Pods-TealiumFirebaseExample.debug.xcconfig */,
-				AB20BD073BB8AE2DEEDCDB97 /* Pods-TealiumFirebaseExample.release.xcconfig */,
+				D5963F7FDE77680A047EB500 /* Pods-TealiumFirebaseExample.debug.xcconfig */,
+				98AFE5A7604DF61A8D7333B5 /* Pods-TealiumFirebaseExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -132,7 +130,7 @@
 				CF2F9F2F264F39CD00DB792C /* TealiumRemoteCommands.xcframework */,
 				CF2F9F34264F39CD00DB792C /* TealiumTagManagement.xcframework */,
 				CF2F9F30264F39CD00DB792C /* TealiumVisitorService.xcframework */,
-				C3E34172041517CCAFCDE071 /* Pods_TealiumFirebaseExample.framework */,
+				B49678470EDD5BA0B3DB8775 /* Pods_TealiumFirebaseExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,7 +156,6 @@
 		CFDD8B2C22E1195800358234 /* TealiumFirebaseExample */ = {
 			isa = PBXGroup;
 			children = (
-				CFC34EEF22F8D7EB00E8723F /* REPLACE-ME.md */,
 				CFDD8B2D22E1195800358234 /* AppDelegate.swift */,
 				CFDD8BC522E670E500358234 /* TealiumHelper.swift */,
 				CFDD8B7222E245D400358234 /* DateExtensions.swift */,
@@ -210,11 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFDD8B3C22E1195800358234 /* Build configuration list for PBXNativeTarget "TealiumFirebaseExample" */;
 			buildPhases = (
-				958D44404D3DA1E83E9AEAB6 /* [CP] Check Pods Manifest.lock */,
+				E9EE16D04E38AEB9C0BBBE6B /* [CP] Check Pods Manifest.lock */,
 				CFDD8B2622E1195800358234 /* Sources */,
 				CFDD8B2722E1195800358234 /* Frameworks */,
 				CFDD8B2822E1195800358234 /* Resources */,
-				30A5F1F5BA9BB9234943DA1E /* [CP] Embed Pods Frameworks */,
+				1EA8640312695B5C65CEE70D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,7 +262,6 @@
 			files = (
 				CFDD8B6F22E234AB00358234 /* Activities.storyboard in Resources */,
 				15DBED66281AF105000A6BEE /* GoogleService-Info.plist in Resources */,
-				CFC34EF022F8D7EB00E8723F /* REPLACE-ME.md in Resources */,
 				CFDD8B3822E1195800358234 /* LaunchScreen.storyboard in Resources */,
 				CFDD8B3522E1195800358234 /* Assets.xcassets in Resources */,
 				CFDD8B7E22E2800A00358234 /* Ecommerce.storyboard in Resources */,
@@ -277,7 +273,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		30A5F1F5BA9BB9234943DA1E /* [CP] Embed Pods Frameworks */ = {
+		1EA8640312695B5C65CEE70D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,7 +290,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TealiumFirebaseExample/Pods-TealiumFirebaseExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		958D44404D3DA1E83E9AEAB6 /* [CP] Check Pods Manifest.lock */ = {
+		E9EE16D04E38AEB9C0BBBE6B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -499,7 +495,7 @@
 		};
 		CFDD8B3D22E1195800358234 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB6EF3D00A32D88F43492383 /* Pods-TealiumFirebaseExample.debug.xcconfig */;
+			baseConfigurationReference = D5963F7FDE77680A047EB500 /* Pods-TealiumFirebaseExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -524,7 +520,7 @@
 		};
 		CFDD8B3E22E1195800358234 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB20BD073BB8AE2DEEDCDB97 /* Pods-TealiumFirebaseExample.release.xcconfig */;
+			baseConfigurationReference = 98AFE5A7604DF61A8D7333B5 /* Pods-TealiumFirebaseExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

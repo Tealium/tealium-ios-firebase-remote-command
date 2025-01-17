@@ -76,20 +76,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreInternal.xcframework; path = Carthage/Build/FirebaseCoreInternal.xcframework; sourceTree = "<group>"; };
+		151C39CA2844D6B300868096 /* FirebaseCoreInternal.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreInternal.xcframework; path = Carthage/Build/FirebaseCoreInternal.xcframework; sourceTree = "<group>"; };
 		15226A7629CDF1370056D920 /* DictionaryUtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilitiesTests.swift; sourceTree = "<group>"; };
-		15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Carthage/Build/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
-		15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Carthage/Build/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
-		15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = Carthage/Build/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
-		15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = Carthage/Build/FirebaseCore.xcframework; sourceTree = "<group>"; };
-		15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = Carthage/Build/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
-		15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Carthage/Build/GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		15913F262779CCFF0051BCB2 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Carthage/Build/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		15913F272779CCFF0051BCB2 /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Carthage/Build/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
+		15913F282779CCFF0051BCB2 /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = Carthage/Build/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
+		15913F292779CCFF0051BCB2 /* FirebaseCore.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = Carthage/Build/FirebaseCore.xcframework; sourceTree = "<group>"; };
+		15913F2B2779CCFF0051BCB2 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = Carthage/Build/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
+		15913F2C2779CCFF0051BCB2 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Carthage/Build/GoogleUtilities.xcframework; sourceTree = "<group>"; };
 		15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:XC939GDC9P:Tealium"; lastKnownFileType = wrapper.xcframework; name = TealiumRemoteCommands.xcframework; path = Carthage/Build/TealiumRemoteCommands.xcframework; sourceTree = "<group>"; };
 		15913F3D2779CD070051BCB2 /* TealiumCore.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:XC939GDC9P:Tealium"; lastKnownFileType = wrapper.xcframework; name = TealiumCore.xcframework; path = Carthage/Build/TealiumCore.xcframework; sourceTree = "<group>"; };
-		15913F402779CD080051BCB2 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Carthage/Build/nanopb.xcframework; sourceTree = "<group>"; };
+		15913F402779CD080051BCB2 /* nanopb.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Carthage/Build/nanopb.xcframework; sourceTree = "<group>"; };
 		15914AE4277A2BD80051BCB2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15914AE7277A2BE10051BCB2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15E0972429F2C10400EE9672 /* FBLPromises.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBLPromises.xcframework; path = Carthage/Build/FBLPromises.xcframework; sourceTree = "<group>"; };
+		15E0972429F2C10400EE9672 /* FBLPromises.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FBLPromises.xcframework; path = Carthage/Build/FBLPromises.xcframework; sourceTree = "<group>"; };
 		CF6C44CB2519986B002648A0 /* TealiumFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TealiumFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44D42519986B002648A0 /* TealiumFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TealiumFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44EA25199905002648A0 /* TealiumFirebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TealiumFirebase.h; sourceTree = "<group>"; };
@@ -253,8 +253,6 @@
 			dependencies = (
 			);
 			name = TealiumFirebase;
-			packageProductDependencies = (
-			);
 			productName = TealiumFirebase;
 			productReference = CF6C44CB2519986B002648A0 /* TealiumFirebase.framework */;
 			productType = "com.apple.product-type.framework";
@@ -274,8 +272,6 @@
 				CF6C44D72519986B002648A0 /* PBXTargetDependency */,
 			);
 			name = TealiumFirebaseTests;
-			packageProductDependencies = (
-			);
 			productName = TealiumFirebaseTests;
 			productReference = CF6C44D42519986B002648A0 /* TealiumFirebaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -307,8 +303,6 @@
 				Base,
 			);
 			mainGroup = CF6C44C12519986B002648A0;
-			packageReferences = (
-			);
 			productRefGroup = CF6C44CC2519986B002648A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

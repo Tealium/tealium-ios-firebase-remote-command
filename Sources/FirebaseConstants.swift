@@ -52,7 +52,7 @@ enum FirebaseConstants {
         case initiateConversionMeasurement = "initiateconversionmeasurement"
         case setDefaultParameters = "setdefaultparameters"
         case setConsent = "setconsent"
-        case resetAnalyticsData = "resetanalyticsdata"
+        case resetAnalyticsData = "resetdata"
     }
     
 }

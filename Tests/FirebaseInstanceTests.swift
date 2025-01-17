@@ -218,7 +218,7 @@ class FirebaseInstanceTests: XCTestCase {
     }
     
     func testResetAnalyticsData() {
-        let payload: [String: Any] = ["command_name": "resetAnalyticsData"]
+        let payload: [String: Any] = ["command_name": "resetData"]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(true, firebaseInstance.hasResetAnalyticsData)
     }

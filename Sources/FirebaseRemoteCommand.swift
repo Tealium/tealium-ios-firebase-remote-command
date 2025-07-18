@@ -225,6 +225,8 @@ extension Dictionary where Key == String, Value == Any {
     }
 }
 
+// Firebase Analytics Event and Parameter Names
+// See: https://firebase.google.com/docs/reference/swift/firebaseanalytics/api/reference/Constants#/c:FIRParameterNames.h
 extension FirebaseRemoteCommand {
     static let eventParameters = [
         "param_achievement_id": AnalyticsParameterAchievementID,
@@ -319,7 +321,7 @@ extension FirebaseRemoteCommand {
         "event_post_score": AnalyticsEventPostScore,
         "event_purchase": AnalyticsEventPurchase,
         "event_refund": AnalyticsEventRefund,
-        "event_remove_cart": AnalyticsEventRemoveFromCart,
+        "event_remove_from_cart": AnalyticsEventRemoveFromCart,
         "event_screen_view": AnalyticsEventScreenView,
         "event_search": AnalyticsEventSearch,
         "event_select_content": AnalyticsEventSelectContent,

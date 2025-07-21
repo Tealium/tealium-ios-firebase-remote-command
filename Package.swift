@@ -4,14 +4,14 @@ import PackageDescription
 let package = Package(
     name: "TealiumFirebase",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v15),
     ],
     products: [
         .library(name: "TealiumFirebase", targets: ["TealiumFirebase"])
     ],
     dependencies: [
-        .package(name: "TealiumSwift", url: "https://github.com/tealium/tealium-swift", .upToNextMajor(from: "2.15.0")),
-        .package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk.git", .upToNextMajor(from: "11.5.0"))
+        .package(name: "TealiumSwift", url: "https://github.com/tealium/tealium-swift", .upToNextMajor(from: "2.18.0")),
+        .package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk.git", .upToNextMajor(from: "12.0.0"))
     ],
     targets: [
         .target(

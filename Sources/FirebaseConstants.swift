@@ -41,6 +41,8 @@ enum FirebaseConstants {
         static let defaultParams = "default"
         static let tagDefaultParams = "firebase_default_params"
         static let consentSettings = "firebase_consent_settings"
+        static let invalidCharStrategy = "firebase_invalid_char_strategy"
+        static let ga360Mode = "firebase_ga360_mode"
     }
     
     enum Commands: String {

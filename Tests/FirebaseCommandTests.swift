@@ -283,7 +283,7 @@ class FirebaseCommandTests: XCTestCase {
                             "item_brand": "roadrunner",
                             "price": 14.99]]]
         
-        let actual = firebaseCommand.items(from: payload)
+        let actual = firebaseCommand.items(from: payload, logLevel: .min)
         
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
         
@@ -316,7 +316,7 @@ class FirebaseCommandTests: XCTestCase {
                             "item_brand": "roadrunner",
                             "price": 14.99]]]
         
-        let actual = firebaseCommand.items(from: payload)
+        let actual = firebaseCommand.items(from: payload, logLevel: .min)
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
     }
     
@@ -340,7 +340,7 @@ class FirebaseCommandTests: XCTestCase {
                             "item_brand": "acme",
                             "price": 10.99]]]
         
-        let actual = firebaseCommand.items(from: payload)
+        let actual = firebaseCommand.items(from: payload, logLevel: .min)
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
     }
     
@@ -366,7 +366,7 @@ class FirebaseCommandTests: XCTestCase {
                             "price": 10.99,
                             "param_item_custom": "valid"]]]
         
-        let actual = firebaseCommand.items(from: payload)
+        let actual = firebaseCommand.items(from: payload, logLevel: .min)
         XCTAssertTrue(NSDictionary(dictionary: actual).isEqual(to:  expected))
     }
 
@@ -381,7 +381,7 @@ class FirebaseCommandTests: XCTestCase {
                             "param_item_brand": Array(repeating: "acme", count: count),
                             "param_price": Array(repeating: 10.99, count: count)]]
             measure {
-                let _ = firebaseCommand.items(from: payload)
+                let _ = firebaseCommand.items(from: payload, logLevel: .min)
             }
         }
 

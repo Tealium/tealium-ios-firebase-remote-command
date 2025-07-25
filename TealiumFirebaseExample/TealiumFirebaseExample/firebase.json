@@ -3,7 +3,9 @@
         "firebase_analytics_enabled": "true",
         "firebase_session_timeout_seconds": "30",
         "firebase_log_level": "max",
-        "firebase_session_minimum_seconds": "100"
+        "firebase_session_minimum_seconds": "100",
+        "firebase_invalid_char_strategy": "replace",
+        "firebase_ga360_mode": "false"
     },
     "mappings": {
         "achievement_id": "event.param_achievement_id",

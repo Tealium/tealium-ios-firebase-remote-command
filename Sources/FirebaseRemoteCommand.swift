@@ -73,6 +73,14 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 if let logLevel = payload[FirebaseConstants.Keys.logLevel] as? String {
                     firebaseLogLevel = self.parseLogLevel(logLevel)
                 }
+                
+                // Configure FirebaseValidator settings
+                let invalidCharStrategy = payload[FirebaseConstants.Keys.invalidCharStrategy] as? String ?? FirebaseValidator.strategyReplace
+                FirebaseValidator.setInvalidCharStrategy(invalidCharStrategy)
+                
+                let ga360Mode = (payload[FirebaseConstants.Keys.ga360Mode] as? String).flatMap { Bool($0) } ?? false
+                FirebaseValidator.setGA360Mode(ga360Mode)
+                
                 firebaseInstance.createAnalyticsConfig(firebaseSessionTimeout, firebaseSessionMinimumSeconds, firebaseAnalyticsEnabled, firebaseLogLevel)
             case .logEvent:
                 var payload = payload
@@ -80,22 +88,45 @@ public class FirebaseRemoteCommand: RemoteCommand {
                     return
                 }
                 let eventName = self.mapEvent(name)
+                
+                // Validate and sanitize event name
+                let eventResult = FirebaseValidator.validateEventName(eventName)
+                if !eventResult.isValid {
+                    if firebaseLogLevel == .debug {
+                        print("\(FirebaseValidator.errorPrefix)\(eventResult.errorMessage)")
+                    }
+                    return // Don't send invalid events that can't be sanitized
+                }
+                if eventResult.isSanitized() {
+                    if firebaseLogLevel == .debug {
+                        print("\(FirebaseValidator.warningPrefix)\(eventResult.errorMessage) ('\(eventResult.originalValue ?? "")' → '\(eventResult.sanitizedValue ?? "")')")
+                    }
+                }
+                
                 var normalizedParams = [String: Any]()
                 if let eventKeyFromJSON = payload[FirebaseConstants.Keys.eventKey] as? [String: Any] {
                     payload[FirebaseConstants.Keys.eventParams] = eventKeyFromJSON // event params from json remote command
                 }
                 guard let params = payload[FirebaseConstants.Keys.eventParams] as? [String: Any] else {
-                    firebaseInstance.logEvent(eventName, items(from: payload))
+                    firebaseInstance.logEvent(eventResult.sanitizedValue ?? eventName, items(from: payload, logLevel: firebaseLogLevel))
                     return
                 }
-                normalizedParams += mapParams(params)
+                
+                // Validate and sanitize parameters
+                let mappedParams = mapParams(params)
+                let sanitizedParams = validateAndSanitizeParameters(mappedParams, logLevel: firebaseLogLevel)
+                normalizedParams += sanitizedParams
+                
                 if let itemsArray = params[FirebaseConstants.Keys.paramItems] as? [[String: Any]] {
-                    normalizedParams[FirebaseConstants.Keys.items] = itemsArray.map(mapParams(_:))
+                    normalizedParams[FirebaseConstants.Keys.items] = itemsArray.map { item in
+                        let mappedItem = mapParams(item)
+                        return validateAndSanitizeParameters(mappedItem, logLevel: firebaseLogLevel)
+                    }
                     normalizedParams.removeValue(forKey: FirebaseConstants.Keys.paramItems)
                 } else if let jsonItems = payload[FirebaseConstants.Keys.items] as? [String: Any] {
-                    normalizedParams += items(from: jsonItems)
+                    normalizedParams += items(from: jsonItems, logLevel: firebaseLogLevel)
                 }
-                firebaseInstance.logEvent(eventName, normalizedParams)
+                firebaseInstance.logEvent(eventResult.sanitizedValue ?? eventName, normalizedParams)
             case .setScreenName:
                 guard let screenName = payload[FirebaseConstants.Keys.screenName] as? String else {
                     if firebaseLogLevel == .debug {
@@ -109,14 +140,58 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 // Multiple user properties
                 if let propertyNames = payload[FirebaseConstants.Keys.userPropertyName] as? [String],
                    let propertyValues = payload[FirebaseConstants.Keys.userPropertyValue] as? [String] {
-                    zip(propertyNames, propertyValues).forEach {
-                        firebaseInstance.setUserProperty($0.0, value: $0.1)
+                    zip(propertyNames, propertyValues).forEach { name, value in
+                        // Validate and sanitize user property name
+                        let propertyResult = FirebaseValidator.validateUserPropertyName(name)
+                        if !propertyResult.isValid {
+                            if firebaseLogLevel == .debug {
+                                print("\(FirebaseValidator.errorPrefix)\(propertyResult.errorMessage)")
+                            }
+                            return // Skip invalid property names that can't be sanitized
+                        }
+                        if propertyResult.isSanitized() {
+                            if firebaseLogLevel == .debug {
+                                print("\(FirebaseValidator.warningPrefix)\(propertyResult.errorMessage) ('\(propertyResult.originalValue ?? "")' → '\(propertyResult.sanitizedValue ?? "")')")
+                            }
+                        }
+                        
+                        // Validate and truncate user property value
+                        let valueResult = FirebaseValidator.validateUserPropertyValue(value)
+                        if valueResult.isSanitized() {
+                            if firebaseLogLevel == .debug {
+                                print("\(FirebaseValidator.warningPrefix)\(valueResult.errorMessage) ('\(valueResult.originalValue ?? "")' → '\(valueResult.sanitizedValue ?? "")')")
+                            }
+                        }
+                        
+                        firebaseInstance.setUserProperty(propertyResult.sanitizedValue ?? name, value: valueResult.sanitizedValue ?? value)
                     }
                 }
                 // Single user property
                 if let propertyName = payload[FirebaseConstants.Keys.userPropertyName] as? String,
                    let propertyValue = payload[FirebaseConstants.Keys.userPropertyValue] as? String {
-                    firebaseInstance.setUserProperty(propertyName, value: propertyValue)
+                    // Validate and sanitize user property name
+                    let propertyResult = FirebaseValidator.validateUserPropertyName(propertyName)
+                    if !propertyResult.isValid {
+                        if firebaseLogLevel == .debug {
+                            print("\(FirebaseValidator.errorPrefix)\(propertyResult.errorMessage)")
+                        }
+                        return // Skip invalid property names that can't be sanitized
+                    }
+                    if propertyResult.isSanitized() {
+                        if firebaseLogLevel == .debug {
+                            print("\(FirebaseValidator.warningPrefix)\(propertyResult.errorMessage) ('\(propertyResult.originalValue ?? "")' → '\(propertyResult.sanitizedValue ?? "")')")
+                        }
+                    }
+                    
+                    // Validate and truncate user property value
+                    let valueResult = FirebaseValidator.validateUserPropertyValue(propertyValue)
+                    if valueResult.isSanitized() {
+                        if firebaseLogLevel == .debug {
+                            print("\(FirebaseValidator.warningPrefix)\(valueResult.errorMessage) ('\(valueResult.originalValue ?? "")' → '\(valueResult.sanitizedValue ?? "")')")
+                        }
+                    }
+                    
+                    firebaseInstance.setUserProperty(propertyResult.sanitizedValue ?? propertyName, value: valueResult.sanitizedValue ?? propertyValue)
                 }
             case .setUserId:
                 guard let userId = payload[FirebaseConstants.Keys.userId] as? String else {
@@ -141,7 +216,13 @@ public class FirebaseRemoteCommand: RemoteCommand {
             case .setDefaultParameters:
                 let params = payload[FirebaseConstants.Keys.defaultParams] as? [String: Any]
                     ?? payload[FirebaseConstants.Keys.tagDefaultParams] as? [String: Any]
-                firebaseInstance.setDefaultEventParameters(parameters: params)
+                if let params = params, !params.isEmpty {
+                    // Validate and sanitize default parameter names
+                    let sanitizedParams = validateAndSanitizeParameters(params, logLevel: firebaseLogLevel)
+                    firebaseInstance.setDefaultEventParameters(parameters: sanitizedParams)
+                } else {
+                    firebaseInstance.setDefaultEventParameters(parameters: params)
+                }
             case .setConsent:
                 guard let settings = payload[FirebaseConstants.Keys.consentSettings] as? [String: String] else {
                     return
@@ -153,10 +234,13 @@ public class FirebaseRemoteCommand: RemoteCommand {
         }
     }
     
-    func items(from payload: [String: Any]) -> [String: Any] {
+    func items(from payload: [String: Any], logLevel: FirebaseLoggerLevel) -> [String: Any] {
         let payloadParameters = payload[FirebaseConstants.Keys.items] as? [String: Any] ?? payload
         return [
-            FirebaseConstants.Keys.items: payloadParameters.itemArraysToArrayOfItems().map { mapParams($0) }
+            FirebaseConstants.Keys.items: payloadParameters.itemArraysToArrayOfItems().map { item in
+                let mappedItem = mapParams(item)
+                return validateAndSanitizeParameters(mappedItem, logLevel: logLevel)
+            }
         ]
     }
 
@@ -196,6 +280,50 @@ public class FirebaseRemoteCommand: RemoteCommand {
     
     func paramFrom(_ paramName: String) -> String {
         return FirebaseRemoteCommand.eventParameters[paramName] ?? paramName
+    }
+    
+    /**
+     * Validates and sanitizes parameter names in a dictionary
+     * 
+     * @param params The dictionary containing parameters to validate
+     * @param logLevel The current log level for conditional logging
+     * @return Dictionary with sanitized parameter names (original dictionary if no changes needed)
+     */
+    func validateAndSanitizeParameters(_ params: [String: Any], logLevel: FirebaseLoggerLevel) -> [String: Any] {
+        var sanitizedParams = [String: Any]()
+        
+        for (originalKey, paramValue) in params {
+            // Validate and sanitize parameter name
+            let paramResult = FirebaseValidator.validateParameterName(originalKey)
+            if !paramResult.isValid {
+                if logLevel == .debug {
+                    print("\(FirebaseValidator.errorPrefix)\(paramResult.errorMessage)")
+                }
+                continue // Skip invalid parameter names
+            }
+            
+            if paramResult.isSanitized() {
+                if logLevel == .debug {
+                    print("\(FirebaseValidator.warningPrefix)\(paramResult.errorMessage) ('\(paramResult.originalValue ?? "")' → '\(paramResult.sanitizedValue ?? "")')")
+                }
+            }
+            
+            // Validate parameter value if it's a string
+            if let stringValue = paramValue as? String {
+                let valueResult = FirebaseValidator.validateParameterValue(stringValue)
+                if valueResult.isSanitized() {
+                    if logLevel == .debug {
+                        print("\(FirebaseValidator.warningPrefix)\(valueResult.errorMessage) ('\(valueResult.originalValue ?? "")' → '\(valueResult.sanitizedValue ?? "")')")
+                    }
+                }
+                sanitizedParams[paramResult.sanitizedValue ?? originalKey] = valueResult.sanitizedValue ?? stringValue
+            } else {
+                // Non-string values (numbers, etc.) - use as-is
+                sanitizedParams[paramResult.sanitizedValue ?? originalKey] = paramValue
+            }
+        }
+        
+        return sanitizedParams
     }
 
 }

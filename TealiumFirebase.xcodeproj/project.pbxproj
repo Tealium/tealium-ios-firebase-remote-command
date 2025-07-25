@@ -30,6 +30,8 @@
 		15913F622779CD3A0051BCB2 /* TealiumRemoteCommands.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15913F372779CD070051BCB2 /* TealiumRemoteCommands.xcframework */; };
 		15E0972529F2C10400EE9672 /* FBLPromises.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E0972429F2C10400EE9672 /* FBLPromises.xcframework */; };
 		15E0972629F2C10400EE9672 /* FBLPromises.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E0972429F2C10400EE9672 /* FBLPromises.xcframework */; };
+		9E34E47B2E33B433009BB9E7 /* FirebaseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34E47A2E33B433009BB9E7 /* FirebaseValidator.swift */; };
+		9E34E47D2E33B43C009BB9E7 /* FirebaseValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34E47C2E33B43C009BB9E7 /* FirebaseValidatorTests.swift */; };
 		CF3277AD2522962E00696BB4 /* FirebaseConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450D25199951002648A0 /* FirebaseConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277AF2522962E00696BB4 /* FirebaseRemoteCommand.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3277B02522962E00696BB4 /* FirebaseInstance.swift in Headers */ = {isa = PBXBuildFile; fileRef = CF6C450F25199952002648A0 /* FirebaseInstance.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -90,6 +92,8 @@
 		15914AE4277A2BD80051BCB2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15914AE7277A2BE10051BCB2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E0972429F2C10400EE9672 /* FBLPromises.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FBLPromises.xcframework; path = Carthage/Build/FBLPromises.xcframework; sourceTree = "<group>"; };
+		9E34E47A2E33B433009BB9E7 /* FirebaseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseValidator.swift; sourceTree = "<group>"; };
+		9E34E47C2E33B43C009BB9E7 /* FirebaseValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseValidatorTests.swift; sourceTree = "<group>"; };
 		CF6C44CB2519986B002648A0 /* TealiumFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TealiumFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44D42519986B002648A0 /* TealiumFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TealiumFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C44EA25199905002648A0 /* TealiumFirebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TealiumFirebase.h; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				CF6C450D25199951002648A0 /* FirebaseConstants.swift */,
 				CF6C450E25199951002648A0 /* FirebaseRemoteCommand.swift */,
 				CF6C450F25199952002648A0 /* FirebaseInstance.swift */,
+				9E34E47A2E33B433009BB9E7 /* FirebaseValidator.swift */,
 				CF6C44EA25199905002648A0 /* TealiumFirebase.h */,
 			);
 			path = Sources;
@@ -198,6 +203,7 @@
 				CF6C450125199946002648A0 /* FirebaseCommandTests.swift */,
 				CF6C450025199946002648A0 /* FirebaseInstanceTests.swift */,
 				CF6C450225199946002648A0 /* MockFirebaseInstance.swift */,
+				9E34E47C2E33B43C009BB9E7 /* FirebaseValidatorTests.swift */,
 				CF6C44FD25199946002648A0 /* TealiumFirebaseTests-Bridging-Header.h */,
 			);
 			path = Tests;
@@ -339,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF3277B22522985B00696BB4 /* FirebaseConstants.swift in Sources */,
+				9E34E47B2E33B433009BB9E7 /* FirebaseValidator.swift in Sources */,
 				CF3277B42522985B00696BB4 /* FirebaseRemoteCommand.swift in Sources */,
 				CF3277B52522985B00696BB4 /* FirebaseInstance.swift in Sources */,
 			);
@@ -352,6 +359,7 @@
 				CF6C450425199947002648A0 /* FirebaseInstanceTests.swift in Sources */,
 				15226A7729CDF1370056D920 /* DictionaryUtilitiesTests.swift in Sources */,
 				CF6C450625199947002648A0 /* MockFirebaseInstance.swift in Sources */,
+				9E34E47D2E33B43C009BB9E7 /* FirebaseValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

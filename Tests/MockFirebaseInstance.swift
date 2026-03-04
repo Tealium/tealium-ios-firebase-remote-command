@@ -37,6 +37,9 @@ class MockFirebaseInstance: FirebaseInstance {
     var setUserIdCallCount = 0
     
     var initateConversionCount = 0
+
+    var lastHashedEmailData: Data?
+    var lastHashedPhoneData: Data?
     
     var defaultParameters: [String:Any]?
 
@@ -77,12 +80,14 @@ class MockFirebaseInstance: FirebaseInstance {
         initateConversionCount += 1
     }
     
-    override func initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data) {
+    override func initiateOnDeviceConversionMeasurement(hashedEmailAddress: Data) {
         initateConversionCount += 1
+        lastHashedEmailData = hashedEmailAddress
     }
     
     override func initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data) {
         initateConversionCount += 1
+        lastHashedPhoneData = hashedPhoneNumber
     }
     
     override func setDefaultEventParameters(parameters: [String : Any]?) {

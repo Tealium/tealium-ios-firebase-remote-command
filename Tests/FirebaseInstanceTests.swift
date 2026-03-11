@@ -158,22 +158,37 @@ class FirebaseInstanceTests: XCTestCase {
         XCTAssertEqual(1, firebaseInstance.initateConversionCount)
     }
     
+    // SHA256 hashes must arrive as base64-encoded 32-byte Data.
+    // 32 zero bytes encoded as base64 (used as a stand-in for a real SHA256 hash in tests).
+    private let validHashedEmail = Data(repeating: 0, count: 32).base64EncodedString()
+    private let validHashedPhone = Data(repeating: 1, count: 32).base64EncodedString()
+
     func testInitiateConversionMeasurementWithHashEmail() {
-        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_email_address": "normalised_email"]
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_email_address": validHashedEmail]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+        XCTAssertEqual(firebaseInstance.lastHashedEmailData, Data(repeating: 0, count: 32))
     }
-    
+
     func testInitiateConversionMeasurementWithHashPhone() {
-        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_phone_number": "normalised_phone"]
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_phone_number": validHashedPhone]
+        firebaseCommand.processRemoteCommand(with: payload)
+        XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+        XCTAssertEqual(firebaseInstance.lastHashedPhoneData, Data(repeating: 1, count: 32))
+    }
+
+    func testInitiateConversionMeasurementWithValues() {
+        // Priority: hashed_email > hashed_phone > email > phone — only first match fires.
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com", "param_phone_number": "+444444444444", "param_hashed_email_address": validHashedEmail, "param_hashed_phone_number": validHashedPhone]
         firebaseCommand.processRemoteCommand(with: payload)
         XCTAssertEqual(1, firebaseInstance.initateConversionCount)
     }
-    
-    func testInitiateConversionMeasurementWithValues() {
-        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_email_address": "email@domain.com", "param_phone_number": "+444444444444", "param_hashed_email_address": "normalised_email", "param_hashed_phone_number": "normalised_phone"]
+
+    func testInitiateConversionMeasurementWithInvalidBase64HashEmail() {
+        // A plain hex string (not base64) must not be passed to Firebase.
+        let payload: [String: Any] = ["command_name": "initiateconversionmeasurement", "param_hashed_email_address": "notvalidbase64!!!"]
         firebaseCommand.processRemoteCommand(with: payload)
-        XCTAssertEqual(1, firebaseInstance.initateConversionCount)
+        XCTAssertEqual(0, firebaseInstance.initateConversionCount)
     }
     
     func testInitiateConversionMeasurementWithoutValues() {

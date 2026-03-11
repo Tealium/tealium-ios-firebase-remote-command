@@ -27,7 +27,7 @@ public protocol FirebaseCommand {
     func setUserId(_ id: String)
     func initiateOnDeviceConversionMeasurement(emailAddress: String)
     func initiateOnDeviceConversionMeasurement(phoneNumber: String)
-    func initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data)
+    func initiateOnDeviceConversionMeasurement(hashedEmailAddress: Data)
     func initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data)
     func setDefaultEventParameters(parameters: [String: Any]?)
     func setConsent(_ consentSettings: [String: String])
@@ -135,9 +135,9 @@ public class FirebaseInstance: FirebaseCommand {
         }
     }
     
-    public func initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data) {
+    public func initiateOnDeviceConversionMeasurement(hashedEmailAddress: Data) {
         onReady {
-            Analytics.initiateOnDeviceConversionMeasurement(hashedEmailAddress: hashedEmailAdress)
+            Analytics.initiateOnDeviceConversionMeasurement(hashedEmailAddress: hashedEmailAddress)
         }
     }
     

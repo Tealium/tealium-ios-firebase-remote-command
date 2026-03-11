@@ -127,16 +127,18 @@ public class FirebaseRemoteCommand: RemoteCommand {
                 }
                 firebaseInstance.setUserId(userId)
             case .initiateConversionMeasurement:
-                if let hashedEmailAddress = payload[FirebaseConstants.Keys.hashedEmailAddress] as? String {
-                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedEmailAdress: Data(hashedEmailAddress.utf8))
-                } else if let hashedPhoneNumber = payload[FirebaseConstants.Keys.hashedPhoneNumber] as? String {
-                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedPhoneNumber: Data(hashedPhoneNumber.utf8))
+                if let hashedEmailAddress = payload[FirebaseConstants.Keys.hashedEmailAddress] as? String,
+                   let data = Data(base64Encoded: hashedEmailAddress) {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedEmailAddress: data)
+                } else if let hashedPhoneNumber = payload[FirebaseConstants.Keys.hashedPhoneNumber] as? String,
+                          let data = Data(base64Encoded: hashedPhoneNumber) {
+                    firebaseInstance.initiateOnDeviceConversionMeasurement(hashedPhoneNumber: data)
                 } else if let emailAddress = payload[FirebaseConstants.Keys.emailAddress] as? String {
                     firebaseInstance.initiateOnDeviceConversionMeasurement(emailAddress: emailAddress)
                 } else if let phoneNumber = payload[FirebaseConstants.Keys.phoneNumber] as? String {
                     firebaseInstance.initiateOnDeviceConversionMeasurement(phoneNumber: phoneNumber)
                 } else if firebaseLogLevel == .debug {
-                    print("\(FirebaseConstants.errorPrefix) one of the following: `\(FirebaseConstants.Keys.emailAddress)`, `\(FirebaseConstants.Keys.phoneNumber)`,`\(FirebaseConstants.Keys.hashedEmailAddress)`, `\(FirebaseConstants.Keys.phoneNumber) is required for \(command).")
+                    print("\(FirebaseConstants.errorPrefix) one of the following: `\(FirebaseConstants.Keys.emailAddress)`, `\(FirebaseConstants.Keys.phoneNumber)`,`\(FirebaseConstants.Keys.hashedEmailAddress)`, `\(FirebaseConstants.Keys.hashedPhoneNumber)` is required for \(command).")
                 }
             case .setDefaultParameters:
                 let params = payload[FirebaseConstants.Keys.defaultParams] as? [String: Any]

@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1434BC4A30A219750062A14B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1434BC4930A219750062A14B /* GoogleService-Info.plist */; };
-		15DBED66281AF105000A6BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15DBED65281AF105000A6BEE /* GoogleService-Info.plist */; };
+		1434BC4C30A21BD20062A14B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1434BC4B30A21BD20062A14B /* GoogleService-Info.plist */; };
 		15F4AEFA2B4EB66000B84208 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F4AEF92B4EB66000B84208 /* ConsentViewController.swift */; };
 		9E0000012F00000100A00001 /* TealiumFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0000032F00000100A00001 /* TealiumFirebase */; };
 		9E0000022F00000100A00001 /* TealiumCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0000042F00000100A00001 /* TealiumCore */; };
 		9E0000022F00000100A00002 /* TealiumLifecycle in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0000042F00000100A00002 /* TealiumLifecycle */; };
 		9E0000022F00000100A00003 /* TealiumRemoteCommands in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0000042F00000100A00003 /* TealiumRemoteCommands */; };
+		9E0000072F00000100A00002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0000072F00000100A00001 /* SceneDelegate.swift */; };
 		CF71DB05251A7EB300E96CC4 /* firebase.json in Resources */ = {isa = PBXBuildFile; fileRef = CF71DAFF251A7EB300E96CC4 /* firebase.json */; };
 		CF71DB1C251A97A100E96CC4 /* EventMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF71DB1B251A97A100E96CC4 /* EventMapper.swift */; };
-		9E0000072F00000100A00002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0000072F00000100A00001 /* SceneDelegate.swift */; };
 		CFDD8B2E22E1195800358234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDD8B2D22E1195800358234 /* AppDelegate.swift */; };
 		CFDD8B3322E1195800358234 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDD8B3122E1195800358234 /* Main.storyboard */; };
 		CFDD8B3522E1195800358234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFDD8B3422E1195800358234 /* Assets.xcassets */; };
@@ -39,13 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1434BC4930A219750062A14B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		15DBED65281AF105000A6BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1434BC4B30A21BD20062A14B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15F4AEF92B4EB66000B84208 /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
+		9E0000072F00000100A00001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CF71DAFF251A7EB300E96CC4 /* firebase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firebase.json; sourceTree = "<group>"; };
 		CF71DB1B251A97A100E96CC4 /* EventMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapper.swift; sourceTree = "<group>"; };
 		CFDD8B2A22E1195800358234 /* TealiumFirebaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TealiumFirebaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E0000072F00000100A00001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CFDD8B2D22E1195800358234 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFDD8B3222E1195800358234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFDD8B3422E1195800358234 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,8 +107,7 @@
 				CFDD8BC322E5344F00358234 /* ProductCell.swift */,
 				CF71DB1B251A97A100E96CC4 /* EventMapper.swift */,
 				CF71DAFF251A7EB300E96CC4 /* firebase.json */,
-				15DBED65281AF105000A6BEE /* GoogleService-Info.plist */,
-				1434BC4930A219750062A14B /* GoogleService-Info.plist */,
+				1434BC4B30A21BD20062A14B /* GoogleService-Info.plist */,
 				CFDD8BCE22E676B800358234 /* View Controllers */,
 				CFDD8BCF22E676CF00358234 /* Storyboards */,
 				CFDD8B3422E1195800358234 /* Assets.xcassets */,
@@ -217,13 +214,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFDD8B6F22E234AB00358234 /* Activities.storyboard in Resources */,
-				1434BC4A30A219750062A14B /* GoogleService-Info.plist in Resources */,
-				15DBED66281AF105000A6BEE /* GoogleService-Info.plist in Resources */,
 				CFDD8B3822E1195800358234 /* LaunchScreen.storyboard in Resources */,
 				CFDD8B3522E1195800358234 /* Assets.xcassets in Resources */,
 				CFDD8B7E22E2800A00358234 /* Ecommerce.storyboard in Resources */,
 				CFDD8B3322E1195800358234 /* Main.storyboard in Resources */,
 				CF71DB05251A7EB300E96CC4 /* firebase.json in Resources */,
+				1434BC4C30A21BD20062A14B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

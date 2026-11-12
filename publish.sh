@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# A script to verify that the repo is up to date and the versions are correct and then runs the pod trunk push command
+# A script to verify that the repo is up to date and the version constant matches the latest tag before releasing
 
 constants=$(<Sources/FirebaseConstants.swift)
 regex="^.*static let version \= \"([0-9\.]*)\""
@@ -13,24 +13,6 @@ else
     exit 1
 fi
 echo Version Constant "$versionConstant"
-
-podspecFile=$(<TealiumFirebase.podspec)
-podspecRegex="^.*s.version[[:space:]]*\= \"([0-9\.]*)\""
-
-if [[ $podspecFile =~ $podspecRegex ]]
-then
-    podspecVersion=${BASH_REMATCH[1]}
-else
-    echo "Couldn't match the podspec version, exiting"
-    exit 1
-fi
-echo Podspec Version  "$podspecVersion"
-
-if [ "$podspecVersion" != "$versionConstant" ]
-then
-  printf "The podspec version \"%s\" is different from the version constant \"%s\".\nDid you forget to update one of the two?\n" "$podspecVersion" "$versionConstant"
-  exit 1
-fi
 
 branch_name="$(git rev-parse --abbrev-ref HEAD)"
 echo Current branch "$branch_name"
@@ -56,12 +38,4 @@ then
   exit 1
 fi
 
-echo "All checks are passed, ready to release to CocoaPods"
-
-echo "Do you wish to publish to CocoaPods?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) echo "Ok, running \"pod trunk push\" now."; pod trunk push; break;;
-        No ) echo "Ok, skip the release for now."; exit;;
-    esac
-done
+echo "All checks are passed, ready to release version $versionConstant"

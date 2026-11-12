@@ -18,6 +18,8 @@ TealiumFirebase 5.0.0 and later depends on Firebase 13, which is no longer distr
 
 Add `https://github.com/Tealium/tealium-ios-firebase-remote-command` as a package dependency and select the `TealiumFirebase` product.
 
+Firebase Analytics requires the `-ObjC` linker flag when installed through Swift Package Manager or as binary frameworks (CocoaPods previously added it automatically). In your app target, add `-ObjC` to **Build Settings ▸ Other Linker Flags**.
+
 **XCFramework / Carthage**
 
 Download `tealium.xcframework.zip` from the GitHub release. It must be used alongside the Firebase 13 and `tealium-swift` frameworks, which this repo's `Cartfile` resolves:

@@ -25,7 +25,7 @@ Firebase Analytics requires the `-ObjC` linker flag when installed through Swift
 Download `tealium.xcframework.zip` from the GitHub release. It must be used alongside the Firebase 13 and `tealium-swift` frameworks, which this repo's `Cartfile` resolves:
 
 ```
-github "tealium/tealium-swift" ~> 2.18
+github "tealium/tealium-swift" ~> 2.19
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" ~> 13.0
 ```
 

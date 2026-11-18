@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# A script to verify that the repo is up to date and the version constant matches the latest tag before releasing
+# Verifies the repo is up to date and the version constant matches the latest tag before releasing
 
 constants=$(<Sources/FirebaseConstants.swift)
 regex="^.*static let version \= \"([0-9\.]*)\""

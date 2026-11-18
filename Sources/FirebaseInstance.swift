@@ -9,11 +9,7 @@
 import Foundation
 import FirebaseCore
 import FirebaseAnalytics
-#if COCOAPODS
-import TealiumSwift
-#else
 import TealiumCore
-#endif
 
 public protocol FirebaseCommand {
     func onReady(_ onReady: @escaping () -> Void)

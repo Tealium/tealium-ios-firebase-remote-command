@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import TealiumSwift
+import TealiumCore
+import TealiumLifecycle
+import TealiumRemoteCommands
 import TealiumFirebase
 
 enum TealiumConfiguration {

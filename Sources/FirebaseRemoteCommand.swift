@@ -9,12 +9,8 @@
 import Foundation
 import FirebaseCore
 import FirebaseAnalytics
-#if COCOAPODS
-    import TealiumSwift
-#else
-    import TealiumCore
-    import TealiumRemoteCommands
-#endif
+import TealiumCore
+import TealiumRemoteCommands
 
 public class FirebaseRemoteCommand: RemoteCommand {
 
